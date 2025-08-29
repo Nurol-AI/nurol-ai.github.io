@@ -1,6 +1,6 @@
-> **Copyright (c) 2025 Nurol, Inc. (nurol.ai)**
+> **Copyright (c) 2025 Nurol, Inc. (nurol.ai)**</br> 
 > This file is licensed under the Creative Commons Attribution-NonCommercial
-> 4.0 International License (CC BY-NC 4.0).
+> 4.0 International License (CC BY-NC 4.0).</br>
 > For commercial use, please contact info@nurol.ai
 
 # Nurol AI Helm Charts
