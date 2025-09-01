@@ -15,23 +15,23 @@ This repository contains Helm charts for Nurol AI applications.
 
 ### Add the repository
 ```bash
-helm repo add nurol-ai https://nurol-ai.github.io
+helm repo add nurol https://nurol-ai.github.io/charts
 helm repo update
 ```
 
 ### Install charts
 ```bash
 # Install nurops-event-manager
-helm install nurops-event-manager nurol-ai/nurops-event-manager
+helm install nurops-event-manager nurol/nurops-event-manager
 
 # Install with custom values
-helm install nurops-event-manager nurol-ai/nurops-event-manager \
+helm install nurops-event-manager nurol/nurops-event-manager \
   -f custom-values.yaml
 ```
 
 ### List available charts
 ```bash
-helm search repo nurol-ai
+helm search repo nurol
 ```
 
 ## Documentation
