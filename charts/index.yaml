@@ -3,7 +3,29 @@ entries:
   nurops-event-manager:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-02T03:37:38.537229426Z"
+    created: "2025-09-02T18:10:52.268541199Z"
+    description: A Helm chart for NurOps Event Manager service that acts as a webhook
+      bridge for event management
+    digest: 72613771f4830840edec8da2d782887bd53f111acb7dd6d447259efe0b8da056
+    home: https://nurol.ai
+    keywords:
+    - event
+    - proxy
+    - webhook
+    - monitoring
+    maintainers:
+    - email: info@nurol.ai
+      name: Nurol Team
+    name: nurops-event-manager
+    sources:
+    - https://github.com/Nurol-AI/helm-charts
+    type: application
+    urls:
+    - https://nurol-ai.github.io/charts/nurops-event-manager-v0.2.1.tgz
+    version: v0.2.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-09-02T18:10:52.266529833Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: b6b43b65090dca2b1f5f31a2fbda57e241c89be54bd5a9ac222af1dd2c6e48d8
@@ -25,7 +47,7 @@ entries:
     version: v0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-02T03:37:38.536324783Z"
+    created: "2025-09-02T18:10:52.26550115Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: dd14f839793db158b485e58a698e96ccdc7c95574adfdb9185127111c0be29f6
@@ -45,4 +67,4 @@ entries:
     urls:
     - https://nurol-ai.github.io/charts/nurops-event-manager-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-02T03:37:38.53523482Z"
+generated: "2025-09-02T18:10:52.264251186Z"
