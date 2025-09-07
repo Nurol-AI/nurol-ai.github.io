@@ -10,6 +10,8 @@ This repository contains Helm charts for Nurol AI applications.
 
 - **nurops-event-manager**: Event Manager service for webhook management
   and event processing
+- **nuros-reverse-proxy**: Reverse proxy service with service discovery
+  integration and SSL certificate management
 
 ## Usage
 
@@ -23,6 +25,9 @@ helm repo update
 ```bash
 # Install nurops-event-manager
 helm install nurops-event-manager nurol/nurops-event-manager
+
+# Install nuros-reverse-proxy
+helm install nuros-reverse-proxy nurol/nuros-reverse-proxy
 
 # Install with custom values
 helm install nurops-event-manager nurol/nurops-event-manager \

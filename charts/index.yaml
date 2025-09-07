@@ -3,7 +3,7 @@ entries:
   nurops-event-manager:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-06T05:54:04.811646711Z"
+    created: "2025-09-07T06:25:40.002442914Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: 3a21ac1ebfaba3c5b339d5db907b0ce9232f0c1dba11c99a46f59b20760da26e
@@ -25,7 +25,7 @@ entries:
     version: v0.2.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-06T05:54:04.810711828Z"
+    created: "2025-09-07T06:25:40.001380311Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: 72613771f4830840edec8da2d782887bd53f111acb7dd6d447259efe0b8da056
@@ -47,7 +47,7 @@ entries:
     version: v0.2.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-06T05:54:04.809736106Z"
+    created: "2025-09-07T06:25:40.000308588Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: b6b43b65090dca2b1f5f31a2fbda57e241c89be54bd5a9ac222af1dd2c6e48d8
@@ -69,7 +69,7 @@ entries:
     version: v0.2.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-06T05:54:04.808694223Z"
+    created: "2025-09-07T06:25:39.999066104Z"
     description: A Helm chart for NurOps Event Manager service that acts as a webhook
       bridge for event management
     digest: dd14f839793db158b485e58a698e96ccdc7c95574adfdb9185127111c0be29f6
@@ -89,4 +89,31 @@ entries:
     urls:
     - https://nurol-ai.github.io/charts/nurops-event-manager-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-06T05:54:04.806683217Z"
+  nuros-reverse-proxy:
+  - annotations:
+      category: Infrastructure
+      licenses: Creative Commons Attribution-NonCommercial 4.0 International
+    apiVersion: v2
+    appVersion: 1.1.0
+    created: "2025-09-07T06:25:40.003672558Z"
+    description: A Helm chart for NurOS Reverse Proxy with annotation-based service
+      discovery
+    digest: a27c8a4d0b75c17e6e1f21b3cb35dbcc63eb9779dc8166321022be52d124f7ac
+    home: https://nurol.ai
+    keywords:
+    - reverse-proxy
+    - ingress
+    - nginx
+    - service-discovery
+    - nuros
+    maintainers:
+    - email: info@nurol.ai
+      name: NurOS Team
+    name: nuros-reverse-proxy
+    sources:
+    - https://github.com/Nurol-AI/helm-charts
+    type: application
+    urls:
+    - https://nurol-ai.github.io/charts/nuros-reverse-proxy-0.2.0.tgz
+    version: 0.2.0
+generated: "2025-09-07T06:25:39.997205379Z"
