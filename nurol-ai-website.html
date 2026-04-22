@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nurol AI — AI Teammates. Not AI Consultants.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #1B6435;
+  --green-light: #2a8a4a;
+  --green-glow: rgba(27,100,53,0.4);
+  --gold: #9D8300;
+  --gold-light: #C9A800;
+  --gold-glow: rgba(157,131,0,0.4);
+  --wheat: #E0D6B0;
+  --ecru: #B5BB89;
+  --black: #0d0f11;
+  --black2: #f4f4f4; 
+  --black3: #eeeeee; 
+  --white: #ffffff;
+  --gray: #3a3d42; 
+  --gray2: #d1d1d1; 
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white); 
+  color:var(--black); 
+  font-family:'DM Sans',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Outfit',sans-serif;font-weight:800;line-height:1.1;color:var(--black);} 
+.page{display:none;animation:fadeIn 0.4s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;
+  background:rgba(255,255,255,0.92); 
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(157,131,0,0.15);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+.nav-logo-icon{width:38px;height:38px}
+.nav-logo-text{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:var(--black);letter-spacing:-0.5px} 
+.nav-logo-text span{color:var(--gold-light)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{
+  background:none;border:none;cursor:pointer;
+  color:var(--gray);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;
+  padding:8px 16px;border-radius:6px;
+  transition:all 0.2s;
+}
+.nav-link:hover,.nav-link.active{color:var(--black);background:rgba(0,0,0,0.07)} 
+.nav-cta{
+  background:var(--green);color:var(--white);
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;
+  padding:10px 22px;border-radius:6px;
+  letter-spacing:0.3px;
+  transition:all 0.2s;
+  text-transform:uppercase;
+}
+.nav-cta:hover{background:var(--green-light);transform:translateY(-1px)}
+
+/* HERO */
+#page-home{padding-top:80px}
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding:80px 48px 60px;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(27,100,53,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 30% 70%, rgba(157,131,0,0.05) 0%, transparent 60%),
+    linear-gradient(180deg,var(--white) 0%,#f9faf9 100%); 
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(27,100,53,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,100,53,0.06) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 80%);
+}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(157,131,0,0.12);border:1px solid rgba(157,131,0,0.3);
+  color:var(--gold-light);
+  font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;margin-bottom:28px;
+}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--gold-light);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.hero h1{font-size:clamp(42px,5.5vw,78px);margin-bottom:24px;line-height:1.05;color:var(--black);} 
+.hero h1 .accent-green{color:var(--ecru)}
+.hero h1 .accent-gold{color:var(--gold-light)}
+.hero-sub{font-size:18px;color:rgba(0,0,0,0.65);line-height:1.6;max-width:520px;margin-bottom:40px} 
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--green);color:var(--white);
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;
+  padding:14px 32px;border-radius:8px;letter-spacing:0.3px;
+  transition:all 0.2s;text-transform:uppercase;
+}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--green-glow)}
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.2);color:var(--black); 
+  cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;
+  padding:14px 32px;border-radius:8px;
+  transition:all 0.2s;text-transform:uppercase;
+}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);transform:translateY(-2px)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,auto);gap:32px;
+  margin-top:60px;padding-top:40px;border-top:1px solid rgba(0,0,0,0.07); 
+}
+.stat-val{font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:var(--gold-light)}
+.stat-label{font-size:13px;color:var(--gray);margin-top:4px}
+.hero-visual{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:48%;z-index:1;opacity:0.9;
+}
+.hero-visual img{width:100%;height:auto;border-radius:12px 0 0 12px}
+
+/* TRUST BAR */
+.trust-bar{
+  background:var(--black2);
+  border-top:1px solid rgba(0,0,0,0.06); 
+  border-bottom:1px solid rgba(0,0,0,0.06); 
+  padding:20px 48px;
+  display:flex;align-items:center;gap:48px;flex-wrap:wrap;
+}
+.trust-label{font-size:11px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
+.trust-items{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.trust-item{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:rgba(0,0,0,0.4);letter-spacing:0.5px} 
+
+/* SECTIONS */
+section{padding:96px 48px}
+.section-label{font-size:11px;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.section-title{font-size:clamp(32px,4vw,52px);margin-bottom:20px;color:var(--black);} 
+.section-sub{font-size:17px;color:rgba(0,0,0,0.55);max-width:540px;line-height:1.6;margin-bottom:56px} 
+
+/* INDUSTRIES GRID */
+.industries-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+  margin-top:40px;
+}
+.industry-card{
+  position:relative;overflow:hidden;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.07); 
+  cursor:pointer;
+  transition:all 0.3s;
+  aspect-ratio:3/4;
+  background:var(--black3);
+}
+.industry-card:hover{
+  border-color:var(--gold-light);
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.1); 
+}
+.industry-card img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s;
+  opacity:0.9; 
+}
+.industry-card:hover img{transform:scale(1.05);opacity:1}
+.industry-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.1) 60%,transparent 100%); 
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;
+}
+.industry-name{font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;color:var(--black);margin-bottom:6px} 
+.industry-agents{display:flex;gap:6px;flex-wrap:wrap}
+.agent-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(27, 100, 53, 0.1); 
+  border: 1px solid rgba(27, 100, 53, 0.3);
+  color: var(--green); 
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.agent-tag:hover {
+  background: var(--green);
+  color: var(--white);
+}
+.industry-arrow{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;background:rgba(0,0,0,0.05); 
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:all 0.3s;color:var(--black); 
+}
+.industry-card:hover .industry-arrow{background:var(--gold-light);color:var(--white)}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px}
+.product-card{
+  background:var(--black3);
+  border:1px solid rgba(0,0,0,0.07); 
+  border-radius:12px;padding:32px;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;
+  color:var(--black); 
+}
+.product-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+.product-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),var(--gold));
+  opacity:0;transition:opacity 0.3s;
+}
+.product-card:hover::before{opacity:1}
+.product-icon{width:44px;height:44px;background:rgba(27,100,53,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px}
+.product-name{font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--gold-light);margin-bottom:6px}
+.product-tagline{font-size:13px;color:var(--ecru);margin-bottom:14px;font-style:italic}
+.product-desc{font-size:14px;color:rgba(0,0,0,0.6);line-height:1.6} 
+.product-try{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:20px;padding:8px 16px;border-radius:6px;
+  background:rgba(27,100,53,0.1);border:1px solid rgba(27,100,53,0.2);
+  color:var(--green);font-size:13px;font-weight:600;cursor:pointer;
+  transition:all 0.2s;text-decoration:none;
+}
+.product-try:hover{background:var(--green);color:var(--white)}
+
+/* WHY NUROL */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.comparison-table{width:100%;border-collapse:collapse;margin-top:16px}
+.comparison-table th{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);padding:12px 16px;border-bottom:1px solid rgba(0,0,0,0.08);text-align:left}
+.comparison-table th:nth-child(3){color:var(--gold-light)}
+.comparison-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid rgba(0,0,0,0.04);color:rgba(0,0,0,0.7)} 
+.comparison-table td.bad{color:#c62828} 
+.comparison-table td.good{color:var(--green);font-weight:500}
+.comparison-table td:nth-child(3){background:rgba(27,100,53,0.04)} 
+.comparison-table tr:hover td{background:rgba(0,0,0,0.02)}
+.stat-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.stat-block{
+  background:var(--black3);border:1px solid rgba(0,0,0,0.06);
+  border-radius:10px;padding:20px;text-align:center;
+}
+.stat-block .num{font-family:'Outfit',sans-serif;font-size:36px;font-weight:800;color:var(--gold-light)}
+.stat-block .lbl{font-size:12px;color:var(--gray);margin-top:4px;line-height:1.4}
+
+/* PARTNERS */
+.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.partner-card{
+  background:var(--black3);border:1px solid rgba(0,0,0,0.07);
+  border-radius:10px;padding:24px;
+  transition:all 0.3s;
+  color:var(--black);
+}
+.partner-card:hover{border-color:rgba(157,131,0,0.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.05);}
+.partner-cat{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.partner-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;margin-bottom:8px;color:var(--black);}
+.partner-desc{font-size:13px;color:rgba(0,0,0,0.55);line-height:1.5;margin-bottom:16px}
+.partner-link{font-size:13px;color:var(--green);text-decoration:none;font-weight:600;transition:color 0.2s}
+.partner-link:hover{color:var(--gold-light)}
+.partner-cta-section{
+  background:linear-gradient(135deg,rgba(27,100,53,0.05),rgba(157,131,0,0.03));
+  border:1px solid rgba(27,100,53,0.15);
+  border-radius:12px;padding:48px;text-align:center;
+  margin-top:40px;
+}
+
+/* FOOTER */
+footer{
+  background:var(--black2);
+  border-top:1px solid rgba(0,0,0,0.06);
+  padding:48px;
+  display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start;
+}
+.footer-brand p{font-size:13px;color:var(--gray);margin-top:12px;max-width:260px;line-height:1.6}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.footer-col h4{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:rgba(0,0,0,0.5);text-decoration:none;margin-bottom:10px;transition:color 0.2s;cursor:pointer}
+.footer-col a:hover{color:var(--green)}
+.footer-bottom{
+  padding:20px 48px;border-top:1px solid rgba(0,0,0,0.05);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--gray);
+  background: var(--white); 
+}
+.social-link{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--gray);text-decoration:none;font-size:13px;
+  transition:color 0.2s;
+}
+.social-link:hover{color:var(--gold-light)}
+
+/* INDUSTRY DETAIL PAGES */
+.industry-hero{
+  padding:120px 48px 60px;
+  background:linear-gradient(180deg,rgba(27,100,53,0.05) 0%,transparent 100%);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--gray);font-size:13px;cursor:pointer;
+  background:none;border:none;margin-bottom:32px;
+  transition:color 0.2s;
+}
+.back-btn:hover{color:var(--black)}
+.industry-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;padding:60px 48px}
+.agent-detail-card{
+  background:var(--black3);border:1px solid rgba(0,0,0,0.07);
+  border-radius:12px;padding:28px;margin-bottom:16px;
+  cursor:pointer;transition:all 0.3s;
+  color:var(--black);
+}
+.agent-detail-card:hover{border-color:var(--gold-light);box-shadow: 0 4px 20px rgba(0,0,0,0.05);}
+.agent-detail-name{font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--gold-light);margin-bottom:8px}
+.agent-detail-desc{font-size:14px;color:rgba(0,0,0,0.65);line-height:1.5;margin-bottom:16px}
+.try-agent-btn{
+  background:var(--green);color:var(--white);
+  border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  padding:8px 18px;border-radius:6px;letter-spacing:0.5px;text-transform:uppercase;
+  transition:all 0.2s;
+}
+.try-agent-btn:hover{background:var(--green-light)}
+
+/* CHATBOT MODAL */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+}
+.modal-overlay.open{display:flex}
+.chatbot-modal{
+  background:var(--white); 
+  border:1px solid rgba(157,131,0,0.3);
+  border-radius:16px;width:560px;max-width:95vw;max-height:90vh;
+  overflow:hidden;display:flex;flex-direction:column;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.2);
+}
+.chat-header{
+  padding:20px 24px;border-bottom:1px solid rgba(0,0,0,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(27,100,53,0.05);
+}
+.chat-title{font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;color:var(--black);}
+.chat-agent-name{font-size:12px;color:var(--gold-light);margin-top:2px}
+.chat-close{background:none;border:none;color:var(--gray);cursor:pointer;font-size:20px;padding:4px}
+.chat-body{flex:1;overflow-y:auto;padding:24px;min-height:300px;max-height:400px;background:var(--white);}
+.chat-msg{margin-bottom:16px;display:flex;gap:10px}
+.chat-msg.bot .bubble{background:var(--black3);border:1px solid rgba(0,0,0,0.07);border-radius:12px 12px 12px 4px;padding:12px 16px;font-size:14px;line-height:1.5;max-width:400px;color:var(--black);}
+.chat-msg.user{justify-content:flex-end}
+.chat-msg.user .bubble{background:var(--green);border-radius:12px 12px 4px 12px;padding:12px 16px;font-size:14px;line-height:1.5;max-width:400px;color:var(--white);}
+.chat-footer{padding:16px 24px;border-top:1px solid rgba(0,0,0,0.08);background:var(--white);}
+.trial-info{font-size:11px;color:var(--gray);margin-bottom:8px;text-align:center}
+.trial-info span{color:var(--gold-light);font-weight:600}
+.chat-input-row{display:flex;gap:10px}
+.chat-input{
+  flex:1;background:var(--black3);border:1px solid rgba(0,0,0,0.12);
+  border-radius:8px;padding:10px 14px;color:var(--black);
+  font-family:'DM Sans',sans-serif;font-size:14px;resize:none;height:42px;
+}
+.chat-input:focus{outline:none;border-color:var(--green)}
+.chat-send{
+  background:var(--green);border:none;cursor:pointer;
+  color:var(--white);padding:10px 18px;border-radius:8px;font-size:16px;
+  transition:background 0.2s;
+}
+.chat-send:hover{background:var(--green-light)}
+.chat-send:disabled{background:var(--gray2);cursor:not-allowed}
+.prompt-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.prompt-chip{
+  background:rgba(27,100,53,0.1);border:1px solid rgba(27,100,53,0.2);
+  color:var(--green);font-size:12px;padding:6px 12px;border-radius:20px;
+  cursor:pointer;transition:all 0.2s;
+}
+.prompt-chip:hover{background:var(--green);color:var(--white)}
+
+/* EMAIL GATE */
+.email-gate{padding:24px;text-align:center;background:var(--white);}
+.email-gate h3{font-family:'Outfit',sans-serif;font-size:20px;margin-bottom:8px;color:var(--black);}
+.email-gate p{font-size:14px;color:rgba(0,0,0,0.6);margin-bottom:24px;line-height:1.5}
+.email-input{
+  width:100%;background:var(--black3);border:1px solid rgba(0,0,0,0.12);
+  border-radius:8px;padding:12px 16px;color:var(--black);
+  font-family:'DM Sans',sans-serif;font-size:15px;margin-bottom:12px;
+}
+.email-input:focus{outline:none;border-color:var(--gold-light)}
+.email-submit{
+  width:100%;background:var(--green);border:none;cursor:pointer;
+  color:var(--white);padding:12px;border-radius:8px;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;
+  transition:background 0.2s;
+}
+.email-submit:hover{background:var(--green-light)}
+.privacy-note{font-size:11px;color:var(--gray);margin-top:10px}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .industries-grid{grid-template-columns:repeat(3,1fr)}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  section{padding:60px 20px}
+  .hero{padding:60px 20px 40px}
+  .hero-visual{display:none}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .industries-grid{grid-template-columns:repeat(2,1fr)}
+  .products-grid{grid-template-columns:1fr}
+  .partners-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .industry-detail-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;gap:32px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+  nav .nav-links{display:none}
+}
+
+/* Typing indicator */
+.typing{display:flex;gap:4px;padding:12px 16px;background:var(--black3);border-radius:12px;width:fit-content}
+.dot{width:7px;height:7px;background:var(--gray);border-radius:50%;animation:bounce 1.2s infinite}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+
+/* 1P1B SECTION */
+.onepb-section{
+  padding:0;
+  background:var(--white);
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid rgba(0,0,0,0.06);
+}
+.onepb-top{
+  padding:96px 48px 48px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.onepb-headline{
+  font-family:'Outfit',sans-serif;font-size:clamp(34px,4.5vw,60px);font-weight:800;
+  color:var(--black);line-height:1.08;margin-bottom:20px;
+}
+.onepb-headline .hl-gold{color:var(--gold)}
+.onepb-headline .hl-green{color:var(--green)}
+.onepb-intro{
+  font-size:18px;color:rgba(0,0,0,0.6);max-width:620px;
+  margin:0 auto 16px;line-height:1.65;
+}
+.onepb-sub{
+  font-size:15px;color:rgba(0,0,0,0.4);max-width:540px;
+  margin:0 auto 48px;line-height:1.6;font-style:italic;
+}
+/* image wrapper */
+.onepb-image-wrap{
+  position:relative;
+  max-width:1100px;margin:0 auto;
+  padding:0 48px;
+}
+.onepb-image-wrap img{
+  width:100%;border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.12),0 0 0 1px rgba(157,131,0,0.15);
+  display:block;position:relative;z-index:1;
+}
+.onepb-image-wrap::before{
+  content:'';position:absolute;
+  top:10%;left:10%;right:10%;bottom:-10%;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(27,100,53,0.08) 0%,transparent 70%);
+  z-index:0;pointer-events:none;
+}
+/* three pillars */
+.onepb-bottom{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+  max-width:1100px;margin:48px auto 0;
+  padding:0 48px 80px;
+}
+.onepb-pillar{
+  padding:28px 32px;
+  border-top:2px solid rgba(0,0,0,0.06);
+}
+.onepb-pillar:nth-child(2){
+  border-left:1px solid rgba(0,0,0,0.06);
+  border-right:1px solid rgba(0,0,0,0.06);
+}
+.onepb-pillar-icon{font-size:28px;margin-bottom:12px}
+.onepb-pillar-title{
+  font-family:'Outfit',sans-serif;font-size:16px;font-weight:800;
+  color:var(--gold);margin-bottom:8px;letter-spacing:0.3px;
+}
+.onepb-pillar-body{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.65;}
+/* stat pills */
+.onepb-stat-pills{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  max-width:1100px;margin:0 auto;
+  padding:0 48px 36px;
+}
+.onepb-pill{
+  background:var(--black3);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:100px;
+  padding:10px 20px;
+  display:flex;align-items:center;gap:10px;
+}
+.onepb-pill-num{
+  font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:var(--gold);
+}
+.onepb-pill-lbl{font-size:12px;color:rgba(0,0,0,0.45);}
+/* regret strip */
+.onepb-regret{
+  background:linear-gradient(135deg,rgba(27,100,53,0.05),rgba(157,131,0,0.04));
+  border-top:1px solid rgba(27,100,53,0.12);
+  border-bottom:1px solid rgba(27,100,53,0.12);
+  padding:36px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  flex-wrap:wrap;
+}
+.onepb-regret-text{
+  font-family:'Outfit',sans-serif;font-size:clamp(18px,2.2vw,26px);font-weight:800;
+  color:var(--black);max-width:640px;line-height:1.3;
+}
+.onepb-regret-text em{color:var(--green);font-style:normal;}
+.onepb-regret-actions{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;}
+.btn-whitepaper{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;
+  border:1px solid rgba(27,100,53,0.35);
+  color:var(--green);
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:7px;
+  cursor:pointer;text-decoration:none;text-transform:uppercase;letter-spacing:0.4px;
+  transition:all 0.2s;
+}
+.btn-whitepaper:hover{background:rgba(27,100,53,0.07);border-color:var(--green);transform:translateY(-1px);}
+.btn-whitepaper svg{width:15px;height:15px;flex-shrink:0;}
+@media(max-width:900px){
+  .onepb-bottom{grid-template-columns:1fr;}
+  .onepb-pillar:nth-child(2){border-left:none;border-right:none;}
+  .onepb-pillar{border-top:1px solid rgba(0,0,0,0.06);}
+  .onepb-image-wrap,.onepb-bottom,.onepb-stat-pills{padding-left:20px;padding-right:20px;}
+  .onepb-top{padding:60px 20px 36px;}
+  .onepb-regret{padding:28px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none">
+      <circle cx="19" cy="19" r="5" fill="#9D8300" stroke="#C9A800" stroke-width="1.5"/>
+      <circle cx="8" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+      <circle cx="30" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+      <circle cx="30" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+      <circle cx="8" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+      <circle cx="19" cy="5" r="2.5" fill="none" stroke="#1B6435" stroke-width="1.5"/>
+      <circle cx="33" cy="19" r="2.5" fill="none" stroke="#1B6435" stroke-width="1.5"/>
+      <line x1="19" y1="14" x2="19" y2="7.5" stroke="#1B6435" stroke-width="1.2"/>
+      <line x1="24" y1="19" x2="30.5" y2="19" stroke="#1B6435" stroke-width="1.2"/>
+      <line x1="14.5" y1="15.5" x2="10.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
+      <line x1="23.5" y1="15.5" x2="27.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
+      <line x1="23.5" y1="22.5" x2="27.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
+      <line x1="14.5" y1="22.5" x2="10.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
+    </svg>
+    <span class="nav-logo-text">NUR<span>o</span>L<span style="color:rgba(0,0,0,0.3);font-size:14px;margin-left:4px">AI</span></span>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link" onclick="showPage('home')">Home</button>
+    <button class="nav-link" onclick="scrollToSection('industries')">Industries</button>
+    <button class="nav-link" onclick="scrollToSection('products')">Products</button>
+    <button class="nav-link" onclick="scrollToSection('why')">Why Nurol</button>
+    <button class="nav-link" onclick="scrollToSection('one-person-billion')">1P1B</button>
+    <button class="nav-link" onclick="scrollToSection('partners')">Partners</button>
+  </div>
+  <button class="nav-cta" onclick="openChatbot('NuroMax','General')">Talk to Our AI →</button>
+</nav>
+
+<div id="page-home" class="page active">
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🟢 2026 AI Sovereignty Era</div>
+      <h1>AI Teammates.<br><span class="accent-gold">Not AI</span><br>Consultants.</h1>
+      <p class="hero-sub">On-premise AI agents that don't advise — they execute. Always on. Air-gapped. A fraction of cloud cost. Your data never leaves your walls.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openChatbot('NuroMax','General')">Try Live Demo</button>
+        <button class="btn-outline" onclick="scrollToSection('industries')">Find Your Industry ↓</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">5–200×</div>
+          <div class="stat-label">cheaper than cloud AI tokens</div>
+        </div>
+        <div>
+          <div class="stat-val">57%</div>
+          <div class="stat-label">lower TCO over 3 years</div>
+        </div>
+        <div>
+          <div class="stat-val">&lt;48h</div>
+          <div class="stat-label">time to first value</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" style="background:linear-gradient(180deg,var(--white) 0%,#f9f9f9 100%)">
+    <div class="section-label">Find Your Industry</div>
+    <h2 class="section-title">What's your field?</h2>
+    <p class="section-sub">Click your industry to discover which Nurol AI agents can transform your operations — then try them live.</p>
+    <div class="industries-grid">
+      <div class="industry-card" onclick="showIndustry('semiconductor')">
+        <img src="ChipDesign_AI.png" alt="Chip Design" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f5e9,#f1f8e9)'">
+        <div class="industry-overlay">
+          <div class="industry-name">Semiconductor &amp; Chip Design</div>
+          <div class="industry-agents">
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroTab','Semiconductor')">NuroTab</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroDoc','Semiconductor')">NuroDoc</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroPLM','Semiconductor')">NuroPLM</span>
+          </div>
+        </div>
+        <div class="industry-arrow">→</div>
+      </div>
+      <div class="industry-card" onclick="showIndustry('ems')">
+        <img src="EMS_AI.png" alt="EMS Manufacturing" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff8e1,#fffde7)'">
+        <div class="industry-overlay">
+          <div class="industry-name">Electronics Manufacturing</div>
+          <div class="industry-agents">
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroPLM','EMS')">NuroPLM</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroMM','EMS')">NuroMM</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroMax','EMS')">NuroMax</span>
+          </div>
+        </div>
+        <div class="industry-arrow">→</div>
+      </div>
+      <div class="industry-card" onclick="showIndustry('healthcare')">
+        <img src="Healthcare_AI1.png" alt="Healthcare" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e3f2fd,#e1f5fe)'">
+        <div class="industry-overlay">
+          <div class="industry-name">Healthcare &amp; Biotech</div>
+          <div class="industry-agents">
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroDoc','Healthcare')">NuroDoc</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroMax','Healthcare')">NuroMax</span>
+          </div>
+        </div>
+        <div class="industry-arrow">→</div>
+      </div>
+      <div class="industry-card" onclick="showIndustry('academia')">
+        <img src="Academy_AI2.png" alt="Academia" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff3e0,#fbe9e7)'">
+        <div class="industry-overlay">
+          <div class="industry-name">Academia &amp; Research</div>
+          <div class="industry-agents">
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroDoc','Academia')">NuroDoc</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroTab','Academia')">NuroTab</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroMax','Academia')">NuroMax</span>
+          </div>
+        </div>
+        <div class="industry-arrow">→</div>
+      </div>
+      <div class="industry-card" onclick="showIndustry('enterprise')">
+        <img src="Enterprise_IT.png" alt="Enterprise IT" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f1f8e9,#f9fbe7)'">
+        <div class="industry-overlay">
+          <div class="industry-name">Enterprise IT &amp; Operations</div>
+          <div class="industry-agents">
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroMax','Enterprise')">NuroMax</span>
+            <span class="agent-tag" onclick="event.stopPropagation();openChatbot('NuroDoc','Enterprise')">NuroDoc</span>
+          </div>
+        </div>
+        <div class="industry-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="section-label">Our AI Agents</div>
+    <h2 class="section-title">Meet Your New Team</h2>
+    <p class="section-sub">Five purpose-built agents that execute — not just advise. On-premise, air-gapped, always on.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-icon">⌨️</div>
+        <div class="product-name">NuroTab</div>
+        <div class="product-tagline">AI Coding Co-Pilot</div>
+        <div class="product-desc">Autonomous Verilog/VHDL generation, full SDLC coverage, testbench creation, FSM diagrams. Accelerates 83% of the design cycle with 21–40% productivity gains. Fine-tuned on your proprietary IP — never leaves your network.</div>
+        <a class="product-try" onclick="openChatbot('NuroTab','Semiconductor')">Try NuroTab →</a>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📄</div>
+        <div class="product-name">NuroDoc</div>
+        <div class="product-tagline">Research & Document Agent</div>
+        <div class="product-desc">Deep-web research, structured reports, auto-generates DOCX, XLSX, PPTX, PDF. Builds institutional memory that stays local. One prompt turns days of research into a polished deliverable.</div>
+        <a class="product-try" onclick="openChatbot('NuroDoc','Research')">Try NuroDoc →</a>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔗</div>
+        <div class="product-name">NuroMax</div>
+        <div class="product-tagline">Multi-Agent Execution Platform</div>
+        <div class="product-desc">Orchestrates multiple AI agents across Slack, Microsoft Teams, Google Chat, WhatsApp, and LINE. Automates end-to-end workflows — ERP reports, incident triage, pipeline tracking — without human intervention.</div>
+        <a class="product-try" onclick="openChatbot('NuroMax','General')">Try NuroMax →</a>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔧</div>
+        <div class="product-name">NuroPLM</div>
+        <div class="product-tagline">Product Lifecycle Management Agent</div>
+        <div class="product-desc">BOM creation, modification, and ECN issuance in natural language. Manages engineering change orders across revisions. Integrates with your existing PLM system without disruption.</div>
+        <a class="product-try" onclick="openChatbot('NuroPLM','Manufacturing')">Try NuroPLM →</a>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📦</div>
+        <div class="product-name">NuroMM</div>
+        <div class="product-tagline">Material Management Agent</div>
+        <div class="product-desc">Manages material availability, production scheduling, replenishment, and cost negotiation using game theory. Seasonal analysis from historical data prevents shortages before they happen.</div>
+        <a class="product-try" onclick="openChatbot('NuroMM','Manufacturing')">Try NuroMM →</a>
+      </div>
+      <div class="product-card" style="background:linear-gradient(135deg,rgba(27,100,53,0.05),rgba(157,131,0,0.02));border-color:rgba(27,100,53,0.1)">
+        <div class="product-icon">🖥️</div>
+        <div class="product-name">NuroMAX Infra</div>
+        <div class="product-tagline">AI Network Engineer, 24/7</div>
+        <div class="product-desc">Natural-language control of routers, switches, servers, APs, NAS. Config drift detection, health monitoring, secure remote commands. Diagnose your entire network from a phone — no VPN needed.</div>
+        <a class="product-try" onclick="openChatbot('NuroMax Infra','IT')">Try Infra Agent →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" style="background:linear-gradient(180deg,#fcfcfc 0%,var(--white) 100%)">
+    <div class="section-label">The Sovereign Advantage</div>
+    <h2 class="section-title">Why Nurol Wins</h2>
+    <p class="section-sub">67% of enterprises plan to move AI off-cloud. We're the only fully on-prem agentic platform. Here's what that means in practice.</p>
+    <div class="why-grid">
+      <div>
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Capability</th><th>Cloud AI</th><th>NURoL AI</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Data leaves network</td><td class="bad">Always</td><td class="good">Never</td></tr>
+            <tr><td>Token cost</td><td class="bad">$5–$25/1M tokens</td><td class="good">$0.06–$0.13/1M</td></tr>
+            <tr><td>Deployment time</td><td class="bad">Immediate but costly</td><td class="good">&lt; 48 hours</td></tr>
+            <tr><td>Compliance (HIPAA/ITAR)</td><td class="bad">Risk</td><td class="good">Fully compliant</td></tr>
+            <tr><td>Model control</td><td class="bad">Vendor decides</td><td class="good">You own it</td></tr>
+            <tr><td>Agentic execution</td><td class="bad">Cloud only</td><td class="good">On-prem native</td></tr>
+            <tr><td>3-year TCO</td><td class="bad">$6.5M–$8.5M+</td><td class="good">License + HW</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3 style="font-size:26px;margin-bottom:20px">You own the hardware.<br>We bring the brain.</h3>
+        <p style="color:rgba(0,0,0,0.6);line-height:1.7;margin-bottom:24px">Fortune 500 companies spend $2M+/year in AI talent to operate their sovereign stack. Nurol delivers the same capabilities to any organization — for a fraction of the cost and in under 48 hours.</p>
+        <p style="color:rgba(0,0,0,0.6);line-height:1.7;margin-bottom:32px">Cloud AI APIs cost 5–200× more per token than self-hosted inference. For 24/7 AI agents running continuously, on-prem isn't just preferable — it's the only viable economic model.</p>
+        <div class="stat-blocks">
+          <div class="stat-block">
+            <div class="num">67%</div>
+            <div class="lbl">of enterprises moving AI off-cloud</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">300%</div>
+            <div class="lbl">surge in demand for air-gapped AI</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">$75M</div>
+            <div class="lbl">saved by Dropbox via repatriation</div>
+          </div>
+        </div>
+        <button class="btn-primary" style="margin-top:32px" onclick="openChatbot('NuroMax','General')">See It In Action →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 1P1B SECTION ===== -->
+  <section class="onepb-section" id="one-person-billion">
+
+    <div class="onepb-top">
+      <div class="section-label">The New Reality</div>
+      <h2 class="onepb-headline">
+        The Era of the<br>
+        <span class="hl-gold">One-Person</span> <span class="hl-green">Billion-Dollar</span><br>
+        Company Is Here
+      </h2>
+      <p class="onepb-intro">
+        Sam Altman said it first. Now it's proven. AI-native founders at companies like Telegram, Midjourney, and Cursor are generating <strong style="color:var(--black)">$3M–$20M in revenue per employee</strong> — 10× to 100× more than traditional SaaS. The only thing standing between you and that outcome is execution capacity.
+      </p>
+      <p class="onepb-sub">
+        NuroMAX is the turn-key execution layer. One founder. The output of a 50-person team. The probability of reaching $1B shifts from near-zero to meaningfully non-zero.
+      </p>
+    </div>
+
+    <!-- stat pills -->
+    <div class="onepb-stat-pills">
+      <div class="onepb-pill">
+        <span class="onepb-pill-num">50×</span>
+        <span class="onepb-pill-lbl">NuroMAX execution efficiency</span>
+      </div>
+      <div class="onepb-pill">
+        <span class="onepb-pill-num">$20M</span>
+        <span class="onepb-pill-lbl">revenue/employee at AI-native outliers</span>
+      </div>
+      <div class="onepb-pill">
+        <span class="onepb-pill-num">$530K</span>
+        <span class="onepb-pill-lbl">equivalent team labor replaced per year</span>
+      </div>
+      <div class="onepb-pill">
+        <span class="onepb-pill-num">~$18K</span>
+        <span class="onepb-pill-lbl">annual NuroMAX cost vs. $530K team</span>
+      </div>
+    </div>
+
+    <!-- image -->
+    <div class="onepb-image-wrap">
+      <img src="1P1B.png" alt="The Era of the One-Person Billion-Dollar Company — NuroMAX"
+        onerror="this.style.display='none'">
+    </div>
+
+    <!-- 3 pillars -->
+    <div class="onepb-bottom">
+      <div class="onepb-pillar">
+        <div class="onepb-pillar-icon">🧠</div>
+        <div class="onepb-pillar-title">You Supply the Vision</div>
+        <div class="onepb-pillar-body">
+          The six ingredients no AI can replace — vision, product insight, strategic judgment, key relationships, accountability, and resilience — only you have them. They are precisely the ingredients that make outlier companies possible. NuroMAX doesn't touch them.
+        </div>
+      </div>
+      <div class="onepb-pillar">
+        <div class="onepb-pillar-icon">⚙️</div>
+        <div class="onepb-pillar-title">NuroMAX Supplies the Execution</div>
+        <div class="onepb-pillar-body">
+          Seven AI agents handle the work that used to consume 70% of a solo founder's week: support, outbound sales, content, junior engineering, research, bookkeeping, and executive assistance — all coordinated through one shared memory, one approval inbox, and one founder voice.
+        </div>
+      </div>
+      <div class="onepb-pillar">
+        <div class="onepb-pillar-icon">🚀</div>
+        <div class="onepb-pillar-title">The Market Provides the Rest</div>
+        <div class="onepb-pillar-body">
+          Capital, time, and luck are external — no tool changes them. But NuroMAX reduces the capital needed for any given revenue level, extends your runway before burnout forces a choice, and maximises your ability to act the moment luck appears. That window is narrow. Being execution-ready when it opens is everything.
+        </div>
+      </div>
+    </div>
+
+    <!-- regret strip with whitepaper CTA -->
+    <div class="onepb-regret">
+      <div class="onepb-regret-text">
+        The founders who built the tools you use every day started with the same hours you have.
+        The only difference was <em>execution capacity.</em>
+        Not trying isn't safe — it's just a different kind of regret.
+      </div>
+      <div class="onepb-regret-actions">
+        <a class="btn-whitepaper" href="NuroMAX-whitepaper.pdf" target="_blank" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Read the Full Whitepaper
+        </a>
+        <button class="btn-primary" onclick="openChatbot('NuroMax','General')">
+          Start Your Demo →
+        </button>
+      </div>
+    </div>
+
+  </section>
+  <!-- ===== END 1P1B ===== -->
+
+  <section id="partners">
+    <div class="section-label">Ecosystem</div>
+    <h2 class="section-title">Built With the Best</h2>
+    <p class="section-sub">Nurol's partner network spans hardware, systems integration, and academia to deliver a fully integrated AI appliance.</p>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-cat">Semiconductor</div>
+        <div class="partner-name">Raydium</div>
+        <div class="partner-desc">Cutting-edge GPU and semiconductor solutions powering Nurol's on-premise AI inference engine at maximum efficiency.</div>
+        <a href="#" class="partner-link">raydium.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Hardware</div>
+        <div class="partner-name">Supermicro</div>
+        <div class="partner-desc">High-performance server infrastructure purpose-built for AI workloads, enabling Nurol's AI Appliance to ship ready-to-deploy.</div>
+        <a href="https://www.supermicro.com" target="_blank" class="partner-link">supermicro.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Systems Integration</div>
+        <div class="partner-name">Ronna Systems</div>
+        <div class="partner-desc">Expert systems integration ensuring seamless deployment of Nurol's AI stack across diverse enterprise environments.</div>
+        <a href="#" class="partner-link">ronnasystems.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Academia</div>
+        <div class="partner-name">UTAR</div>
+        <div class="partner-desc">Universiti Tunku Abdul Rahman — academic research partner advancing AI literacy, sovereign computing, and curriculum integration.</div>
+        <a href="https://www.utar.edu.my" target="_blank" class="partner-link">utar.edu.my ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Autonomous Systems</div>
+        <div class="partner-name">Ondas Holdings</div>
+        <div class="partner-desc">Autonomous systems leader bringing Nurol's AI agents to drone and ground-based automation platforms in critical industries.</div>
+        <a href="https://www.ondasholdings.com" target="_blank" class="partner-link">ondasholdings.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Hardware</div>
+        <div class="partner-name">GIGABYTE</div>
+        <div class="partner-desc">Global hardware manufacturer providing validated GPU server configurations for Nurol's AI Appliance deployment program.</div>
+        <a href="https://www.gigabyte.com" target="_blank" class="partner-link">gigabyte.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Hardware</div>
+        <div class="partner-name">Acer</div>
+        <div class="partner-desc">Global computing giant powering Nurol's hardware leasing model — $0 CapEx, monthly subscription, delivered and ready to run.</div>
+        <a href="https://www.acer.com" target="_blank" class="partner-link">acer.com ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-cat">Academia</div>
+        <div class="partner-name">NTNU</div>
+        <div class="partner-desc">National Taiwan Normal University — pioneering sovereign AI education frameworks and research in partnership with Nurol.</div>
+        <a href="https://www.ntnu.edu.tw" target="_blank" class="partner-link">ntnu.edu.tw ↗</a>
+      </div>
+    </div>
+    <div class="partner-cta-section">
+      <div class="section-label" style="text-align:center">Join the Ecosystem</div>
+      <h3 style="font-size:28px;margin-bottom:12px">Become a Partner</h3>
+      <p style="color:rgba(0,0,0,0.6);max-width:480px;margin:0 auto 28px;line-height:1.6">Hardware OEMs, system integrators, and academic institutions — join Nurol's partner program to deliver sovereign AI to your customers and unlock new revenue streams.</p>
+      <button class="btn-primary" onclick="openChatbot('NuroMax','Partnership')">Explore Partnership →</button>
+    </div>
+  </section>
+
+</div>
+
+<div id="page-semiconductor" class="page">
+  <div class="industry-hero">
+    <div style="max-width:1200px;margin:0 auto">
+      <button class="back-btn" onclick="showPage('home')">← Back to all industries</button>
+      <div class="section-label">Semiconductor & Chip Design</div>
+      <h1 style="font-size:clamp(36px,4.5vw,64px);max-width:600px;margin-bottom:16px">From Concept to Tape-Out. Faster.</h1>
+      <p style="font-size:18px;color:rgba(0,0,0,0.6);max-width:520px;line-height:1.6">AI-powered Verilog/VHDL generation, automated verification, and IP-safe documentation — all on your air-gapped network.</p>
+    </div>
+  </div>
+  <div class="industry-detail-grid" style="max-width:1200px;margin:0 auto">
+    <div>
+      <img src="ChipDesign_AI.png" alt="Chip Design" style="width:100%;border-radius:12px;border:1px solid rgba(0,0,0,0.08)" onerror="this.style.display='none'">
+      <div style="margin-top:32px;background:var(--black3);border-radius:12px;padding:28px;border:1px solid rgba(27,100,53,0.1)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:18px;margin-bottom:16px;color:var(--ecru)">Why Sovereign AI for Chip Design?</h3>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7;margin-bottom:14px">Your Verilog IP is your most valuable asset. Every line of proprietary RTL sent to a cloud AI becomes training data for your competitors. Nurol runs entirely on your network — your IP never leaves.</p>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7">NuroTab accelerates 83% of the design cycle with 21–40% productivity gains — verified across RTL coding, testbench generation, verification, and documentation.</p>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:26px;margin-bottom:24px">AI Agents for Your Team</h2>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">⌨️ NuroTab — AI Coding Agent</div>
+        <div class="agent-detail-desc">Generates Verilog, VHDL, and SystemVerilog from natural language specs. Includes FSM diagram visualization, waveform simulation, testbench automation, and multi-language support (C, ASM, Python). Fine-tuned on your proprietary design libraries.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroTab','Semiconductor')">Try NuroTab Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">📄 NuroDoc — Spec & Documentation</div>
+        <div class="agent-detail-desc">Converts natural language project descriptions into full ASIC system specifications, block diagrams, register maps, and technical reports. Builds a searchable IP and document database that grows smarter with every use.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroDoc','Semiconductor')">Try NuroDoc Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔧 NuroPLM — Design Change Management</div>
+        <div class="agent-detail-desc">Manages BOM revisions, ECN creation, and design version control from natural language commands. Integrates with your existing PLM system without replacing it.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroPLM','Semiconductor')">Try NuroPLM Live</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-ems" class="page">
+  <div class="industry-hero">
+    <div style="max-width:1200px;margin:0 auto">
+      <button class="back-btn" onclick="showPage('home')">← Back to all industries</button>
+      <div class="section-label">Electronics Manufacturing Services</div>
+      <h1 style="font-size:clamp(36px,4.5vw,64px);max-width:600px;margin-bottom:16px">Factory Intelligence. Zero Downtime.</h1>
+      <p style="font-size:18px;color:rgba(0,0,0,0.6);max-width:520px;line-height:1.6">From BOM to production floor — AI agents that manage materials, detect quality issues, and execute change orders automatically.</p>
+    </div>
+  </div>
+  <div class="industry-detail-grid" style="max-width:1200px;margin:0 auto">
+    <div>
+      <img src="EMS_AI.png" alt="EMS Manufacturing" style="width:100%;border-radius:12px;border:1px solid rgba(0,0,0,0.08)" onerror="this.style.display='none'">
+      <div style="margin-top:32px;background:var(--black3);border-radius:12px;padding:28px;border:1px solid rgba(27,100,53,0.1)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:18px;margin-bottom:16px;color:var(--ecru)">The EMS Challenge</h3>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7">EMS operations require constant synchronization of BOM data, supplier schedules, inventory levels, and quality metrics. A single miscommunication costs thousands. Nurol agents work 24/7, update in real-time, and never miss a revision.</p>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:26px;margin-bottom:24px">AI Agents for Your Floor</h2>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔧 NuroPLM — BOM & ECN Management</div>
+        <div class="agent-detail-desc">Creates, modifies, and issues Engineering Change Orders in natural language. Manages bill of materials across revisions, tracks approvals, and ensures all stakeholders are notified automatically.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroPLM','EMS')">Try NuroPLM Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">📦 NuroMM — Material Intelligence</div>
+        <div class="agent-detail-desc">AI-driven material availability tracking, production scheduling, and replenishment automation. Uses game theory for cost negotiation and seasonal analysis from historical data to prevent shortages before they happen.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMM','EMS')">Try NuroMM Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔗 NuroMax — Cross-System Orchestration</div>
+        <div class="agent-detail-desc">Integrates Slack, Teams, WhatsApp, and LINE with your ERP. Delivers daily shortage reports, quality alerts, and production status automatically — before your team arrives each morning.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMax','EMS')">Try NuroMax Live</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-healthcare" class="page">
+  <div class="industry-hero">
+    <div style="max-width:1200px;margin:0 auto">
+      <button class="back-btn" onclick="showPage('home')">← Back to all industries</button>
+      <div class="section-label">Healthcare & Biotech</div>
+      <h1 style="font-size:clamp(36px,4.5vw,64px);max-width:600px;margin-bottom:16px">Clinical AI. Patient Data Stays Private.</h1>
+      <p style="font-size:18px;color:rgba(0,0,0,0.6);max-width:520px;line-height:1.6">HIPAA-compliant AI agents that analyze, document, and automate — without a single byte leaving your hospital's network.</p>
+    </div>
+  </div>
+  <div class="industry-detail-grid" style="max-width:1200px;margin:0 auto">
+    <div>
+      <img src="Healthcare_AI1.png" alt="Healthcare AI" style="width:100%;border-radius:12px;border:1px solid rgba(0,0,0,0.08)" onerror="this.style.display='none'">
+      <div style="margin-top:32px;background:var(--black3);border-radius:12px;padding:28px;border:1px solid rgba(27,100,53,0.1)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:18px;margin-bottom:16px;color:var(--ecru)">HIPAA is Non-Negotiable</h3>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7">82% of data breaches involve cloud-stored data. Healthcare AI that sends patient records to external servers isn't just legally risky — it's ethically unacceptable. Nurol's air-gapped architecture ensures zero data exposure.</p>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:26px;margin-bottom:24px">AI Agents for Healthcare</h2>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">📄 NuroDoc — Clinical Research & Documentation</div>
+        <div class="agent-detail-desc">Generates clinical summaries, research reports, protocol documents, and regulatory submissions from structured data. Builds an institutional memory of case studies and treatment insights that stays entirely on your premises.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroDoc','Healthcare')">Try NuroDoc Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔗 NuroMax — Clinical Workflow Automation</div>
+        <div class="agent-detail-desc">Automates scheduling, triage routing, supply chain management, and department communication through existing tools like Teams and Slack — all within your secure perimeter.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMax','Healthcare')">Try NuroMax Live</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-academia" class="page">
+  <div class="industry-hero">
+    <div style="max-width:1200px;margin:0 auto">
+      <button class="back-btn" onclick="showPage('home')">← Back to all industries</button>
+      <div class="section-label">Academia & Research</div>
+      <h1 style="font-size:clamp(36px,4.5vw,64px);max-width:600px;margin-bottom:16px">Sovereign Campus Intelligence.</h1>
+      <p style="font-size:18px;color:rgba(0,0,0,0.6);max-width:520px;line-height:1.6">Build a private AI brain from your institution's research. IP-safe, FERPA-compliant, and smarter every semester.</p>
+    </div>
+  </div>
+  <div class="industry-detail-grid" style="max-width:1200px;margin:0 auto">
+    <div>
+      <img src="Academy_AI2.png" alt="Academia Research" style="width:100%;border-radius:12px;border:1px solid rgba(0,0,0,0.08)" onerror="this.style.display='none'">
+      <div style="margin-top:32px;background:var(--black3);border-radius:12px;padding:28px;border:1px solid rgba(27,100,53,0.1)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:18px;margin-bottom:16px;color:var(--ecru)">From "Banning AI" to Owning It</h3>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7">92% of students use AI, but only 19% of institutions have a formal policy. Universities that deploy sovereign AI nodes stop fighting the tide — and start building a competitive advantage in research output, grant funding, and graduate employability.</p>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:26px;margin-bottom:24px">AI Agents for Institutions</h2>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">📄 NuroDoc — Research Engine</div>
+        <div class="agent-detail-desc">Deep-web research, literature synthesis, and structured report generation. Every insight stays within your university's network — proprietary research never trains a competitor's model.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroDoc','Academia')">Try NuroDoc Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">⌨️ NuroTab — AI Lab Platform</div>
+        <div class="agent-detail-desc">Teaches the next generation of AI architects. Students deconstruct models, design multi-agent systems, study hallucination and bias — hands-on, not just theoretical. The only AI sandbox that turns consumers into creators.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroTab','Academia')">Try NuroTab Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔗 NuroMax — Campus Operations</div>
+        <div class="agent-detail-desc">Automates administrative workflows, research grant tracking, department communication, and knowledge-base management across the entire campus ecosystem.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMax','Academia')">Try NuroMax Live</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-enterprise" class="page">
+  <div class="industry-hero">
+    <div style="max-width:1200px;margin:0 auto">
+      <button class="back-btn" onclick="showPage('home')">← Back to all industries</button>
+      <div class="section-label">Enterprise IT & Operations</div>
+      <h1 style="font-size:clamp(36px,4.5vw,64px);max-width:600px;margin-bottom:16px">Your AI Network Engineer. On Call 24/7.</h1>
+      <p style="font-size:18px;color:rgba(0,0,0,0.6);max-width:520px;line-height:1.6">Manage 10–500+ devices in plain language. Automate morning health checks, config drift detection, and incident response — from your phone.</p>
+    </div>
+  </div>
+  <div class="industry-detail-grid" style="max-width:1200px;margin:0 auto">
+    <div>
+      <img src="Academy_AI1.png" alt="Enterprise IT" style="width:100%;border-radius:12px;border:1px solid rgba(0,0,0,0.08)" onerror="this.style.display='none'">
+      <div style="margin-top:32px;background:var(--black3);border-radius:12px;padding:28px;border:1px solid rgba(27,100,53,0.1)">
+        <h3 style="font-family:'Outfit',sans-serif;font-size:18px;margin-bottom:16px;color:var(--ecru)">The Enterprise IT Pain</h3>
+        <p style="font-size:14px;color:rgba(0,0,0,0.65);line-height:1.7">Morning health checks take 45 minutes. Config changes go undetected. Tribal knowledge lives in one person's head. Nurol's Infra-Manager replaces all of this with an AI that connects to every device, runs commands, compares configurations, and reports — before the team arrives.</p>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:26px;margin-bottom:24px">AI Agents for IT</h2>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🖥️ NuroMax Infra — AI Network Engineer</div>
+        <div class="agent-detail-desc">Supports Cisco, Nexus, Ubiquiti, Synology, Linux, Windows via SSH and web UI. Parallel health checks, config drift detection, secure remote commands, and audit logging. No VPN, no laptop — diagnose from a phone.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMax Infra','IT')">Try Infra Agent Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">🔗 NuroMax — Workflow Orchestration</div>
+        <div class="agent-detail-desc">Connects IT operations across Slack, Teams, Email, and SMS. Automates incident response, ERP reporting, and stakeholder communications. Multi-agent architecture delegates tasks to specialists automatically.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroMax','Enterprise')">Try NuroMax Live</button>
+      </div>
+      <div class="agent-detail-card">
+        <div class="agent-detail-name">📄 NuroDoc — IT Documentation</div>
+        <div class="agent-detail-desc">Auto-generates runbooks, SOPs, network topology docs, and post-incident reports. Builds a persistent institutional memory so new hires are productive from day one.</div>
+        <button class="try-agent-btn" onclick="openChatbot('NuroDoc','Enterprise')">Try NuroDoc Live</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="main-footer">
+  <div class="footer-brand">
+    <div style="display:flex;align-items:center;gap:10px;cursor:pointer" onclick="showPage('home')">
+      <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
+        <circle cx="19" cy="19" r="5" fill="#9D8300" stroke="#C9A800" stroke-width="1.5"/>
+        <circle cx="8" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+        <circle cx="30" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+        <circle cx="30" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+        <circle cx="8" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
+        <line x1="14.5" y1="15.5" x2="10.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
+        <line x1="23.5" y1="15.5" x2="27.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
+        <line x1="23.5" y1="22.5" x2="27.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
+        <line x1="14.5" y1="22.5" x2="10.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--black)">NURoL <span style="color:var(--gold-light)">AI</span></span>
+    </div>
+    <p>AI Teammates. Not AI consultants. On-premise AI agents that execute — always on, air-gapped, sovereign.</p>
+    <p style="margin-top:12px">San Jose, CA · yjlee@nurol.ai</p>
+    <div style="margin-top:16px">
+      <a href="https://www.linkedin.com/company/nurol-ai" target="_blank" class="social-link">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="footer-links">
+    <div class="footer-col">
+      <h4>Products</h4>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('products'),50)">NuroTab</a>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('products'),50)">NuroDoc</a>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('products'),50)">NuroMax</a>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('products'),50)">NuroPLM</a>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('products'),50)">NuroMM</a>
+    </div>
+    <div class="footer-col">
+      <h4>Industries</h4>
+      <a onclick="showIndustry('semiconductor')">Semiconductor</a>
+      <a onclick="showIndustry('ems')">Manufacturing</a>
+      <a onclick="showIndustry('healthcare')">Healthcare</a>
+      <a onclick="showIndustry('academia')">Academia</a>
+      <a onclick="showIndustry('enterprise')">Enterprise IT</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('why'),50)">Why Nurol</a>
+      <a onclick="showPage('home');setTimeout(()=>scrollToSection('partners'),50)">Partners</a>
+      <a href="https://www.linkedin.com/company/nurol-ai" target="_blank">LinkedIn</a>
+      <a href="mailto:yjlee@nurol.ai">Contact</a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Nurol, Inc. All rights reserved. San Jose, CA.</span>
+  <span>Intelligent Design. Secure Infrastructure.</span>
+</div>
+
+<!-- CHATBOT MODAL -->
+<div class="modal-overlay" id="chatbot-modal">
+  <div class="chatbot-modal">
+    <div class="chat-header">
+      <div>
+        <div class="chat-title">Nurol AI Demo</div>
+        <div class="chat-agent-name" id="chat-agent-label">NuroMax Assistant</div>
+      </div>
+      <button class="chat-close" onclick="closeChatbot()">✕</button>
+    </div>
+
+    <!-- Email gate -->
+    <div class="email-gate" id="email-gate-view">
+      <div style="font-size:32px;margin-bottom:12px">🔐</div>
+      <h3>Try <span id="gate-agent-name" style="color:var(--gold-light)">NuroMax</span> Live</h3>
+      <p>Enter your email to start a demo session. We'll follow up with personalised insights based on your conversation.</p>
+      <input class="email-input" type="email" id="gate-email" placeholder="your@company.com">
+      <button class="email-submit" onclick="submitEmail()">Start Demo Session →</button>
+      <div class="privacy-note">Your email is used only for follow-up. No spam. No selling.</div>
+    </div>
+
+    <!-- Chat interface -->
+    <div id="chat-view" style="display:none;flex-direction:column;flex:1">
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-footer">
+        <div class="trial-info">Free trials remaining: <span id="trials-left">3</span> / 3 &nbsp;·&nbsp; Max 30 words per message</div>
+        <div class="prompt-chips" id="prompt-chips"></div>
+        <div class="chat-input-row">
+          <textarea class="chat-input" id="chat-input" placeholder="Ask something… (30 words max)" rows="1" onkeydown="handleKey(event)"></textarea>
+          <button class="chat-send" id="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===================== STATE =====================
+const state = {
+  currentPage: 'home',
+  chatAgent: 'NuroMax',
+  chatIndustry: 'General',
+  trialsLeft: 3,
+  chatHistory: [],
+  userEmail: null,
+  sessionData: {
+    startTime: Date.now(),
+    industry: null,
+    agent: null,
+    messagesCount: 0,
+    usedAllTrials: false
+  }
+};
+
+// Agent definitions
+const agentData = {
+  'NuroTab': {
+    system: `You are NuroTab, Nurol AI's on-premise coding agent specialising in hardware description languages (Verilog, VHDL, SystemVerilog) and software development. You work across the full SDLC. Help with RTL code generation, testbench creation, debugging, and documentation. Be concise, technical, and practical. Always stress that you run entirely on-premise so IP never leaves the customer's network.`,
+    prompts: {
+      'Semiconductor': ['Generate a UART transmitter in Verilog', 'Create a testbench for my ALU module', 'Explain FSM design best practices'],
+      'Academia':      ['How can I use NuroTab for my EE course?', 'Generate a simple CPU in Verilog for teaching', 'What is RTL verification?'],
+      'default':       ['Write a FIFO module in Verilog', 'Debug this Verilog code for me', 'Explain clock domain crossing']
+    }
+  },
+  'NuroDoc': {
+    system: `You are NuroDoc, Nurol AI's on-premise research and document-writing agent. You perform deep research, synthesise information, and generate professional documents (reports, specs, technical docs) as DOCX, PDF, or PPTX — all staying on the client's local network. Demonstrate concrete value quickly.`,
+    prompts: {
+      'Healthcare':    ['Summarise latest oncology AI research', 'Draft a clinical protocol template', 'Create a HIPAA compliance checklist'],
+      'Academia':      ['Research AI in education 2026 trends', 'Generate a literature review outline', 'Create a research grant summary template'],
+      'Semiconductor': ['Write an ASIC spec for a touchscreen controller', 'Create a design document template', 'Summarise register map documentation'],
+      'Enterprise':    ['Generate a network runbook template', 'Draft a post-incident report', 'Create an IT SOP document'],
+      'default':       ['Research competitive landscape for AI agents', 'Draft an executive summary template', 'Create a technical report on sovereign AI']
+    }
+  },
+  'NuroMax': {
+    system: `You are NuroMax, Nurol AI's multi-agent execution platform. You orchestrate workflows across Slack, Teams, Google Chat, WhatsApp, and LINE. You automate end-to-end business processes — ERP reporting, incident triage, project management, and more. You execute tasks autonomously, not just advise. Always highlight your on-premise deployment. Be action-oriented and specific.`,
+    prompts: {
+      'EMS':         ['Set up daily BOM shortage report to Slack', 'Automate quality alert notifications', 'Create a production status dashboard workflow'],
+      'Healthcare':  ['Automate patient triage routing', 'Set up clinical supply chain alerts', 'Create weekly department summary reports'],
+      'Enterprise':  ['Run morning health check on all 47 devices', 'Set up config drift alerts for Cisco switches', 'Automate incident escalation workflow'],
+      'Partnership': ['Tell me about the Nurol partner programme', 'How do OEM partnerships work?', 'What revenue share do partners receive?'],
+      'Academia':    ['Automate grant-tracking workflows', 'Set up department communication bots', 'Integrate Teams with our research database'],
+      'default':     ['What workflows can NuroMax automate?', 'How does multi-agent orchestration work?', 'Show me a sample automation workflow']
+    }
+  },
+  'NuroPLM': {
+    system: `You are NuroPLM, Nurol AI's product lifecycle management agent. You manage Bills of Materials (BOMs), Engineering Change Orders (ECNs), revision control, and supply chain documentation — all in natural language. Always highlight that you integrate with existing PLM systems without replacing them.`,
+    prompts: {
+      'Semiconductor':  ['Create a BOM for a 4-layer PCB design', 'Issue an ECN for component substitution', 'Track all Rev B changes'],
+      'EMS':            ['Create BOM for system board assembly', 'Issue ECN for chip shortage substitution', 'Show all pending engineering changes'],
+      'Manufacturing':  ['How does NuroPLM handle revision control?', 'Create a sample ECN workflow', 'What PLM systems do you integrate with?'],
+      'default':        ['Create a sample BOM structure', 'Walk me through ECN creation', 'How does revision control work?']
+    }
+  },
+  'NuroMM': {
+    system: `You are NuroMM, Nurol AI's material management agent. You manage material availability, production scheduling, replenishment, and cost negotiation using game theory. You perform seasonal analysis from historical procurement data to predict and prevent shortages. Be specific about cost savings and operational improvements.`,
+    prompts: {
+      'EMS':           ['Analyse chip shortage risk for Q3', 'Optimise reorder points for 200 components', 'Negotiate pricing for bulk capacitor order'],
+      'Manufacturing': ['How does game theory improve supplier negotiation?', 'Show seasonal demand analysis for my BOM', 'Predict next 90-day material risk'],
+      'default':       ['How does NuroMM prevent shortages?', 'Explain game theory in procurement', 'What data does NuroMM analyse?']
+    }
+  },
+  'NuroMax Infra': {
+    system: `You are NuroMax Infra-Manager, Nurol AI's network and infrastructure management agent. You manage routers, switches, servers, APs, and NAS devices via natural language over SSH and web UI. You perform health monitoring, config drift detection, and secure remote commands. Supported: Cisco, Ubiquiti, Synology, Linux, Windows. Everything runs on-premise with AES-256 security and full audit trails. No VPN required.`,
+    prompts: {
+      'IT':         ['Check health of all 47 devices right now', 'Detect config drift on Cisco switches', 'Show me all devices in Building B'],
+      'Enterprise': ['What can you do for my IT operations?', 'How does config drift detection work?', 'Can you diagnose from my phone?'],
+      'default':    ['Run a morning health check', 'Explain configuration drift detection', 'What devices do you support?']
+    }
+  }
+};
+
+// ===================== PAGE ROUTING =====================
+function showPage(pageName) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + pageName);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    state.currentPage = pageName;
+  }
+}
+
+function showIndustry(industry) {
+  showPage(industry);
+}
+
+function scrollToSection(id) {
+  // If not on home, switch first then scroll
+  if (state.currentPage !== 'home') {
+    showPage('home');
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 420);
+  } else {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// ===================== CHATBOT =====================
+function openChatbot(agent, industry) {
+  state.chatAgent = agent;
+  state.chatIndustry = industry;
+  state.sessionData.agent = agent;
+  state.sessionData.industry = industry;
+  state.sessionData.startTime = Date.now();
+
+  document.getElementById('gate-agent-name').textContent = agent;
+  document.getElementById('chat-agent-label').textContent = agent + ' — ' + industry + ' Mode';
+  document.getElementById('gate-email').value = '';
+  document.getElementById('gate-email').style.borderColor = '';
+
+  document.getElementById('email-gate-view').style.display = 'block';
+  document.getElementById('chat-view').style.display = 'none';
+  document.getElementById('chatbot-modal').classList.add('open');
+}
+
+function closeChatbot() {
+  document.getElementById('chatbot-modal').classList.remove('open');
+  saveSessionData('closed');
+}
+
+function submitEmail() {
+  const emailEl = document.getElementById('gate-email');
+  const email = emailEl.value.trim();
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    emailEl.style.borderColor = '#c62828';
+    emailEl.focus();
+    return;
+  }
+  state.userEmail = email;
+  state.sessionData.email = email;
+
+  // Persist to localStorage
+  try {
+    const sessions = JSON.parse(localStorage.getItem('nurol_sessions') || '[]');
+    sessions.push({ email, agent: state.chatAgent, industry: state.chatIndustry, timestamp: new Date().toISOString() });
+    localStorage.setItem('nurol_sessions', JSON.stringify(sessions));
+  } catch(e) {}
+
+  document.getElementById('email-gate-view').style.display = 'none';
+  const chatView = document.getElementById('chat-view');
+  chatView.style.display = 'flex';
+  chatView.style.flexDirection = 'column';
+
+  // Reset chat state
+  state.trialsLeft = 3;
+  state.chatHistory = [];
+  document.getElementById('chat-body').innerHTML = '';
+  document.getElementById('trials-left').textContent = '3';
+  document.getElementById('chat-send-btn').disabled = false;
+  document.getElementById('chat-input').disabled = false;
+
+  // Load sample prompts
+  const agentInfo = agentData[state.chatAgent] || agentData['NuroMax'];
+  const prompts = agentInfo.prompts[state.chatIndustry] || agentInfo.prompts['default'] || [];
+  const chipsEl = document.getElementById('prompt-chips');
+  chipsEl.innerHTML = prompts.map(p =>
+    `<span class="prompt-chip" onclick="useSamplePrompt('${p.replace(/'/g, "\\'")}')">${p}</span>`
+  ).join('');
+
+  addBotMessage(`Hi! I'm ${state.chatAgent}. I'll show you exactly how I can help your ${state.chatIndustry} team. Ask me anything, or pick a sample prompt below. You have 3 free messages of up to 30 words each.`);
+}
+
+function useSamplePrompt(prompt) {
+  document.getElementById('chat-input').value = prompt;
+  document.getElementById('prompt-chips').innerHTML = '';
+  sendMessage();
+}
+
+function addBotMessage(text) {
+  const body = document.getElementById('chat-body');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.innerHTML = `<div class="bubble">${text}</div>`;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function addUserMessage(text) {
+  const body = document.getElementById('chat-body');
+  const div = document.createElement('div');
+  div.className = 'chat-msg user';
+  div.innerHTML = `<div class="bubble">${text}</div>`;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function addTyping() {
+  const body = document.getElementById('chat-body');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = 'typing-indicator';
+  div.innerHTML = `<div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  if (state.trialsLeft <= 0) {
+    addBotMessage("You've used your 3 free demo messages. Our team will reach out soon. To connect now, email yjlee@nurol.ai");
+    return;
+  }
+
+  const words = text.split(/\s+/).filter(Boolean).length;
+  if (words > 30) {
+    addBotMessage("Please keep your message to 30 words or fewer for the demo. Try condensing your question!");
+    return;
+  }
+
+  state.trialsLeft--;
+  state.sessionData.messagesCount++;
+  document.getElementById('trials-left').textContent = state.trialsLeft;
+
+  if (state.trialsLeft === 0) {
+    state.sessionData.usedAllTrials = true;
+    document.getElementById('chat-send-btn').disabled = true;
+    document.getElementById('chat-input').disabled = true;
+  }
+
+  input.value = '';
+  document.getElementById('prompt-chips').innerHTML = '';
+  addUserMessage(text);
+  addTyping();
+  saveInteraction(text);
+
+  try {
+    const agentInfo = agentData[state.chatAgent] || agentData['NuroMax'];
+    const systemPrompt = agentInfo.system +
+      `\n\nContext: Industry=${state.chatIndustry}. Keep your reply to 2–3 sentences. Be concrete and specific. End with one clear value statement or next step.`;
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [...state.chatHistory, { role: 'user', content: text }]
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.content?.[0]?.text || "I can help with that. Please contact our team for a full demo at yjlee@nurol.ai";
+
+    state.chatHistory.push({ role: 'user', content: text });
+    state.chatHistory.push({ role: 'assistant', content: reply });
+
+    removeTyping();
+    addBotMessage(reply);
+
+    if (state.trialsLeft === 0) {
+      setTimeout(() => {
+        addBotMessage(`That's your 3 free demo messages! Our team will follow up at ${state.userEmail}. For an immediate full demo, email yjlee@nurol.ai`);
+      }, 900);
+    }
+
+  } catch(e) {
+    removeTyping();
+    addBotMessage("Brief connection issue. For a full live demo please email yjlee@nurol.ai — our team responds within 24 hours.");
+  }
+}
+
+function saveInteraction(userMessage) {
+  try {
+    const items = JSON.parse(localStorage.getItem('nurol_interactions') || '[]');
+    items.push({
+      email: state.userEmail,
+      agent: state.chatAgent,
+      industry: state.chatIndustry,
+      message: userMessage,
+      timestamp: new Date().toISOString()
+    });
+    localStorage.setItem('nurol_interactions', JSON.stringify(items));
+  } catch(e) {}
+}
+
+function saveSessionData(status) {
+  try {
+    const sessions = JSON.parse(localStorage.getItem('nurol_full_sessions') || '[]');
+    sessions.push({
+      ...state.sessionData,
+      status,
+      endTime: Date.now(),
+      durationSeconds: Math.round((Date.now() - state.sessionData.startTime) / 1000),
+      trialStatus: state.sessionData.usedAllTrials ? 'exhausted' : (state.sessionData.messagesCount > 0 ? 'partial' : 'no_interaction')
+    });
+    localStorage.setItem('nurol_full_sessions', JSON.stringify(sessions));
+  } catch(e) {}
+}
+
+// Close modal when clicking the backdrop
+document.getElementById('chatbot-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeChatbot();
+});
+</script>
+</body>
+</html>
