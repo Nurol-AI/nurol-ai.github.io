@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nurol AI — AI Teammates. Not AI Consultants.</title>
+<link rel="icon" type="image/png" href="favicon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -11,10 +13,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green: #1B6435;
+  --green: #1B6435; 
   --green-light: #2a8a4a;
   --green-glow: rgba(27,100,53,0.4);
-  --gold: #9D8300;
+  --gold: #9D8300; 
   --gold-light: #C9A800;
   --gold-glow: rgba(157,131,0,0.4);
   --wheat: #E0D6B0;
@@ -50,9 +52,7 @@ nav{
   border-bottom:1px solid rgba(157,131,0,0.15);
 }
 .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
-.nav-logo-icon{width:38px;height:38px}
-.nav-logo-text{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:var(--black);letter-spacing:-0.5px} 
-.nav-logo-text span{color:var(--gold-light)}
+.nav-logo img{height:138px;width:auto;display:block} /* Styling for the new logo image */
 .nav-links{display:flex;align-items:center;gap:8px}
 .nav-link{
   background:none;border:none;cursor:pointer;
@@ -564,22 +564,7 @@ footer{
 
 <nav id="main-nav">
   <a class="nav-logo" onclick="showPage('home')">
-    <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none">
-      <circle cx="19" cy="19" r="5" fill="#9D8300" stroke="#C9A800" stroke-width="1.5"/>
-      <circle cx="8" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-      <circle cx="30" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-      <circle cx="30" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-      <circle cx="8" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-      <circle cx="19" cy="5" r="2.5" fill="none" stroke="#1B6435" stroke-width="1.5"/>
-      <circle cx="33" cy="19" r="2.5" fill="none" stroke="#1B6435" stroke-width="1.5"/>
-      <line x1="19" y1="14" x2="19" y2="7.5" stroke="#1B6435" stroke-width="1.2"/>
-      <line x1="24" y1="19" x2="30.5" y2="19" stroke="#1B6435" stroke-width="1.2"/>
-      <line x1="14.5" y1="15.5" x2="10.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
-      <line x1="23.5" y1="15.5" x2="27.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
-      <line x1="23.5" y1="22.5" x2="27.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
-      <line x1="14.5" y1="22.5" x2="10.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
-    </svg>
-    <span class="nav-logo-text">NUR<span>o</span>L<span style="color:rgba(0,0,0,0.3);font-size:14px;margin-left:4px">AI</span></span>
+    <img src="favicon_white.png" alt="Nurol AI Logo">
   </a>
   <div class="nav-links">
     <button class="nav-link" onclick="showPage('home')">Home</button>
@@ -755,12 +740,12 @@ footer{
             <tr><td>Compliance (HIPAA/ITAR)</td><td class="bad">Risk</td><td class="good">Fully compliant</td></tr>
             <tr><td>Model control</td><td class="bad">Vendor decides</td><td class="good">You own it</td></tr>
             <tr><td>Agentic execution</td><td class="bad">Cloud only</td><td class="good">On-prem native</td></tr>
-            <tr><td>3-year TCO</td><td class="bad">$6.5M–$8.5M+</td><td class="good">License + HW</td></tr>
+            <tr><td>3-year TCO</td><td class="bad">$6.5M–$8.5M+</td><td class="good">License + Hardware</td></tr>
           </tbody>
         </table>
       </div>
       <div>
-        <h3 style="font-size:26px;margin-bottom:20px">You own the hardware.<br>We bring the brain.</h3>
+        <h3 style="font-size:26px;margin-bottom:20px">You own the Hardware.<br>We bring the brain.</h3>
         <p style="color:rgba(0,0,0,0.6);line-height:1.7;margin-bottom:24px">Fortune 500 companies spend $2M+/year in AI talent to operate their sovereign stack. Nurol delivers the same capabilities to any organization — for a fraction of the cost and in under 48 hours.</p>
         <p style="color:rgba(0,0,0,0.6);line-height:1.7;margin-bottom:32px">Cloud AI APIs cost 5–200× more per token than self-hosted inference. For 24/7 AI agents running continuously, on-prem isn't just preferable — it's the only viable economic model.</p>
         <div class="stat-blocks">
@@ -782,7 +767,6 @@ footer{
     </div>
   </section>
 
-  <!-- ===== 1P1B SECTION ===== -->
   <section class="onepb-section" id="one-person-billion">
 
     <div class="onepb-top">
@@ -800,7 +784,6 @@ footer{
       </p>
     </div>
 
-    <!-- stat pills -->
     <div class="onepb-stat-pills">
       <div class="onepb-pill">
         <span class="onepb-pill-num">50×</span>
@@ -820,13 +803,11 @@ footer{
       </div>
     </div>
 
-    <!-- image -->
     <div class="onepb-image-wrap">
       <img src="1P1B.png" alt="The Era of the One-Person Billion-Dollar Company — NuroMAX"
         onerror="this.style.display='none'">
     </div>
 
-    <!-- 3 pillars -->
     <div class="onepb-bottom">
       <div class="onepb-pillar">
         <div class="onepb-pillar-icon">🧠</div>
@@ -851,7 +832,6 @@ footer{
       </div>
     </div>
 
-    <!-- regret strip with whitepaper CTA -->
     <div class="onepb-regret">
       <div class="onepb-regret-text">
         The founders who built the tools you use every day started with the same hours you have.
@@ -870,12 +850,10 @@ footer{
     </div>
 
   </section>
-  <!-- ===== END 1P1B ===== -->
-
   <section id="partners">
     <div class="section-label">Ecosystem</div>
     <h2 class="section-title">Built With the Best</h2>
-    <p class="section-sub">Nurol's partner network spans hardware, systems integration, and academia to deliver a fully integrated AI appliance.</p>
+    <p class="section-sub">Nurol's partner network spans Hardware, systems integration, and academia to deliver a fully integrated AI appliance.</p>
     <div class="partners-grid">
       <div class="partner-card">
         <div class="partner-cat">Semiconductor</div>
@@ -910,13 +888,13 @@ footer{
       <div class="partner-card">
         <div class="partner-cat">Hardware</div>
         <div class="partner-name">GIGABYTE</div>
-        <div class="partner-desc">Global hardware manufacturer providing validated GPU server configurations for Nurol's AI Appliance deployment program.</div>
+        <div class="partner-desc">Global Hardware manufacturer providing validated GPU server configurations for Nurol's AI Appliance deployment program.</div>
         <a href="https://www.gigabyte.com" target="_blank" class="partner-link">gigabyte.com ↗</a>
       </div>
       <div class="partner-card">
         <div class="partner-cat">Hardware</div>
         <div class="partner-name">Acer</div>
-        <div class="partner-desc">Global computing giant powering Nurol's hardware leasing model — $0 CapEx, monthly subscription, delivered and ready to run.</div>
+        <div class="partner-desc">Global computing giant powering Nurol's Hardware leasing model — $0 CapEx, monthly subscription, delivered and ready to run.</div>
         <a href="https://www.acer.com" target="_blank" class="partner-link">acer.com ↗</a>
       </div>
       <div class="partner-card">
@@ -1125,18 +1103,7 @@ footer{
 <footer id="main-footer">
   <div class="footer-brand">
     <div style="display:flex;align-items:center;gap:10px;cursor:pointer" onclick="showPage('home')">
-      <svg width="32" height="32" viewBox="0 0 38 38" fill="none">
-        <circle cx="19" cy="19" r="5" fill="#9D8300" stroke="#C9A800" stroke-width="1.5"/>
-        <circle cx="8" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-        <circle cx="30" cy="10" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-        <circle cx="30" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-        <circle cx="8" cy="28" r="3" fill="none" stroke="#9D8300" stroke-width="1.5"/>
-        <line x1="14.5" y1="15.5" x2="10.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
-        <line x1="23.5" y1="15.5" x2="27.5" y2="12" stroke="#9D8300" stroke-width="1.2"/>
-        <line x1="23.5" y1="22.5" x2="27.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
-        <line x1="14.5" y1="22.5" x2="10.5" y2="26" stroke="#9D8300" stroke-width="1.2"/>
-      </svg>
-      <span style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--black)">NURoL <span style="color:var(--gold-light)">AI</span></span>
+      <img src="favicon_white.jpg" alt="Nurol AI Logo" style="height:32px; width:auto;">
     </div>
     <p>AI Teammates. Not AI consultants. On-premise AI agents that execute — always on, air-gapped, sovereign.</p>
     <p style="margin-top:12px">San Jose, CA · yjlee@nurol.ai</p>
@@ -1178,7 +1145,6 @@ footer{
   <span>Intelligent Design. Secure Infrastructure.</span>
 </div>
 
-<!-- CHATBOT MODAL -->
 <div class="modal-overlay" id="chatbot-modal">
   <div class="chatbot-modal">
     <div class="chat-header">
@@ -1189,7 +1155,6 @@ footer{
       <button class="chat-close" onclick="closeChatbot()">✕</button>
     </div>
 
-    <!-- Email gate -->
     <div class="email-gate" id="email-gate-view">
       <div style="font-size:32px;margin-bottom:12px">🔐</div>
       <h3>Try <span id="gate-agent-name" style="color:var(--gold-light)">NuroMax</span> Live</h3>
@@ -1199,7 +1164,6 @@ footer{
       <div class="privacy-note">Your email is used only for follow-up. No spam. No selling.</div>
     </div>
 
-    <!-- Chat interface -->
     <div id="chat-view" style="display:none;flex-direction:column;flex:1">
       <div class="chat-body" id="chat-body"></div>
       <div class="chat-footer">
