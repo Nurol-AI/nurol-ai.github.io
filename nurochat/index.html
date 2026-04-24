@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuroChat – Test Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&family=Noto+Sans+SC&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/marked@15/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="header-top">
+      <h1>NuroChat</h1>
+      <nav class="tab-bar">
+        <button class="tab active" data-tab="chat">Chat</button>
+        <button class="tab" data-tab="data">Data Browser</button>
+      </nav>
+    </div>
+
+    <!-- Chat controls -->
+    <div id="chat-controls" class="controls">
+      <!--label for="api-url">API URL</label>
+      <input id="api-url" type="text" value="http://localhost:8000" /-->
+      <input id="api-url" type="hidden" value="https://dev.xellence.ai/nurochat" />
+      <label for="bot-select">Bot</label>
+      <select id="bot-select"><option value="">Loading…</option></select>
+      <label for="lang-select">Lang</label>
+      <select id="lang-select">
+        <option value="auto">Auto</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="de">Deutsch</option>
+        <option value="ru">Русский</option>
+        <option value="zh-TW">繁體中文</option>
+        <option value="zh-CN">简体中文</option>
+      </select>
+      <label class="toggle"><input id="stream-toggle" type="checkbox" checked /> Stream</label>
+    </div>
+
+    <!-- Data browser controls -->
+    <div id="data-controls" class="controls" style="display:none">
+      <label for="data-api-url">API URL</label>
+      <!--input id="data-api-url" type="text" value="http://localhost:8000" /-->
+      <input id="data-api-url" type="hidden" value="https://dev.xellence.ai/nurochat" />
+      <label for="admin-token">Admin Token</label>
+      <input id="admin-token" type="password" placeholder="Bearer token" />
+      <button id="token-toggle" class="icon-btn" title="Show/hide token">👁</button>
+    </div>
+  </header>
+
+  <!-- Chat view -->
+  <div id="chat-view" class="view">
+    <main id="chat-container">
+      <div id="messages"></div>
+    </main>
+    <footer>
+      <form id="chat-form" autocomplete="off">
+        <textarea id="user-input" rows="2" placeholder="Type a message…"></textarea>
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+    </footer>
+  </div>
+
+  <!-- Data browser view -->
+  <div id="data-view" class="view" style="display:none">
+    <div class="data-browser">
+      <div class="data-sidebar">
+        <button class="data-root active" data-root="logs">Logs</button>
+        <button class="data-root" data-root="contexts">Contexts</button>
+      </div>
+      <div class="data-main">
+        <div class="data-toolbar">
+          <nav id="breadcrumbs"><span class="crumb" data-path="">root</span></nav>
+          <span id="data-status" class="data-status"></span>
+        </div>
+        <div id="file-list-container">
+          <table id="file-list">
+            <thead>
+              <tr>
+                <th class="col-name">Name</th>
+                <th class="col-size">Size</th>
+                <th class="col-modified">Modified</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div id="file-empty" class="file-empty" style="display:none">No files found.</div>
+        </div>
+        <div id="file-preview" class="file-preview" style="display:none">
+          <div class="preview-header">
+            <span id="preview-filename"></span>
+            <div class="preview-actions">
+              <button id="preview-download" class="small-btn">Download</button>
+              <button id="preview-close" class="small-btn">Close</button>
+            </div>
+          </div>
+          <pre id="preview-content"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="data-browser.js"></script>
+</body>
+</html>
