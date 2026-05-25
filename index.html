@@ -4,12 +4,84 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Nurol — Power on your AI</title>
+<meta name="description" content="Nurol builds NurOS — an AI platform that runs cloud, on-prem, or hybrid. One platform, one policy, one memory. NuroTab for chip design, NuroMAX for enterprise operations.">
+<link rel="canonical" href="https://nurol.ai/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nurol">
+<meta property="og:title" content="Nurol — Power on your AI">
+<meta property="og:description" content="An AI platform that runs cloud, on-prem, or hybrid. One platform, one policy, one memory. NuroTab for chip design, NuroMAX for enterprise operations.">
+<meta property="og:url" content="https://nurol.ai/">
+<meta property="og:image" content="https://nurol.ai/assets/nurol-logo.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nurol — Power on your AI">
+<meta name="twitter:description" content="An AI platform that runs cloud, on-prem, or hybrid. NuroTab for chip design, NuroMAX for enterprise operations.">
+<meta name="twitter:image" content="https://nurol.ai/assets/nurol-logo.png">
+
+<!-- AI / LLM discovery -->
+<link rel="llms" type="text/markdown" href="https://nurol.ai/llms.txt">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nurol.ai/#organization",
+      "name": "Nurol",
+      "url": "https://nurol.ai/",
+      "email": "info@nurol.ai",
+      "logo": "https://nurol.ai/assets/nurol-logo.png",
+      "description": "Nurol builds NurOS, an AI platform that runs cloud, on-prem, or hybrid with one platform, one policy, and one shared memory.",
+      "slogan": "Power on your AI."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nurol.ai/#website",
+      "url": "https://nurol.ai/",
+      "name": "Nurol",
+      "publisher": { "@id": "https://nurol.ai/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "NurOS",
+      "applicationCategory": "AI platform",
+      "operatingSystem": "Cloud, on-prem, or hybrid",
+      "url": "https://nurol.ai/",
+      "publisher": { "@id": "https://nurol.ai/#organization" },
+      "description": "AI platform that routes every workload across cloud and on-prem, keeps sensitive data inside your perimeter, and unifies every tool, agent, and model on one policy and one memory."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "NuroTab",
+      "applicationCategory": "EDA / chip design",
+      "operatingSystem": "On-premises",
+      "url": "https://nurol.ai/#agents",
+      "publisher": { "@id": "https://nurol.ai/#organization" },
+      "description": "End-to-end front-end chip design — SoC topology, RTL generation, SystemRDL register maps, UVM/SVA/cocotb verification, IP catalog, and artifact handoff — entirely on-premises."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "NuroMAX",
+      "applicationCategory": "Enterprise operations",
+      "operatingSystem": "Cloud, on-prem, or hybrid",
+      "url": "https://nurol.ai/#agents",
+      "publisher": { "@id": "https://nurol.ai/#organization" },
+      "description": "Multi-platform agent for enterprise operations that lives across the tools your team already uses and executes work within your policy on infrastructure you control."
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
-<link rel="apple-touch-icon" href="assets/favicon.jpg">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body data-screen-label="Nurol">
@@ -133,12 +205,12 @@
           </svg>
           <!-- overlay pills -->
           <div class="unify-pills">
-            <span class="unify-pill green" style="top:-2%;left:50%;transform:translateX(-50%)"><span class="swatch"></span>NuroChip</span>
-            <span class="unify-pill gold" style="top:18%;right:-6%"><span class="swatch"></span>NuroMax</span>
-            <span class="unify-pill wheat" style="top:50%;right:-10%;transform:translateY(-50%)"><span class="swatch"></span>Nurol Agents</span>
-            <span class="unify-pill gold" style="bottom:18%;right:-4%"><span class="swatch"></span>Gemini · OpenAI</span>
+            <span class="unify-pill green" style="top:-2%;left:50%;transform:translateX(-50%)"><span class="swatch"></span>NuroTab</span>
+            <span class="unify-pill gold" style="top:18%;right:-6%"><span class="swatch"></span>NuroMAX</span>
+            <span class="unify-pill wheat" style="top:50%;right:-10%;transform:translateY(-50%)"><span class="swatch"></span>Your agents</span>
+            <span class="unify-pill gold" style="bottom:18%;right:-4%"><span class="swatch"></span>Frontier LLMs</span>
             <span class="unify-pill wheat" style="bottom:-2%;left:50%;transform:translateX(-50%)"><span class="swatch"></span>MCP marketplace</span>
-            <span class="unify-pill ecru" style="bottom:18%;left:-2%"><span class="swatch"></span>Devstral · Gemma</span>
+            <span class="unify-pill ecru" style="bottom:18%;left:-2%"><span class="swatch"></span>Open-source models</span>
             <span class="unify-pill wheat" style="top:50%;left:-10%;transform:translateY(-50%)"><span class="swatch"></span>Your custom agents</span>
             <span class="unify-pill green" style="top:18%;left:-4%"><span class="swatch"></span>Your models</span>
           </div>
@@ -369,7 +441,7 @@
       <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:40px">
         <a class="workspace" href="#industries" data-route="industries" style="text-decoration:none">
           <div class="workspace-vis" style="padding:0;overflow:hidden;border-radius:10px 10px 0 0">
-            <img src="assets/industry-semiconductor.png" alt="NuroChip Semiconductor workspace" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px 10px 0 0">
+            <img src="assets/industry-semiconductor.png" alt="NuroTab semiconductor workspace" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px 10px 0 0">
           </div>
           <div class="workspace-info">
             <h3>Semiconductor</h3>
@@ -402,7 +474,7 @@
         <p class="lede" style="margin:20px auto 28px;color:rgba(28,30,33,0.7)">Cloud-only, on-prem-only, or hybrid — NurOS runs all three. Every tool, every agent, every model on one unified platform. Routed by your policy, owned by your team, built to grow with you.</p>
         <div class="hero-cta" style="margin-top:0">
           <a class="btn primary" href="mailto:info@nurol.ai"><svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-          <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroMAX Whitepaper">Request whitepaper</a>
+          <a class="btn ghost" href="mailto:info@nurol.ai?subject=NurOS Whitepaper">Request whitepaper</a>
         </div>
       </div>
     </div>
@@ -418,269 +490,60 @@
 
   <section class="page-head">
     <div class="container narrow">
-      <div class="eyebrow">The lineup</div>
-      <h1 class="d-1">One platform.<br><span class="shimmer">Every agent.</span></h1>
-      <p class="lede" style="margin:24px auto 0">NuroChip ships silicon. NuroMax runs your operations. Every agent — Nurol-built or from an external marketplace — lives on one platform, one policy, one memory.</p>
+      <div class="eyebrow">Our products</div>
+      <h1 class="d-1">Two products.<br><span class="shimmer">One platform.</span></h1>
+      <p class="lede" style="margin:24px auto 0">NuroTab for chip design. NuroMAX for enterprise operations. Both run on NurOS — one platform, one policy, one memory.</p>
     </div>
   </section>
 
-  <!-- ─────── NUROCHIP AGENTS ─────── -->
+  <!-- ─────── PRODUCTS ─────── -->
   <section class="scene" style="padding-top:56px">
     <div class="container">
 
-      <div class="reveal" style="margin-bottom:36px">
-        <span class="chip green" style="margin-bottom:16px;display:inline-flex"><i class="dot"></i>NuroChip agents</span>
-        <h2 class="d-3">Built for the<br><span class="shimmer">chip design floor.</span></h2>
-        <p class="body-1" style="max-width:600px;margin-top:14px">NuroChip is the SoC orchestration platform for semiconductor teams. Its agents cover the full front-end design lifecycle — from architecture specification through RTL generation, verification scaffolding, and artifact handoff — entirely on-premises.</p>
-      </div>
+      <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px">
 
-      <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px">
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-chip"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
+        <!-- NuroTab -->
+        <div class="agent-card" style="padding:36px">
+          <div class="head" style="margin-bottom:20px">
+            <div class="glyph" style="width:48px;height:48px;border-radius:12px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="26" height="26"><use href="#i-chip"/></svg></div>
+            <span class="chip green"><i class="dot"></i>EDA</span>
           </div>
-          <h3 style="font-size:16px;margin-bottom:6px">SoC Topology Agent</h3>
-          <div class="role" style="margin-bottom:10px">Architecture orchestration</div>
-          <p class="desc" style="font-size:13px;flex:none">Visual canvas for SoC design — drag-and-drop IPs, bus wiring, DRC checks. Supports 12 bus protocols including AXI4, APB, and AHB. Catches architecture-level bugs before a single line of RTL is written.</p>
+          <h3 style="font-size:26px;margin-bottom:8px">NuroTab</h3>
+          <div class="role" style="margin-bottom:16px;color:var(--hunter-bright)">Chip design, end to end</div>
+          <p class="desc" style="font-size:14px;line-height:1.6;flex:none;margin-bottom:20px">From architecture spec to taped-out silicon — accelerating front-end chip design entirely on-premises. SoC topology, RTL generation, register maps, verification scaffolding, IP catalog, and artifact handoff in one platform.</p>
+          <ul class="feature-list" style="margin:0 0 24px">
+            <li><span class="label">SoC topology</span><span>Visual canvas with 12 bus protocols (AXI4, APB, AHB, …) and DRC checks before a line of RTL is written.</span></li>
+            <li><span class="label">RTL generation</span><span>Spec-to-RTL in Verilog, VHDL, and SystemVerilog — grounded in your architecture context, inside VS Code.</span></li>
+            <li><span class="label">Register maps</span><span>Full SystemRDL pipeline. One command generates C headers, UVM RAL models, HTML docs, cocotb scaffolds, and SVA assertions.</span></li>
+            <li><span class="label">Verification</span><span>Architecture-driven UVM testbench scaffolding, protocol-level SVA, scoreboards, and cocotb frameworks.</span></li>
+            <li><span class="label">IP catalog &amp; handoff</span><span>Full-text IP search, IP-XACT interop, ECO preview, design versioning, and 18-artifact handoff package with SHA-256 manifest.</span></li>
+            <li><span class="label">100% on-prem</span><span>Every model, inference, and register map stays within your infrastructure. Your IP never leaves the network.</span></li>
+          </ul>
+          <a class="btn primary" href="mailto:info@nurol.ai?subject=NuroTab demo">Book a demo<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
         </div>
 
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-doc"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
+        <!-- NuroMAX -->
+        <div class="agent-card" style="padding:36px">
+          <div class="head" style="margin-bottom:20px">
+            <div class="glyph" style="width:48px;height:48px;border-radius:12px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="26" height="26"><use href="#i-max"/></svg></div>
+            <span class="chip gold"><i class="dot"></i>Operations</span>
           </div>
-          <h3 style="font-size:16px;margin-bottom:6px">RTL Generation Agent</h3>
-          <div class="role" style="margin-bottom:10px">Verilog / VHDL / SystemVerilog</div>
-          <p class="desc" style="font-size:13px;flex:none">Spec-to-RTL generation grounded in your architecture context. Autocomplete, refactoring, and legacy RTL migration inside VS Code via NuroTab — with synthesis tool integration in the loop.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-plm"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Register Map Agent</h3>
-          <div class="role" style="margin-bottom:10px">SystemRDL pipeline</div>
-          <p class="desc" style="font-size:13px;flex:none">Full SystemRDL authoring with PeakRDL pipeline. One command generates C/C++ firmware headers, UVM RAL models, HTML docs, cocotb scaffolds, and SVA assertions from a single register spec.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-shield"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Verification Agent</h3>
-          <div class="role" style="margin-bottom:10px">UVM · SVA · cocotb</div>
-          <p class="desc" style="font-size:13px;flex:none">Architecture-driven UVM testbench scaffolding, protocol-level SVA assertions for every bus in the design, UVM scoreboards, and cocotb Python test frameworks — generated from topology, not written by hand.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-mm"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">IP Catalog Agent</h3>
-          <div class="role" style="margin-bottom:10px">IP search &amp; packaging</div>
-          <p class="desc" style="font-size:13px;flex:none">Full-text search across your IP library with protocol filters and quality scoring. IP Packaging Wizard turns existing RTL into catalog entries. IP-XACT import/export for EDA tool interoperability.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(42,138,74,0.12);border:1px solid rgba(42,138,74,0.3)"><svg width="22" height="22"><use href="#i-infra"/></svg></div>
-            <span class="ver" style="color:var(--hunter-bright)">NuroChip</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Handoff &amp; ECO Agent</h3>
-          <div class="role" style="margin-bottom:10px">Versioning &amp; artifact pipeline</div>
-          <p class="desc" style="font-size:13px;flex:none">ECO preview and design versioning — commit, tag, diff, and apply late-stage architectural changes with a structured, reversible workflow. Full artifact handoff package (18 types, SHA-256 manifest) in one command.</p>
+          <h3 style="font-size:26px;margin-bottom:8px">NuroMAX</h3>
+          <div class="role" style="margin-bottom:16px;color:var(--gold-bright)">Multi-platform agent for enterprise operations</div>
+          <p class="desc" style="font-size:14px;line-height:1.6;flex:none;margin-bottom:20px">A single agent that lives across the tools your team already uses. Talk to it. Hand it work. It executes within your policy, on infrastructure you control.</p>
+          <a class="btn primary" href="mailto:info@nurol.ai?subject=NuroMAX demo">Book a demo<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
         </div>
 
       </div>
 
-    </div>
-  </section>
-
-  <!-- ─────── NUROMAX AGENTS ─────── -->
-  <section class="scene tight" style="padding-top:0">
-    <div class="container">
-
-      <div class="reveal" style="margin-bottom:36px;padding-top:56px;border-top:1px solid var(--ink-line)">
-        <span class="chip gold" style="margin-bottom:16px;display:inline-flex"><i class="dot"></i>NuroMax agents</span>
-        <h2 class="d-3">Built for<br><span class="shimmer">enterprise operations.</span></h2>
-        <p class="body-1" style="max-width:600px;margin-top:14px">NuroMax is the AI appliance for enterprise IT and solo operators. Its agents cover the seven execution roles that eat a team's week — support, sales, content, engineering, research, finance, and operations — coordinated through shared memory and a single approval inbox.</p>
-      </div>
-
-      <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px">
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-max"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Support Agent</h3>
-          <div class="role" style="margin-bottom:10px">24/7 Tier-1 resolution</div>
-          <p class="desc" style="font-size:13px;flex:none">Multi-turn conversations grounded in your knowledge base. Handles refunds, subscription changes, and backend actions autonomously. Routes escalations to a human for anything outside policy — targeting 50–80% deflection.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-infra"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Max Infra</h3>
-          <div class="role" style="margin-bottom:10px">AI network engineer</div>
-          <p class="desc" style="font-size:13px;flex:none">Natural-language control of routers, switches, and access points. Drift detection, automated runbook generation, and breach containment — all queryable from Slack, Teams, or WhatsApp.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-doc"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Research Agent</h3>
-          <div class="role" style="margin-bottom:10px">Multi-step research &amp; briefs</div>
-          <p class="desc" style="font-size:13px;flex:none">Plannable, multi-step research with cited synthesis in 5–45 minutes. Scheduled competitor, regulatory, and market monitoring delivered as structured briefs — not raw links.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-plm"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Finance Agent</h3>
-          <div class="role" style="margin-bottom:10px">Bookkeeping &amp; runway</div>
-          <p class="desc" style="font-size:13px;flex:none">Transaction categorisation, receipt matching, vendor invoice routing, automated billing and dunning, real-time burn and runway dashboards, and anomaly detection — with dollar-threshold approval controls.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-mm"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Sales Agent</h3>
-          <div class="role" style="margin-bottom:10px">SDR &amp; outbound sequences</div>
-          <p class="desc" style="font-size:13px;flex:none">Account enrichment, per-prospect research, signal-triggered sequencing, reply classification, and calendar booking. All outbound drafts held for human approval — never auto-sends at scale.</p>
-        </div>
-
-        <div class="agent-card" style="padding:24px">
-          <div class="head" style="margin-bottom:14px">
-            <div class="glyph" style="width:40px;height:40px;border-radius:11px;background:rgba(201,168,0,0.1);border:1px solid rgba(201,168,0,0.3)"><svg width="22" height="22"><use href="#i-shield"/></svg></div>
-            <span class="ver" style="color:var(--gold-bright)">NuroMax</span>
-          </div>
-          <h3 style="font-size:16px;margin-bottom:6px">Executive Assistant</h3>
-          <div class="role" style="margin-bottom:10px">Inbox · scheduling · briefs</div>
-          <p class="desc" style="font-size:13px;flex:none">Inbox triage with drafted replies, meeting scheduling, pre-meeting briefs pulled from shared memory, live transcription, and action-item extraction with proactive follow-up reminders.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─────── ONE PLATFORM VALUE PROP ─────── -->
-  <section class="scene tight" style="padding-top:0">
-    <div class="container">
-      <div class="reveal" style="padding:56px;border-radius:20px;background:linear-gradient(135deg,rgba(42,138,74,0.07),rgba(201,168,0,0.07));border:1px solid rgba(201,168,0,0.2);margin-bottom:24px">
-        <div class="eyebrow" style="margin-bottom:16px">Why one platform matters</div>
-        <h2 class="d-3" style="margin-bottom:20px">Every agent.<br><span class="shimmer">One memory. One policy.</span></h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px">
-          <div>
-            <div style="font-family:var(--f-mono);font-size:13px;color:var(--hunter-bright);font-weight:600;margin-bottom:10px">ONE MEMORY</div>
-            <p class="body-2">Every Nurol agent — and every external agent connected via NuroMax — reads from and writes to the same institutional memory. Support flags a churn risk; the sales agent pauses the upsell; the research agent pulls what changed at the account. No siloed context.</p>
-          </div>
-          <div>
-            <div style="font-family:var(--f-mono);font-size:13px;color:var(--gold-bright);font-weight:600;margin-bottom:10px">ONE POLICY</div>
-            <p class="body-2">Data routing rules, cost guardrails, and approval thresholds are set once and applied to every agent call — whether the agent is built by Nurol or sourced from an external marketplace via MCP. Your policy travels with every task.</p>
-          </div>
-          <div>
-            <div style="font-family:var(--f-mono);font-size:13px;color:var(--t-2);font-weight:600;margin-bottom:10px">ONE INBOX</div>
-            <p class="body-2">Every agent output — outbound emails, refunds above threshold, PR merges, payments, content drafts — flows into a single approval inbox. Clear it in 20–30 minutes a day. Agent output becomes leverage, not anxiety.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────── REST OF THE LINEUP ─────── -->
-  <section class="scene tight" style="padding-top:0">
-    <div class="container">
-      <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:32px;padding-bottom:18px;border-bottom:1px solid var(--ink-line)">
+      <!-- Custom agent CTA -->
+      <div class="reveal reveal-delay-2" style="padding:36px 40px;border-radius:18px;background:var(--ink-1);border:1px solid var(--ink-line);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
         <div>
-          <div class="eyebrow" style="margin-bottom:8px">Also in the lineup</div>
-          <h2 class="h-1">Five more, when you need them.</h2>
+          <div class="eyebrow" style="margin-bottom:8px">Need something specific?</div>
+          <h3 class="h-1" style="margin-bottom:6px">We'll build it with you.</h3>
+          <p class="body-2" style="margin:0;max-width:520px">Tell us the workflow. We scope a custom agent on top of NurOS, deploy it on your infrastructure, and hand over ownership.</p>
         </div>
-        <p class="body-2" style="max-width:380px;text-align:right;margin:0">Workflows the headline pair don't cover. Install one at a time.</p>
-      </div>
-
-      <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-
-        <div class="agent-card" style="min-height:auto;padding:20px">
-          <div class="head" style="margin-bottom:12px">
-            <div class="glyph" style="width:38px;height:38px;border-radius:10px"><svg width="20" height="20"><use href="#i-doc"/></svg></div>
-            <span class="ver">v2.0</span>
-          </div>
-          <h3 style="font-size:17px">NuroDoc</h3>
-          <div class="role" style="margin-bottom:8px">Research &amp; documents</div>
-          <p class="desc" style="font-size:13px;flex:none">Deep-web research, structured DOCX/XLSX/PPTX reports — institutional memory that stays local.</p>
-        </div>
-
-        <div class="agent-card" style="min-height:auto;padding:20px">
-          <div class="head" style="margin-bottom:12px">
-            <div class="glyph" style="width:38px;height:38px;border-radius:10px"><svg width="20" height="20"><use href="#i-plm"/></svg></div>
-            <span class="ver">v1.1</span>
-          </div>
-          <h3 style="font-size:17px">NuroPLM</h3>
-          <div class="role" style="margin-bottom:8px">Product lifecycle</div>
-          <p class="desc" style="font-size:13px;flex:none">BOM &amp; ECN management in natural language. Plugs into your existing PLM — no rip-and-replace.</p>
-        </div>
-
-        <div class="agent-card" style="min-height:auto;padding:20px">
-          <div class="head" style="margin-bottom:12px">
-            <div class="glyph" style="width:38px;height:38px;border-radius:10px"><svg width="20" height="20"><use href="#i-mm"/></svg></div>
-            <span class="ver">v1.0</span>
-          </div>
-          <h3 style="font-size:17px">NuroMM</h3>
-          <div class="role" style="margin-bottom:8px">Material management</div>
-          <p class="desc" style="font-size:13px;flex:none">Production scheduling, replenishment, cost negotiation via game theory.</p>
-        </div>
-
-        <div class="agent-card" style="min-height:auto;padding:20px">
-          <div class="head" style="margin-bottom:12px">
-            <div class="glyph" style="width:38px;height:38px;border-radius:10px"><svg width="20" height="20"><use href="#i-store"/></svg></div>
-            <span class="ver">∞</span>
-          </div>
-          <h3 style="font-size:17px">External agents</h3>
-          <div class="role" style="margin-bottom:8px">via NuroMax · MCP</div>
-          <p class="desc" style="font-size:13px;flex:none">Thousands of agents from external marketplaces, connected via the MCP standard. Your policies applied to every call.</p>
-        </div>
-
-        <div class="agent-card custom" style="min-height:auto;padding:20px">
-          <div class="head" style="margin-bottom:12px">
-            <div class="glyph" style="width:38px;height:38px;border-radius:10px"><svg width="20" height="20"><use href="#i-plus"/></svg></div>
-            <span class="ver">commission</span>
-          </div>
-          <h3 style="font-size:17px">Your custom agent</h3>
-          <div class="role" style="margin-bottom:8px">Built in 4 weeks</div>
-          <p class="desc" style="font-size:13px;flex:none">Workflow not in the catalogue? We scope, build, and deploy — owned by you, on your hardware.</p>
-        </div>
-
-      </div>
-
-      <!-- Footer CTAs -->
-      <div class="reveal reveal-delay-2" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
-        <div style="padding:32px 36px;border-radius:16px;background:var(--ink-1);border:1px solid var(--ink-line)">
-          <div class="eyebrow" style="margin-bottom:8px">Don't see the agent you need?</div>
-          <h3 class="h-1" style="margin-bottom:8px">We'll build it with you.</h3>
-          <p class="body-2" style="margin-bottom:20px">Tell us the workflow. We'll scope a custom agent, deploy it on your infrastructure, and hand over ownership.</p>
-          <a class="btn primary" href="mailto:info@nurol.ai?subject=Custom agent">Talk to Nurol<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div style="padding:32px 36px;border-radius:16px;background:var(--ink-1);border:1px solid var(--ink-line)">
-          <div class="eyebrow" style="margin-bottom:8px">Beyond NuroChip &amp; NuroMax</div>
-          <h3 class="h-1" style="margin-bottom:8px">There's more to explore.</h3>
-          <p class="body-2" style="margin-bottom:20px">NuroChip and NuroMax are our flagship agents — but the full Nurol roster goes further. Reach out to understand the complete lineup for your use case.</p>
-          <a class="btn gold" href="mailto:info@nurol.ai?subject=Full agent lineup">Explore with Nurol<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-        </div>
+        <a class="btn gold" href="mailto:info@nurol.ai?subject=Custom agent">Talk to Nurol<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
       </div>
 
     </div>
@@ -697,8 +560,8 @@
   <section class="page-head">
     <div class="container narrow">
       <div class="eyebrow">Workspaces</div>
-      <h1 class="d-1">Pre-built for <span class="shimmer">your sector.</span></h1>
-      <p class="lede" style="margin:24px auto 0">Every industry is a workspace — a curated stack of agents, tuned for the work. Open one. Or describe yours and we'll configure it.</p>
+      <h1 class="d-1">Built for <span class="shimmer">the work.</span></h1>
+      <p class="lede" style="margin:24px auto 0">Two focused workspaces — chip design and enterprise IT — each a curated stack tuned for the work, on hardware you control.</p>
     </div>
   </section>
 
@@ -710,20 +573,20 @@
       <!-- Chip Design -->
       <div class="cine-row reveal" style="margin-bottom:72px">
         <div class="cine-vis" style="aspect-ratio:16/10;overflow:hidden;border-radius:16px;border:1px solid var(--ink-line-2)">
-          <img src="assets/industry-semiconductor.png" alt="Chip Design AI workspace" style="width:100%;height:100%;object-fit:cover;display:block">
+          <img src="assets/industry-semiconductor.png" alt="NuroTab chip design workspace" style="width:100%;height:100%;object-fit:cover;display:block">
         </div>
         <div class="cine-text">
           <span class="chip green"><i class="dot"></i>Semiconductor &amp; Chip Design</span>
           <h2 class="d-3" style="margin-top:14px">From architecture spec<br>to <span class="shimmer">taped-out silicon.</span></h2>
-          <p class="body-1">NuroChip accelerates 83% of the chip design cycle — SoC topology, IP catalog, SystemRDL register maps, RTL generation, testbench scaffolding, and full artifact handoff — entirely on-premises. Your IP never leaves the network.</p>
+          <p class="body-1">NuroTab accelerates 83% of the chip design cycle — SoC topology, IP catalog, SystemRDL register maps, RTL generation, testbench scaffolding, and full artifact handoff — entirely on-premises. Your IP never leaves the network.</p>
           <ul class="feature-list">
-            <li><span class="label">NuroChip</span><span>SoC orchestration from topology canvas to RTL generation. One command generates UVM agents, SVA assertions, C headers, and IP-XACT — 18 artifact types in a single pass.</span></li>
+            <li><span class="label">NuroTab</span><span>SoC orchestration from topology canvas to RTL generation. One command generates UVM agents, SVA assertions, C headers, and IP-XACT — 18 artifact types in a single pass.</span></li>
             <li><span class="label">100% on-prem</span><span>Every model, every inference, every register map stays within your infrastructure. No RTL ever reaches a third-party cloud.</span></li>
             <li><span class="label">21–40% uplift</span><span>Measured productivity gain across the design loop, from spec through synthesis integration and waveform review.</span></li>
           </ul>
           <div class="hero-cta" style="margin-top:24px;justify-content:flex-start">
-            <a class="btn primary" href="mailto:info@nurol.ai?subject=Chip Design workspace">Book a demo<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-            <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroChip datasheet">Get datasheet</a>
+            <a class="btn primary" href="mailto:info@nurol.ai?subject=NuroTab workspace">Book a demo<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroTab datasheet">Get datasheet</a>
           </div>
         </div>
       </div>
@@ -736,86 +599,18 @@
         <div class="cine-text">
           <span class="chip gold"><i class="dot"></i>Enterprise IT &amp; Network Operations</span>
           <h2 class="d-3" style="margin-top:14px">Your network,<br><span class="shimmer">always on watch.</span></h2>
-          <p class="body-1">NuroMax becomes your 24/7 AI network engineer — detecting drift, generating runbooks, containing breaches, and orchestrating every specialist agent across your infrastructure stack from a single control plane.</p>
+          <p class="body-1">NuroMAX becomes your 24/7 AI network engineer — detecting drift, generating runbooks, containing breaches, and orchestrating work across your infrastructure stack from a single control plane.</p>
           <ul class="feature-list">
-            <li><span class="label">NuroMax</span><span>Orchestrates all agents across your IT stack. Connects to Slack, Teams, and WhatsApp so your team can query and command the network from wherever they work.</span></li>
-            <li><span class="label">Max Infra</span><span>Natural-language control of routers, switches, and access points. Diagnose network issues, apply config changes, and auto-generate runbooks — all in plain English.</span></li>
-            <li><span class="label">Shared memory</span><span>Every alert, ticket, and runbook feeds a single institutional memory. Agents correlate events across the stack that siloed tools would never connect.</span></li>
+            <li><span class="label">NuroMAX</span><span>Natural-language control of routers, switches, and access points. Diagnose issues, apply config changes, and auto-generate runbooks — all in plain English.</span></li>
+            <li><span class="label">Multi-platform</span><span>Connects to Slack, Teams, and WhatsApp so your team can query and command the network from wherever they work.</span></li>
+            <li><span class="label">Shared memory</span><span>Every alert, ticket, and runbook feeds a single institutional memory. Correlates events across the stack that siloed tools would never connect.</span></li>
           </ul>
           <div class="hero-cta" style="margin-top:24px;justify-content:flex-start">
             <a class="btn primary" href="mailto:info@nurol.ai?subject=Enterprise IT workspace">Book a demo<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-            <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroMax datasheet">Get datasheet</a>
+            <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroMAX datasheet">Get datasheet</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ─── MORE INDUSTRIES (compact) ─── -->
-  <section class="scene tight" style="padding-top:0">
-    <div class="container">
-      <div class="reveal" style="padding-bottom:18px;border-bottom:1px solid var(--ink-line);margin-bottom:32px">
-        <div class="eyebrow" style="margin-bottom:8px">More workspaces</div>
-        <h2 class="h-1">We work across many industries.</h2>
-      </div>
-      <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px">
-
-        <div class="workspace">
-          <div class="workspace-vis">
-            <img src="assets/workspace-electronics-mfg.png" alt="Electronics Manufacturing" style="width:100%;height:100%;object-fit:cover;border-radius:10px 10px 0 0">
-          </div>
-          <div class="workspace-info">
-            <h3>Electronics Manufacturing</h3>
-            <p>BOM lifecycle, material scheduling, cost negotiation by game theory — from line to delivery.</p>
-            <div class="stack"><span class="chip">NuroPLM</span><span class="chip">NuroMM</span></div>
-          </div>
-        </div>
-
-        <div class="workspace">
-          <div class="workspace-vis">
-            <img src="assets/workspace-healthcare.png" alt="Healthcare and Biotech" style="width:100%;height:100%;object-fit:cover;border-radius:10px 10px 0 0">
-          </div>
-          <div class="workspace-info">
-            <h3>Healthcare &amp; Biotech</h3>
-            <p>Research synthesis, HIPAA-grade model isolation, and structured clinical reporting — all local.</p>
-            <div class="stack"><span class="chip">NuroDoc</span><span class="chip">NuroMax</span></div>
-          </div>
-        </div>
-
-        <div class="workspace">
-          <div class="workspace-vis">
-            <img src="assets/workspace-academia.png" alt="Academia and Research" style="width:100%;height:100%;object-fit:cover;border-radius:10px 10px 0 0">
-          </div>
-          <div class="workspace-info">
-            <h3>Academia &amp; Research</h3>
-            <p>Deep literature review, lab automation workflows, and AI literacy tooling for institutions.</p>
-            <div class="stack"><span class="chip">NuroDoc</span><span class="chip">NuroChip</span><span class="chip">NuroMax</span></div>
-          </div>
-        </div>
-
-        <div class="workspace">
-          <div class="workspace-vis">
-            <img src="assets/workspace-defense.png" alt="Defense and National Security" style="width:100%;height:100%;object-fit:cover;border-radius:10px 10px 0 0">
-          </div>
-          <div class="workspace-info">
-            <h3>Defense &amp; National Security</h3>
-            <p>Air-gapped intel fusion, COA briefs, ITAR-compliant logistics and supply chain.</p>
-            <div class="stack"><span class="chip">NuroMax</span><span class="chip">NuroDoc</span><span class="chip">NuroMM</span></div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- More industries CTA -->
-      <div class="reveal" style="padding:36px 40px;border-radius:18px;background:var(--ink-1);border:1px solid var(--ink-line);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-        <div>
-          <div class="eyebrow" style="margin-bottom:8px">And many more</div>
-          <h3 class="h-1">Logistics, legal, finance, energy, retail.</h3>
-          <p class="body-2" style="margin-top:6px">We've deployed across many industries not listed here. Tell us yours — we'll configure the workspace.</p>
-        </div>
-        <a class="btn gold" href="mailto:info@nurol.ai">Talk to Nurol<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
-      </div>
-
     </div>
   </section>
 
@@ -824,9 +619,9 @@
     <div class="container">
       <div class="reveal" style="padding:48px;border-radius:18px;background:linear-gradient(135deg,rgba(42,138,74,0.08),rgba(201,168,0,0.08));border:1px solid rgba(201,168,0,0.18);text-align:center">
         <div class="eyebrow" style="margin-bottom:10px">Behind every workspace</div>
-        <h2 class="d-3" style="margin-bottom:14px">A roster of <span class="shimmer">specialist agents.</span></h2>
-        <p class="body-1" style="max-width:560px;margin:0 auto 24px">Every workspace above is powered by NuroChip, NuroMax, and more. Meet the full agent lineup.</p>
-        <a class="btn primary" href="#agents" data-route="agents">See all agents<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+        <h2 class="d-3" style="margin-bottom:14px">Two products. <span class="shimmer">One platform.</span></h2>
+        <p class="body-1" style="max-width:560px;margin:0 auto 24px">Both workspaces run on NurOS — NuroTab for chip design, NuroMAX for operations. See what each can do.</p>
+        <a class="btn primary" href="#agents" data-route="agents">See the products<svg width="14" height="14"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -857,7 +652,7 @@
       <div class="foot-col">
         <h4>Company</h4>
         <a href="mailto:info@nurol.ai">Contact</a>
-        <a href="mailto:info@nurol.ai?subject=NuroMAX Whitepaper">Whitepaper</a>
+        <a href="mailto:info@nurol.ai?subject=NurOS Whitepaper">Whitepaper</a>
         <a href="https://nurol.ai" target="_blank" rel="noopener">nurol.ai</a>
       </div>
       <div class="foot-col">

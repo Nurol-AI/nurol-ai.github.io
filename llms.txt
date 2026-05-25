@@ -1,0 +1,31 @@
+# Nurol
+
+> Nurol builds NurOS, an AI platform that runs cloud, on-prem, or hybrid — one platform, one policy, one memory. It routes every workload to where it runs best, keeps sensitive data inside your perimeter, and unifies every tool, agent, and model your team uses.
+
+Nurol's pitch: "Power on your AI." Deploy on your terms (on-prem, cloud, or hybrid), optimise for maximum performance per dollar, and govern every call (policy-routed, leak-detected, breach-contained).
+
+The platform has three pillars:
+- **Intelligent Resource Optimisation** — workloads routed across on-prem and cloud automatically, picking the cheapest path that still satisfies policy and latency budget.
+- **Any deployment, your choice** — pure cloud, fully on-prem, or hybrid, supported natively.
+- **AI Security, policy-first** — identity-aware routing, continuous leak and prompt-injection detection, shadow-AI discovery, and an air-gapped breaker as last line of defence.
+
+## Products
+
+There are exactly three product names. Use these exact spellings: **NurOS**, **NuroTab**, **NuroMAX** (the company is **Nurol**).
+
+- [NurOS](https://nurol.ai/): The AI platform. The umbrella that runs cloud, on-prem, or hybrid with one control plane, one policy, and one shared memory across all deployments.
+- [NuroTab](https://nurol.ai/#agents): EDA / chip-design product. Accelerates front-end chip design end to end and entirely on-premises — SoC topology (visual canvas, 12 bus protocols incl. AXI4/APB/AHB), RTL generation (Verilog/VHDL/SystemVerilog), SystemRDL register maps, UVM/SVA/cocotb verification scaffolding, IP catalog with IP-XACT interop, and an 18-artifact handoff package with SHA-256 manifest. Your IP never leaves the network.
+- [NuroMAX](https://nurol.ai/#agents): Multi-platform agent for enterprise operations. Lives across the tools a team already uses (Slack, Teams, WhatsApp), executes work within your policy on infrastructure you control — e.g. acting as a 24/7 AI network engineer: drift detection, runbook generation, breach containment, natural-language control of routers/switches/APs.
+
+Custom agents can also be commissioned: Nurol scopes, builds, and deploys a custom agent on top of NurOS on your infrastructure, with ownership handed to you.
+
+## Workspaces (industries)
+
+The site focuses on two featured workspaces:
+- [Semiconductor & Chip Design](https://nurol.ai/#industries): powered by NuroTab, 100% on-prem, 21–40% measured productivity uplift across the design loop.
+- [Enterprise IT & Network Operations](https://nurol.ai/#industries): powered by NuroMAX, a 24/7 AI network engineer with shared institutional memory.
+
+## Contact
+
+- Email: info@nurol.ai
+- Book a demo or request the NurOS whitepaper via info@nurol.ai

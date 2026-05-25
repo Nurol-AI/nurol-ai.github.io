@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /nurochat/
+Disallow: /archive/
+Disallow: /archive-1/
+Disallow: /archive-2/
+Disallow: /archive-3/
+
+Sitemap: https://nurol.ai/sitemap.xml
