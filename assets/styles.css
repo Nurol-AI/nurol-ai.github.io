@@ -351,18 +351,16 @@ section.scene.light .link{color:var(--hunter)}
 }
 .cine-text h3{margin-bottom:18px}
 .cine-text p{margin-bottom:20px}
-.cine-text .feature-list{list-style:none;padding:0;margin:24px 0}
-.cine-text .feature-list li{
-  padding:14px 0;border-top:1px solid var(--ink-line);
-  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
-  font-size:14px;color:var(--t-2);
+/* Feature lists: stacked, high-contrast labels */
+.cine-text .feature-list,.agent-card .feature-list{list-style:none;padding:0;margin:18px 0}
+.cine-text .feature-list li,.agent-card .feature-list li{
+  padding:9px 0;border-top:1px solid var(--ink-line);
+  font-size:13.5px;line-height:1.45;color:var(--t-3);
 }
-.cine-text .feature-list li:last-child{border-bottom:1px solid var(--ink-line)}
-.cine-text .feature-list .label{
-  font-family:var(--f-mono);font-size:10px;letter-spacing:0.12em;
-  color:var(--gold-bright);text-transform:uppercase;
-  padding:3px 8px;border:1px solid rgba(201,168,0,0.25);border-radius:4px;
-  background:var(--gold-soft);white-space:nowrap;
+.cine-text .feature-list li:last-child,.agent-card .feature-list li:last-child{border-bottom:1px solid var(--ink-line)}
+.cine-text .feature-list .label,.agent-card .feature-list .label{
+  display:block;margin-bottom:3px;
+  font-weight:600;font-size:14px;color:var(--t-1);letter-spacing:-0.01em;
 }
 
 /* ═══════════════════════════════════════════════════════════════
