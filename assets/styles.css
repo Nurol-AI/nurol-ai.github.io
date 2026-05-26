@@ -107,7 +107,7 @@ section.scene.tinted{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-1
 
 /* ─── Type ─── */
 .eyebrow{
-  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  font-size:11px;letter-spacing:0.18em;text-transform:None;
   color:var(--gold-bright);font-weight:600;margin-bottom:18px;display:inline-block;
 }
 section.scene.light .eyebrow{color:var(--gold)}
