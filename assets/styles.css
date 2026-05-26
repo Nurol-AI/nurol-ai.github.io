@@ -209,7 +209,7 @@ section.scene.light .link{color:var(--hunter)}
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 14px;border-radius:100px;
   background:rgba(201,168,0,0.08);border:1px solid rgba(201,168,0,0.22);
-  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;
+  font-size:11px;letter-spacing:0.16em;text-transform:None;font-weight:600;
   color:var(--gold-bright);margin-bottom:28px;
 }
 .hero-eyebrow::before{
