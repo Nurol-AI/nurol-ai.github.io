@@ -1,0 +1,45 @@
+# NUROL
+
+> The decision-loop architecture for allied defense AI — sovereign by construction, cited at the framework level, with one human-authority Decide gate.
+
+NUROL defines and implements the Observe · Plan · Act (OPA) framework: a three-phase decision-loop architecture for allied defense AI derived from Boyd's OODA loop. The platform, NuroMAX™, implements all three phases on a unified ontology under four cross-cutting discipline constraints, with an architecturally explicit Decide gate between Plan and Act. Sovereign deployment — on customer hardware, in customer language, behind customer security boundaries, with no data egress.
+
+## Framework
+
+- [Framework overview](framework.html): Full white paper — OPA architecture, four discipline constraints, Decide gate, compounding properties. Eight chapters.
+- [§01 The premise](framework.html#premise): Why the decision loop, not the platform or the dataset, is the right unit of analysis for defense AI.
+- [§02 The architectural gap](framework.html#gap): The hallucination boundary, the allied-customer barrier, the bundle-integration tax, and the orchestration-vertical incentive.
+- [§03 The loop](framework.html#loop): Observe · Plan · Act as a closed feedback cycle, architecturally.
+- [§04 Discipline constraints](framework.html#discipline): Sovereignty by construction; framework-enforced citation discipline; doctrine-grounded adversary modeling; honest labeling of analytical claims.
+- [§04 Observe phase](framework.html#observe): Multi-domain awareness cited at source. ADS-B, AIS, satellite, multilingual OSINT, H3-grid anomaly detection.
+- [§05 Plan phase](framework.html#plan): Doctrine-grounded wargame, honestly labeled. Agentic simulation → EGTA bridge → six formal solvers.
+- [§06 Act phase](framework.html#act): Vendor-neutral action orchestration across kinetic and cognitive domains.
+- [§07 Decide gate](framework.html#decide-gate): Phase-dependent, action-class-dependent human-loop position. HITL / HOTL / HOOTL table. Runtime-non-bypassable.
+- [§08 Compounding](framework.html#compounding): Calibration corpus, doctrine library, modality coverage, coalition language/ontology — four compounding properties.
+
+## Product — NuroMAX™
+
+- [Product overview](product.html): One platform, three phases, one gate. Sovereign-deployable.
+- [Observe surface](product.html#observe): NuroMAX™ GIS. Multi-domain operational picture. 11 languages. 100% citation chain integrity.
+- [Plan engine](product.html#plan): NuroMAX™ Wargame Dashboard. Six honestly-labeled solvers: Support Enumeration, QRE, Smooth Fictitious Play, IBR, Backward Induction, Bayesian Type Inference.
+- [Act orchestration](product.html#act): Dispatch queue — kinetic (UAS/USV/UUV) and cognitive (IO agents) — under configurable Decide gate.
+- [Sovereignty](product.html#sovereignty): On customer hardware. In customer language. Under customer control. Mechanical, not policy-promised.
+
+## Operational Scenarios
+
+Four pre-built scenario theaters: Taiwan Strait (TWN), South China Sea (SCS), Northern Europe (NEU), Korean Peninsula (KOR). Same loop, same discipline constraints, different doctrine bundles and force compositions.
+
+## About
+
+- [About NUROL](about.html): Mission, founding thesis, posture.
+- [The thesis](about.html#thesis): Three-part founding thesis — the decision loop as the right unit of analysis; the structural allied-customer gap; compounding returns to standard adoption.
+- [Partners](about.html#partners): Research partners (CSIS, RAND, RUSI, ASPI, IISS, NIDS, KIDA, NCCU IIR) and hardware partners (NCSIST, Thunder Tiger, Carbon-Based Technology, Saronic).
+
+## Contact
+
+- [Request a briefing](contact.html): 60–90 minute briefings for allied defense ministries, research institutes, and procurement authorities. Responds within five working days. Direct: briefings@nurox.ai
+
+## Optional
+
+- [Full content](llms-full.txt): Complete text of all site pages for LLM ingestion.
+- [Sitemap](sitemap.xml): XML sitemap.

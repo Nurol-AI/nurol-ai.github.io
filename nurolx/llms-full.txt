@@ -1,0 +1,389 @@
+# NUROL — Complete site content
+# Generated: May 2026
+# Format: Plain text, structured by page and section
+
+---
+
+## PAGE: Home (index.html)
+
+### Hero
+
+NUROL — Observe · Plan · Act
+
+Allied defense AI.
+
+Observe.
+Plan.
+Act.
+
+The decision-loop architecture for the allied defense-AI category — sovereign by construction, cited at the framework level, with one human-authority Decide gate.
+
+[Request a briefing] [Read the framework]
+
+Key figures:
+- three PHASES: Observe · Plan · Act
+- four DISCIPLINE CONSTRAINTS: Architecturally enforced
+- one DECIDE GATE: Configurable by action class
+- zero DATA EGRESS: Sovereign by construction
+
+### Section: Built for allied operations
+
+From sensor to decision to dispatch, under one architecture.
+
+### Section §01 — The architectural gap
+
+The current vendor landscape does not cohere into a complete decision-loop architecture.
+
+01. The hallucination boundary
+Defense-AI platforms relying on LLM-driven analyst surfaces without framework-level citation enforcement. Prompting a model to cite is not enforcement.
+
+02. The allied-customer barrier
+U.S.-headquartered vendors operate under export regimes and customer-concentration architectures that constrain allied access. The barrier is structural, not vendor-specific.
+
+03. The bundle-integration tax
+Allied ministries assembling capability from multiple vendors face three contracts, three accreditations, three sovereignty arrangements — and a brittle integrated whole.
+
+04. The orchestration-vertical incentive
+Hardware-vertical vendors capture, rather than aggregate, partner platforms. Allied ministries operate mixed-national-supplier fleets; this is not acceptable.
+
+### Section §02 — The framework
+
+Three phases. Four constraints. One gate.
+
+Observe · Plan · Act compresses Boyd's OODA loop into three productized phases, and preserves the human-authority commitment moment as an architecturally explicit Decide gate between Plan and Act.
+
+Discipline constraints:
+01. Sovereignty by construction — Deploys on customer hardware, in customer language, behind customer security boundaries. No data egress — mechanical, not policy-promised.
+02. Framework-enforced citation discipline — No claim emerges from the platform without a citation chain back to source corpus. Downstream verbs refuse to execute if the chain is broken.
+03. Doctrine-grounded adversary modeling — Every adversary is a doctrine-typed rational actor — PRC active defense, Russian new-generation warfare — never emergent from an LLM's unguided imagination.
+04. Honest labeling of analytical claims — Iterated Best Response is never labeled as a Nash equilibrium. Enforced at the solver-registry level, not at the presentation layer.
+
+### Section §03 — Platform
+
+One platform. Three productized phases.
+
+NuroMAX™ implements Observe · Plan · Act on a unified ontology — eliminating the bundle-integration tax of assembling allied capability from multiple vendors.
+
+01 · OBSERVE — NuroMAX™ GIS
+ADS-B, AIS, and satellite tracking fused into a multi-domain operational picture, with Bayesian destination prediction and citation-disciplined entity detail.
+
+02 · PLAN — NuroMAX™ Wargame
+Doctrine-typed agents play across eight rounds. Empirical payoff matrices feed six formal solvers — each labeled by what its mathematics actually computes.
+
+### Section §04 — Operational scenarios
+
+The same loop, the same discipline, across radically different theaters.
+
+TWN — Taiwan Strait (INDO-PACIFIC)
+Five doctrine-typed teams across eight rounds. CSIS-class First-Battle methodology, productized.
+
+SCS — South China Sea (INDO-PACIFIC)
+Persistent gray-zone scenario. H3-grid anomaly detection · attribution-disclosed disclosure.
+
+NEU — Northern Europe (EUROPE)
+Hybrid kinetic-cyber-information posture against a NATO non-FVEY ministry.
+
+KOR — Korean Peninsula (NORTHEAST ASIA)
+Indicators-and-warning across domains under tight time constraints. Escalation management.
+
+### Final CTA
+
+The next defense-AI failure mode is a hallucinated intelligence claim driving a kinetic decision.
+The framework that refuses to allow it is the framework allied defense AI deserves.
+
+---
+
+## PAGE: Framework (framework.html)
+
+White paper v2.0. Observe · Plan · Act: A Decision-Loop Framework for Allied Defense AI.
+
+Observe · Plan · Act derives from John Boyd's OODA loop, compresses Orient and the analytical work of Decide into a unified Plan phase, and preserves the human-authority commitment moment as an architecturally explicit Decide gate between Plan and Act.
+
+### §01 — The decision loop
+
+In 1976, John Boyd circulated a briefing called Patterns of Conflict whose central abstraction — the OODA loop — has been the dominant decision-making framework in Western military doctrine for nearly fifty years.
+
+What has changed is what is possible inside each phase of the loop. Large language models, multi-modal foundation models, agentic simulation, formal game-theoretic solvers bridged via Empirical Game-Theoretic Analysis — these reshape what each phase of the loop can do.
+
+The right question for defense AI is not "what features should we ship?" but "how do we implement each phase of the decision loop with discipline that survives operational consequence?"
+
+### §02 — The architectural gap
+
+A balanced reading of the current defense-AI vendor landscape reveals significant capability. It also reveals capability that does not cohere into a complete decision-loop architecture, particularly for allied customers. The gap is structural, not vendor-specific.
+
+The hallucination boundary. Every major defense-AI platform with an LLM-driven analyst surface relies on LLM components without framework-level citation enforcement. The next defense-AI scandal is not a missed target or a sensor blind spot — it is a hallucinated intelligence claim that drives a kinetic decision and cannot be reconstructed after the fact.
+
+The structural allied-customer barrier. US-headquartered defense-AI vendors operate under export-restriction regimes and customer-concentration architectures that constrain allied access.
+
+The bundle-integration tax. Allied ministries who would assemble OPA capability from multiple vendors face an integration cost that overwhelms the budget cycle.
+
+The orchestration-vertical incentive. Hardware-vertical defense-AI vendors have structural incentives against vendor-neutral orchestration.
+
+### §03 — The loop, architecturally
+
+Observe · Plan · Act is a three-phase decision-loop architecture for defense AI, derived from Boyd's OODA loop, implemented under four cross-cutting discipline constraints, with an architecturally explicit Decide gate between Plan and Act, and a fifth architectural commitment to action orchestration in the Act phase.
+
+#### The four discipline constraints:
+
+01. Sovereignty by construction
+The platform deploys on customer hardware, in customer language, behind customer security boundaries, with no data egress. The customer ministry retains sole control of training data, inference data, telemetry, audit logs, and model weights. The boundary is mechanical, not policy-promised: no API call returns to vendor infrastructure, no telemetry stream exits, no model-update channel runs that the customer does not actively trigger.
+
+02. Framework-enforced citation discipline
+No claim emerges from the platform without a citation chain back to source corpus. The uncited-claim floor is a hard architectural invariant: when retrieval returns no citation, the platform reports "no source." Downstream verbs that depend on cited claims refuse to execute if the chain is broken. Prompt-level instruction is replaced with framework-level enforcement.
+
+03. Doctrine-grounded adversary modeling
+Every adversary in every wargame is a doctrine-typed rational actor whose behavior is parameterized by published adversary doctrine — PRC active defense, Russian new-generation warfare, regional asymmetric doctrines — rather than emergent from an LLM's unguided imagination. The doctrine catalog is version-controlled and auditable.
+
+04. Honest labeling of analytical claims
+Mathematical claims are labeled by what the underlying computation actually produces. Iterated Best Response is never labeled as a Nash equilibrium. Replicator dynamics is never labeled as an equilibrium. Statistical sampling is never labeled as deterministic. The discipline is enforced at the solver-registry level, not at the presentation layer.
+
+### §04 — Observe — multi-domain awareness, cited at source
+
+The Observe phase provides real-time, geospatially-organized, classification-tagged, provenance-tracked situational awareness across air, sea, land, space, and information domains, fused with multilingual open-source intelligence.
+
+Cooperative-tracking fusion with predictive trajectories. ADS-B, AIS, and satellite orbital tracking fused into a unified picture, with Bayesian destination prediction.
+
+Pattern-of-life anomaly detection. H3-grid spatial indexing supports statistical anomaly scoring against pattern-of-life baselines.
+
+Multilingual OSINT ingestion. English and Mandarin in the Indo-Pacific theater; Russian and the Slavic family in Central Europe; Korean and Japanese in Northeast Asia; Persian and Arabic across the Middle East; Hebrew, French, German on demand.
+
+Citation discipline at the source. Every track, every event, every OSINT extract carries a chain back to its source telemetry stream, sensor reading, or document.
+
+### §05 — Plan — doctrine-grounded wargame, honestly labeled
+
+The Plan phase productizes wargaming by composing four layers under honest-labeling discipline.
+
+The agentic simulation layer. LLM-driven agents play doctrine-typed personas — Blue NSC, Red CMC, Grey coalition, Yellow Japan, Green Taiwan MND. Each agent is parameterized by published doctrine and current intelligence.
+
+The EGTA bridge. Empirical Game-Theoretic Analysis samples agent rollouts and constructs an empirical payoff matrix capturing the strategic structure of the underlying game.
+
+Formal solver registry — six solvers, honestly labeled:
+- Support Enumeration: Pure-strategy Nash equilibrium via exhaustive cell enumeration
+- Quantal Response (QRE): Bounded-rationality (McKelvey & Palfrey, 1995)
+- Smooth Fictitious Play: Adaptive learning equilibrium
+- Iterated Best Response: Myopic strategic adaptation (never labeled as Nash)
+- Backward Induction: Sequential games with perfect information
+- Bayesian Type Inference: Incomplete-information games
+
+An IBR fixed point is never reported as a Nash equilibrium. A replicator-dynamics asymptote is never reported as an equilibrium. The discipline is a framework invariant.
+
+### §06 — Act — action orchestration
+
+The architectural commitment for Act is action orchestration: vendor-neutral dispatch of partner-integrated assets across both the kinetic and cognitive domains, through a common interface, under one Decide gate, with one audit reconstruction.
+
+The kinetic thread. UAS, USV, UUV, ground systems dispatched against operational tasking. Taiwan-manufactured systems anchor the first integration cascade — NCSIST Cardinal-series, Albatross-class MALE, Thunder Tiger, Carbon-Based Technology — as the allied alternative to DJI-class Chinese supply.
+
+The cognitive thread. Doctrine-typed information-operations agents instantiated against the cited corpus, dispatched into the information environment under pre-cleared ROE: civil-affairs messaging, counter-narrative responses, attribution-disclosed disclosure.
+
+Both classes of action are dispatched, audited, reconstructable, and Article-36-class reviewable under one architecture.
+
+### §07 — The Decide gate
+
+The OPA decomposition accelerates the loop beyond unaided human speed, which introduces a foundational question: where in the now-machine-executable loop does the human sit?
+
+The framework treats the Decide gate as phase-dependent and action-class-dependent, enforced architecturally through Rules of Engagement that are reviewable in advance by the customer's legal and policy authorities, and runtime-non-bypassable.
+
+Human-loop position table:
+
+Phase     | Action class                                                        | Default position
+----------|---------------------------------------------------------------------|------------------
+Observe   | Routine sensor classification, OSINT entity extraction              | HOTL with citation chain
+Observe   | High-stakes detection (WMD indicators, gray-zone threshold events)  | HITL escalation
+Plan      | Simulation rollouts                                                 | HOOTL within bounded scenarios
+Plan      | Commitment to a course of action with kinetic implications          | HITL — mandatory
+Act       | Non-kinetic ISR positioning, defensive cyber response               | HOTL within pre-cleared ROE
+Act       | Cognitive-domain civil-affairs messaging                            | HOTL with PA Officer sign-off
+Act       | Offensive cyber operations                                          | HITL — mandatory
+Act       | Kinetic effects                                                     | HITL — mandatory, two-person rule where applicable
+
+Show me your Decide gate — where the customer ministry configures the human-loop position by class of action, where the configuration is reviewable in advance, and where the configuration cannot be bypassed at runtime.
+
+### §08 — The compounding architecture
+
+Four compounding properties drive returns to scale that favor early adopters of the standard:
+
+Calibration corpus: Every Act-phase decision generates an actual-versus-predicted delta written back to the loop. As deltas accumulate, the platform's predictive calibration tightens.
+
+Doctrine library: Each customer engagement either adopts existing doctrine bundles or contributes new ones. The library compounds as a research-community asset.
+
+Modality coverage: Each new sensor modality, OSINT language, or platform integration onboarded for one customer becomes available to all.
+
+Coalition language and ontology: Each new allied-language deployment opens a new ministry market. Each new allied-symbology overlay extends coalition footprint.
+
+---
+
+## PAGE: Product (product.html)
+
+### Hero
+
+One platform. Three phases. One gate.
+
+NUROL is a single sovereign-deployable defense-AI platform implementing Observe · Plan · Act on a unified ontology — eliminating the bundle-integration tax of assembling multi-vendor capability under a single budget cycle.
+
+### Phase 01 · Observe — The data substrate
+
+Real-time multi-domain situational awareness fused with multilingual open-source intelligence — every claim cited back to its source telemetry stream, sensor reading, or document.
+
+Features:
+[✓] Cooperative-tracking fusion — ADS-B aircraft, AIS vessel, and satellite orbital tracking fused into a unified picture with Bayesian destination prediction.
+[✓] H3-grid pattern-of-life anomaly detection — Statistical anomaly scoring against pattern-of-life baselines. Deviation surfaced with probability, not pre-triaged.
+[✓] Multilingual OSINT — English, Mandarin, Russian, Slavic family, Korean, Japanese, Persian, Arabic, Hebrew, French, German on-demand.
+[✓] Citation discipline at the source — Every track, every event, every extract carries a chain back. No path through Observe produces uncited analytical claims.
+[✓] Allied-symbology accommodation — BLUFOR/REDFOR/neutral overlays aligned with allied operational conventions — without MIL-STD-2525D lock-in.
+
+Live dashboard metrics (example):
+- TRACKS: 247 fused
+- ANOMALIES: 3 (σ > 2.5)
+- CITATIONS: 100% chain integrity
+
+### Phase 02 · Plan — Doctrine-grounded wargame, honestly labeled
+
+Agentic simulation bridged via Empirical Game-Theoretic Analysis into a registry of six formal solvers — each labeled by what its underlying mathematics actually computes.
+
+Features:
+[✓] Agentic simulation layer — Doctrine-typed personas — Blue NSC, Red CMC, Grey coalition, Yellow Japan, Green Taiwan MND — parameterized by published doctrine, not LLM imagination.
+[✓] EGTA bridge — Samples agent rollouts; constructs an empirical payoff matrix capturing the strategic structure of the underlying game.
+[✓] Six honestly-labeled solvers — Support Enumeration · QRE · Smooth Fictitious Play · IBR · Backward Induction · Bayesian Type Inference. Each labeled by what the math actually produces.
+[✓] Versioned doctrine catalog — PRC active defense (Science of Military Strategy 2013, 2020). Russian new-generation warfare. Regional asymmetric doctrines. Auditable per-clause.
+[✓] Persistent Red-Team agent — Writes findings back to the ontology as hypotheses with citation chains, feeding the next iteration of the loop.
+
+Example wargame: CSIS-class TAIWAN scenario, 8 rounds. Counterfactual ledger: 18 alternatives archived. Citation chain integrity: 100%.
+
+### Phase 03 · Act — One interface. Two domains. One gate.
+
+Vendor-neutral dispatch of partner-integrated assets across the kinetic and cognitive domains — under a Decide gate configured by class of action, reviewable in advance, runtime-non-bypassable.
+
+Features:
+[✓] Kinetic orchestration — UAS, USV, UUV, ground systems. Taiwan-made anchor — NCSIST Cardinal, Albatross, Thunder Tiger, Carbon-Based Tech. Allied multi-vendor cascade.
+[✓] Cognitive orchestration — Doctrine-typed information-operations agents · pre-cleared ROE · attribution-disclosed disclosure · PAO sign-off chain.
+[✓] Configurable Decide gate — HITL / HOTL / HOOTL per action class. Reviewable by legal and policy authorities in advance. Cannot be bypassed at runtime.
+[✓] Counterfactual ledger — Every action: alternatives considered, predicted outcome of each, actual outcome, human approver, cited intelligence, doctrine bundle.
+[✓] Article 36 review-readiness — Reconstructability is an architectural property, not a feature added later.
+
+Example dispatch queue (TF-COMBINED):
+- TASK-0481: KINETIC · NCSIST Cardinal-III · ISR sweep · grid 8C-Q4 · Gate: HITL · AWAITING
+- TASK-0482: COGNITIVE · Civil-affairs message · PRC-lang channel · counter-narrative · Gate: HOTL+PAO · CLEARED
+- TASK-0483: KINETIC · Saronic-class USV · maritime DOM · sector 7 · Gate: HOTL · CLEARED
+- TASK-0484: COGNITIVE · Attribution-disclosed disclosure · evidence cite 8473 · Gate: HITL+PAO · AWAITING
+- TASK-0485: KINETIC · Albatross-class MALE · IRR window · ephemeris-bound · Gate: HOTL · CLEARED
+
+DECIDE GATE · ROE · CONFIGURED. RUNTIME NON-BYPASSABLE.
+
+### Sovereignty
+
+The boundary is mechanical, not policy-promised.
+
+NUROL deploys on customer hardware, in customer language, behind customer security boundaries — with no data egress. No API call returns to vendor infrastructure. No telemetry stream exits. No model-update channel runs the customer does not actively trigger.
+
+On customer hardware: Air-gapped, on-prem, or sovereign-cloud — your choice. The platform runs where your security accreditation already extends.
+In customer language: OSINT, doctrine, allied-symbology, and analyst surface in your operational languages. English is one option among many.
+Under customer control: Training data, inference data, telemetry, audit logs, and model weights remain under sole ministerial control. Always.
+
+---
+
+## PAGE: About (about.html)
+
+Architecture is a stance.
+
+NUROL exists to define and implement the architectural standard for allied defense AI. We argue the framework as a public-good architecture for the category, intended for broad adoption by any vendor whose work meets its commitments.
+
+### The thesis
+
+The standard's adoption matters more than any single implementation of it.
+
+I. The decision loop is the right unit of analysis.
+Platforms are too coarse. Data is too fine. What operational consequence requires is decision-loop discipline — three productized phases under four discipline constraints, with one architecturally explicit human-authority commitment moment between Plan and Act.
+
+II. Allied ministries require commitments the current vendor landscape does not deliver.
+The gap is structural — export-restriction regimes, customer-concentration dynamics, hardware-vertical economic incentives. The architecture that closes it is the architecture that will hold the category.
+
+III. The discipline constraints, the Decide gate, and action orchestration compound.
+The calibration corpus, doctrine library, modality coverage, and coalition coverage all compound with every customer engagement. The moat compounds while customers compound. Early adopters of the standard hold structural advantage.
+
+### Posture
+
+We build for the seam between model output and operational consequence.
+
+### Partner posture
+
+The doctrine library compounds as a research-community asset. The orchestration layer compounds as a hardware-partner asset. NUROL is the platform; the corpus is shared infrastructure.
+
+Research partners:
+- CSIS — Washington DC
+- RAND — Santa Monica
+- RUSI — London
+- ASPI — Canberra
+- IISS — London
+- NIDS — Tokyo
+- KIDA — Seoul
+- NCCU IIR — Taipei
+
+Hardware partners:
+- NCSIST — Taiwan
+- Thunder Tiger — Taiwan
+- Carbon-Based Technology — Taiwan
+- Saronic — Austin, TX
+
+Representative partners shown. Full posture under engagement.
+
+### The team
+
+Operators, doctrine writers, and engineers.
+
+The team carries operational experience across allied ministries; doctrine-writing experience across the published-strategy community; and shipping-engineer experience across sovereign and frontier-model deployments.
+
+Practice areas:
+- Architecture: Decision-loop architecture, framework discipline, Decide-gate design.
+- Doctrine & wargame: Doctrine catalog authorship, EGTA implementation, solver registry.
+- Sovereignty engineering: Sovereign deployment, air-gap, audit reconstruction, accreditation.
+- Allied ministry liaison: INDOPACOM-adjacent partners, NATO non-FVEY, AUKUS Pillar II posture.
+
+### The white paper
+
+Observe · Plan · Act: A Decision-Loop Framework for Allied Defense AI. Eleven chapters, two appendices. White paper v2.0.
+
+---
+
+## PAGE: Contact (contact.html)
+
+Request a briefing.
+
+Briefings are 60–90 minutes, on-site or in cleared facility, covering the framework, the implementation, and the sovereign-deployment posture. We respond within five working days.
+
+### What to expect
+
+We brief allied ministries and the research community.
+
+Briefings are dialogue-format and oriented to architecture and procurement, not to feature lists. We come ready to read your context.
+
+01. Submit the request
+Use an institutional email. The form below routes directly to a NUROL principal.
+
+02. Verification & scoping (≤ 5 working days)
+We verify the institutional context, propose a format (on-site, cleared facility, video) and a window of dates.
+
+03. Briefing (60–90 minutes)
+Framework walkthrough, the Decide-gate model, sovereign deployment posture, and a working dialogue against your context.
+
+04. Follow-up artefacts
+Annotated v2.0 white paper, deployment-posture brief, and the architectural-standard checklist — under mutual NDA.
+
+Direct line: briefings@nurox.ai (For pre-cleared correspondence only.)
+
+### Briefing request form fields
+
+Required: Full name, Role/title, Organisation, Country/jurisdiction, Official email (institutional/ministerial only), Consent.
+Optional: Organisation type (Allied defense ministry / Allied intelligence service / Allied research institute / Allied procurement authority / Hardware integration partner), Briefing focus (Framework overview / Observe / Plan / Act / Decide gate / Sovereign deployment / Procurement), Procurement timeline (Active budget cycle / Active planning cycle / Forward planning / Exploratory), Clearance/handling notes, Context/notes.
+
+SOVEREIGNTY · HANDLING: This form is submitted to NUROL. Briefing materials are delivered under mutual NDA. NUROL does not retain personal data beyond the minimum required to schedule and conduct the briefing. No marketing use.
+
+---
+
+## Metadata
+
+Company: NUROL
+Website: nurol-ai.github.io
+Contact: briefings@nurox.ai
+White paper: v2.0, May 2026
+Tagline: Sovereign · Cited · Doctrine-Grounded
+Copyright: © 2026 NUROL · All Rights Reserved
