@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUROL — Request a briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; padding: 64px 0 96px; }
+  .step-rail { list-style: none; padding: 0; margin: 0; }
+  .step-rail li { display: grid; grid-template-columns: 28px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--rule-2); }
+  .step-rail li:last-child { border-bottom: 1px solid var(--rule-2); }
+  .step-rail .num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.16em; padding-top: 4px; }
+  .step-rail .t { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .step-rail .b { font-size: 13px; color: var(--ink-mute); line-height: 1.5; }
+  .form-frame { background: linear-gradient(180deg, rgba(13,58,29,0.08) 0%, rgba(0,0,0,0) 100%); border: 1px solid var(--rule-2); padding: 40px; border-radius: 4px; }
+  .form-frame-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; margin-bottom: 28px; border-bottom: 1px dashed var(--rule-2); font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--forest-ring); }
+  .clearance-strip { margin-top: 16px; padding: 14px 16px; background: rgba(201,162,39,0.06); border: 1px solid var(--gold-dim); display: flex; gap: 12px; align-items: flex-start; }
+  .clearance-strip .ico { color: var(--gold); font-family: var(--mono); font-size: 13px; }
+  .clearance-strip .t { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 4px; }
+  .clearance-strip .b { font-size: 12px; color: var(--ink-mute); line-height: 1.5; }
+  .success-panel { text-align: center; padding: 64px 32px; }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-frame { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* ---- shared components ---- */
+const NUROL_C = {
+  bg: '#1C1E21', ink: '#FFFFFF', inkDim: '#E0D6B0', inkMute: '#B5BB89', inkFaint: '#6e7456',
+  forest: '#1B6435', forestDeep: '#0e3a1f', forestRing: '#2a8c4a', mint: '#4dba6e',
+  gold: '#9D8300', goldDim: '#6b5a00', goldBright: '#c9a82c', rule: '#2a2d31', rule2: '#3a3d42',
+};
+
+function Nav({ active }) {
+  const links = [
+    { href: 'index.html', label: 'Home', key: 'home' },
+    { href: 'framework.html', label: 'Framework', key: 'framework' },
+    { href: 'product.html', label: 'Product', key: 'product' },
+    { href: 'about.html', label: 'About', key: 'about' },
+  ];
+  return (
+    <nav className="nav">
+      <a href="index.html" className="nav-brand" aria-label="NUROL home">
+        <img src="assets/nurol-lockup.png" alt="NUROL" className="nav-logo" />
+      </a>
+      <div className="nav-links">
+        {links.map(l => (
+          <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''}>{l.label}</a>
+        ))}
+      </div>
+      <a href="contact.html" className="nav-cta">Request a briefing <span style={{ marginLeft: 4 }}>→</span></a>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <a href="index.html" style={{ display: 'inline-block', marginBottom: 16 }}>
+              <img src="assets/nurol-lockup.png" alt="NUROL" style={{ height: 32, width: 'auto', display: 'block' }} />
+            </a>
+            <p style={{ color: NUROL_C.inkMute, fontSize: 14, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
+              A decision-loop framework and platform for allied defense AI in the 2026–2030 procurement window.
+            </p>
+          </div>
+          <div>
+            <h4>Framework</h4>
+            <ul>
+              <li><a href="framework.html#observe">Observe</a></li>
+              <li><a href="framework.html#plan">Plan</a></li>
+              <li><a href="framework.html#act">Act</a></li>
+              <li><a href="framework.html#decide-gate">Decide gate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="product.html#observe">Observe surface</a></li>
+              <li><a href="product.html#plan">Plan engine</a></li>
+              <li><a href="product.html#sovereignty">Sovereignty</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Briefings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 NUROL · ALL RIGHTS RESERVED</span>
+          <span>SOVEREIGN · CITED · DOCTRINE-GROUNDED</span>
+          <span>WHITE PAPER v2.0 · MAY 2026</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ---- page components ---- */
+function ContactHero() {
+  return (
+    <section className="page-hero-bg" style={{ padding: 0 }}>
+      <div className="container" style={{ paddingTop: 80, paddingBottom: 24 }}>
+        <div className="eyebrow" style={{ marginBottom: 28 }}>◢ Engagement · briefing request</div>
+        <h1 className="h1" style={{ fontSize: 'clamp(48px, 6vw, 88px)', maxWidth: 1000 }}>
+          Request a <span className="italic-mint">briefing.</span>
+        </h1>
+        <p className="lede" style={{ marginTop: 32, maxWidth: 720 }}>
+          Briefings are 60–90 minutes, on-site or in cleared facility, covering the framework, the implementation, and the sovereign-deployment posture. We respond within five working days.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function BriefingForm() {
+  const [submitted, setSubmitted] = React.useState(false);
+  const [data, setData] = React.useState({
+    name: '', role: '', org: '', orgType: '', country: '', email: '', topic: '', timeline: '', clearance: '', notes: '', consent: false,
+  });
+  const set = (k) => (e) => setData(d => ({ ...d, [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
+  const valid = data.name && data.role && data.org && data.country && data.email && data.consent;
+  const submit = (e) => {
+    e.preventDefault();
+    if (!valid) return;
+    setSubmitted(true);
+    window.scrollTo({ top: document.getElementById('form-anchor').offsetTop - 100, behavior: 'smooth' });
+  };
+
+  if (submitted) {
+    return (
+      <div className="form-frame">
+        <div className="form-frame-head">
+          <span>● REQUEST RECEIVED</span>
+          <span>REF / {Date.now().toString(36).toUpperCase()}</span>
+        </div>
+        <div className="success-panel">
+          <div style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', width: 72, height: 72, border: '1px solid var(--mint)', borderRadius: '50%', marginBottom: 32 }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12 L10 17 L20 7" stroke="var(--mint)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <h2 className="h2" style={{ fontSize: 36 }}>Briefing request received.</h2>
+          <p className="lede" style={{ maxWidth: 520, margin: '20px auto 0' }}>
+            Your reference is logged. A NUROL principal will respond within five working days to confirm format, scope, and a window of dates.
+          </p>
+          <div style={{ marginTop: 40, display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
+            <a href="framework.html" className="btn btn-ghost">Read the framework</a>
+            <a href="index.html" className="btn btn-ghost">Return to home</a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form className="form-frame" onSubmit={submit}>
+      <div className="form-frame-head">
+        <span>● BRIEFING REQUEST · v1</span>
+        <span>HANDLING / OFFICIAL</span>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="name">Full name *</label>
+          <input id="name" value={data.name} onChange={set('name')} placeholder="Dr. Anne Petersen" />
+        </div>
+        <div className="field">
+          <label htmlFor="role">Role / title *</label>
+          <input id="role" value={data.role} onChange={set('role')} placeholder="Director, Strategic Capabilities" />
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="org">Organisation *</label>
+          <input id="org" value={data.org} onChange={set('org')} placeholder="UK Ministry of Defence" />
+        </div>
+        <div className="field">
+          <label htmlFor="orgType">Organisation type</label>
+          <select id="orgType" value={data.orgType} onChange={set('orgType')}>
+            <option value="">— select —</option>
+            <option>Allied defense ministry</option>
+            <option>Allied intelligence service</option>
+            <option>Allied research institute (CSIS / RAND / RUSI / etc.)</option>
+            <option>Allied procurement authority</option>
+            <option>Hardware integration partner</option>
+            <option>Other (please describe in notes)</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="country">Country / jurisdiction *</label>
+          <input id="country" value={data.country} onChange={set('country')} placeholder="United Kingdom" />
+        </div>
+        <div className="field">
+          <label htmlFor="email">Official email *</label>
+          <input id="email" type="email" value={data.email} onChange={set('email')} placeholder="anne.petersen@example.gov.uk" />
+          <div className="field-note">Use a ministerial or institutional address. Personal email addresses are not accepted.</div>
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="topic">Briefing focus</label>
+          <select id="topic" value={data.topic} onChange={set('topic')}>
+            <option value="">— select primary focus —</option>
+            <option>Framework overview (OPA architecture)</option>
+            <option>Observe — multi-domain awareness & OSINT</option>
+            <option>Plan — wargame engine & solver registry</option>
+            <option>Act — kinetic + cognitive orchestration</option>
+            <option>Decide gate & ROE configuration</option>
+            <option>Sovereign deployment & Article 36 review-readiness</option>
+            <option>Procurement & integration planning</option>
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="timeline">Procurement timeline</label>
+          <select id="timeline" value={data.timeline} onChange={set('timeline')}>
+            <option value="">— select —</option>
+            <option>Active budget cycle</option>
+            <option>Active planning cycle</option>
+            <option>Forward planning</option>
+            <option>Exploratory / research engagement</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="clearance">Clearance / handling notes (optional)</label>
+        <input id="clearance" value={data.clearance} onChange={set('clearance')} placeholder="e.g. SECRET-cleared facility required · NATO context · FVEY-only" />
+        <div className="field-note">We brief in cleared facilities when appropriate. State the handling caveat that applies to your context.</div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="notes">Context</label>
+        <textarea id="notes" value={data.notes} onChange={set('notes')} placeholder="What problem is your ministry trying to solve in this window? What architectural commitments are non-negotiable?" />
+      </div>
+
+      <div className="clearance-strip">
+        <span className="ico">◊</span>
+        <div>
+          <div className="t">SOVEREIGNTY · HANDLING</div>
+          <div className="b">
+            This form is submitted to NUROL. Briefing materials are delivered under mutual NDA. NUROL does not retain personal data beyond the minimum required to schedule and conduct the briefing. No marketing use.
+          </div>
+        </div>
+      </div>
+
+      <label style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginTop: 22, cursor: 'pointer', userSelect: 'none' }}>
+        <input type="checkbox" checked={data.consent} onChange={set('consent')} style={{ marginTop: 4, accentColor: 'var(--gold)', width: 16, height: 16 }} />
+        <span style={{ fontSize: 13, color: 'var(--ink-mute)', lineHeight: 1.5 }}>
+          I confirm I am submitting this request in an official ministerial, institutional, or research capacity, and consent to NUROL using the information above solely to coordinate a briefing.
+        </span>
+      </label>
+
+      <div style={{ marginTop: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+        <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--ink-faint)', letterSpacing: '0.18em' }}>
+          {valid ? '● READY TO SUBMIT' : '○ COMPLETE REQUIRED FIELDS (*)'}
+        </div>
+        <button type="submit" className="btn btn-primary" disabled={!valid} style={{ opacity: valid ? 1 : 0.5, cursor: valid ? 'pointer' : 'not-allowed' }}>
+          Submit briefing request →
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function ContactBody() {
+  return (
+    <div className="container" id="form-anchor">
+      <div className="contact-grid">
+        <div>
+          <div className="eyebrow-mute" style={{ marginBottom: 20 }}>What to expect</div>
+          <h2 className="h3" style={{ fontSize: 28, lineHeight: 1.2, marginBottom: 20 }}>
+            We brief allied ministries and the research community.
+          </h2>
+          <p className="prose" style={{ marginBottom: 24 }}>
+            Briefings are dialogue-format and oriented to architecture and procurement, not to feature lists. We come ready to read your context.
+          </p>
+          <ol className="step-rail">
+            <li>
+              <span className="num">01</span>
+              <div>
+                <div className="t">Submit the request</div>
+                <div className="b">Use an institutional email. The form below routes directly to a NUROL principal.</div>
+              </div>
+            </li>
+            <li>
+              <span className="num">02</span>
+              <div>
+                <div className="t">Verification & scoping (≤ 5 working days)</div>
+                <div className="b">We verify the institutional context, propose a format (on-site, cleared facility, video) and a window of dates.</div>
+              </div>
+            </li>
+            <li>
+              <span className="num">03</span>
+              <div>
+                <div className="t">Briefing (60–90 minutes)</div>
+                <div className="b">Framework walkthrough, the Decide-gate model, sovereign deployment posture, and a working dialogue against your context.</div>
+              </div>
+            </li>
+            <li>
+              <span className="num">04</span>
+              <div>
+                <div className="t">Follow-up artefacts</div>
+                <div className="b">Annotated v2.0 white paper, deployment-posture brief, and the architectural-standard checklist — under mutual NDA.</div>
+              </div>
+            </li>
+          </ol>
+          <div style={{ marginTop: 32, padding: '20px 22px', border: '1px solid var(--rule-2)', borderRadius: 4 }}>
+            <div className="eyebrow-mute" style={{ marginBottom: 10 }}>Direct line</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink)' }}>briefings@nurox.ai</div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink-faint)', marginTop: 6, letterSpacing: '0.12em' }}>For pre-cleared correspondence only.</div>
+          </div>
+        </div>
+        <BriefingForm />
+      </div>
+    </div>
+  );
+}
+
+function ContactPage() {
+  return (
+    <div className="page">
+      <Nav active="contact" />
+      <ContactHero />
+      <ContactBody />
+      <Footer />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<ContactPage />);
+</script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUROL — Observe · Plan · Act</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* ---- shared components (inlined from site.jsx) ---- */
+const NUROL_C = {
+  bg: '#1C1E21', ink: '#FFFFFF', inkDim: '#E0D6B0', inkMute: '#B5BB89', inkFaint: '#6e7456',
+  forest: '#1B6435', forestDeep: '#0e3a1f', forestRing: '#2a8c4a', mint: '#4dba6e',
+  gold: '#9D8300', goldDim: '#6b5a00', goldBright: '#c9a82c', rule: '#2a2d31', rule2: '#3a3d42',
+};
+
+function NurolMark({ size = 26 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="8" cy="10" r="3.6" fill={NUROL_C.gold} />
+      <circle cx="22" cy="10" r="3.6" fill={NUROL_C.forestRing} />
+      <circle cx="15" cy="22" r="3.6" fill={NUROL_C.forestRing} />
+      <path d="M 8 10 L 22 10 L 15 22 Z" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.2" opacity="0.6" />
+    </svg>
+  );
+}
+
+function Nav({ active }) {
+  const links = [
+    { href: 'index.html', label: 'Home', key: 'home' },
+    { href: 'framework.html', label: 'Framework', key: 'framework' },
+    { href: 'product.html', label: 'Product', key: 'product' },
+    { href: 'about.html', label: 'About', key: 'about' },
+  ];
+  return (
+    <nav className="nav">
+      <a href="index.html" className="nav-brand" aria-label="NUROL home">
+        <img src="assets/nurol-lockup.png" alt="NUROL" className="nav-logo" />
+      </a>
+      <div className="nav-links">
+        {links.map(l => (
+          <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''}>{l.label}</a>
+        ))}
+      </div>
+      <a href="contact.html" className="nav-cta">Request a briefing <span style={{ marginLeft: 4 }}>→</span></a>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <a href="index.html" style={{ display: 'inline-block', marginBottom: 16 }}>
+              <img src="assets/nurol-lockup.png" alt="NUROL" style={{ height: 32, width: 'auto', display: 'block' }} />
+            </a>
+            <p style={{ color: NUROL_C.inkMute, fontSize: 14, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
+              A decision-loop framework and platform for allied defense AI in the 2026–2030 procurement window.
+            </p>
+          </div>
+          <div>
+            <h4>Framework</h4>
+            <ul>
+              <li><a href="framework.html#observe">Observe</a></li>
+              <li><a href="framework.html#plan">Plan</a></li>
+              <li><a href="framework.html#act">Act</a></li>
+              <li><a href="framework.html#decide-gate">Decide gate</a></li>
+              <li><a href="framework.html#discipline">Discipline constraints</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="product.html#observe">Observe surface</a></li>
+              <li><a href="product.html#plan">Plan engine</a></li>
+              <li><a href="product.html#act">Act orchestration</a></li>
+              <li><a href="product.html#sovereignty">Sovereignty</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="about.html#thesis">Thesis</a></li>
+              <li><a href="about.html#partners">Partners</a></li>
+              <li><a href="contact.html">Briefings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 NUROL · ALL RIGHTS RESERVED</span>
+          <span>SOVEREIGN · CITED · DOCTRINE-GROUNDED</span>
+          <span>WHITE PAPER v2.0 · MAY 2026</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function OPALoop({ size = 460, dense = false }) {
+  const r = size / 2;
+  const ringR = r - 30;
+  const [tick, setTick] = React.useState(0);
+  const [rot, setRot] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setTick(t => (t + 1) % 3), 2400);
+    return () => clearInterval(id);
+  }, []);
+  React.useEffect(() => {
+    let raf;
+    const f = () => { setRot(r => (r + 0.15) % 360); raf = requestAnimationFrame(f); };
+    raf = requestAnimationFrame(f);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  const phases = ['OBSERVE', 'PLAN', 'ACT'];
+  const angles = [-90, 30, 150];
+  const subs = ['multi-domain awareness', 'doctrine-grounded wargame', 'kinetic + cognitive dispatch'];
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-label="OPA Decision Loop">
+      <defs>
+        <radialGradient id="opa-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={NUROL_C.forest} stopOpacity="0.35" />
+          <stop offset="60%" stopColor={NUROL_C.forestDeep} stopOpacity="0.1" />
+          <stop offset="100%" stopColor="#000" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx={r} cy={r} r={ringR + 30} fill="url(#opa-glow)" />
+      {[ringR + 12, ringR - 12, ringR - 36].map((rr, i) => (
+        <circle key={i} cx={r} cy={r} r={rr} fill="none" stroke={NUROL_C.forestDeep} strokeWidth="0.8" strokeDasharray={i === 1 ? '0' : '1 6'} />
+      ))}
+      <g transform={`rotate(${rot} ${r} ${r})`}>
+        <path
+          d={`M ${r} ${r} L ${r} ${r - ringR - 14} A ${ringR + 14} ${ringR + 14} 0 0 1 ${r + (ringR + 14) * Math.sin(Math.PI / 6)} ${r - (ringR + 14) * Math.cos(Math.PI / 6)} Z`}
+          fill={NUROL_C.forest} opacity="0.16"
+        />
+      </g>
+      <circle cx={r} cy={r} r={ringR} fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.4" />
+      {Array.from({ length: 12 }).map((_, i) => {
+        const a = (i * 30 - 90) * Math.PI / 180;
+        const x1 = r + (ringR - 4) * Math.cos(a), y1 = r + (ringR - 4) * Math.sin(a);
+        const x2 = r + (ringR + 4) * Math.cos(a), y2 = r + (ringR + 4) * Math.sin(a);
+        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke={NUROL_C.forestDeep} strokeWidth="1" />;
+      })}
+      {angles.map((a, i) => {
+        const rad = (a * Math.PI) / 180;
+        const x = r + ringR * Math.cos(rad), y = r + ringR * Math.sin(rad);
+        const active = tick === i;
+        const labelY = i === 0 ? y - 38 : y + 50;
+        return (
+          <g key={i}>
+            {active && <circle cx={x} cy={y} r="38" fill={NUROL_C.mint} opacity="0.12" />}
+            <circle cx={x} cy={y} r="22" fill="#15171a" stroke={active ? NUROL_C.mint : NUROL_C.forestRing} strokeWidth="2" />
+            <circle cx={x} cy={y} r="6" fill={active ? NUROL_C.mint : NUROL_C.forestRing} />
+            <text x={x} y={labelY} fill={active ? NUROL_C.ink : NUROL_C.forestRing} fontSize={dense ? 11 : 13} fontFamily="'Sora', sans-serif" fontWeight="700" textAnchor="middle" letterSpacing="0.22em">{phases[i]}</text>
+            {!dense && <text x={x} y={labelY + 16} fill={NUROL_C.inkFaint} fontSize="10" fontFamily="'IBM Plex Mono', monospace" textAnchor="middle" letterSpacing="0.08em">{subs[i]}</text>}
+          </g>
+        );
+      })}
+      <g>
+        <circle cx={r} cy={r} r="36" fill="#050805" stroke={NUROL_C.gold} strokeWidth="1" />
+        <circle cx={r} cy={r} r="28" fill="none" stroke={NUROL_C.goldDim} strokeWidth="0.8" strokeDasharray="2 3" />
+        <text x={r} y={r - 2} fill={NUROL_C.gold} fontSize="10" fontFamily="'IBM Plex Mono', monospace" fontWeight="700" textAnchor="middle" letterSpacing="0.2em">DECIDE</text>
+        <text x={r} y={r + 11} fill={NUROL_C.goldDim} fontSize="8" fontFamily="'IBM Plex Mono', monospace" textAnchor="middle" letterSpacing="0.14em">human authority</text>
+      </g>
+    </svg>
+  );
+}
+
+/* ---- page components ---- */
+function Hero() {
+  return (
+    <section className="page-hero-bg" style={{ position: 'relative', padding: 0 }}>
+      <div className="horizon" style={{ top: '54%' }} />
+      <div className="container hero-grid">
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 28 }}>◢ Allied defense AI</div>
+          <h1 className="h1">
+            Observe.<br/>
+            Plan.<br/>
+            <span className="italic-mint">Act.</span>
+          </h1>
+          <p className="lede" style={{ marginTop: 32, maxWidth: 540 }}>
+            The decision-loop architecture for the allied defense-AI category — sovereign by construction, cited at the framework level, with one human-authority Decide gate.
+          </p>
+          <div style={{ marginTop: 44, display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="contact.html" className="btn btn-primary">Request a briefing →</a>
+            <a href="framework.html" className="btn btn-ghost">Read the framework</a>
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <OPALoop size={480} />
+        </div>
+      </div>
+      <div className="container" style={{ paddingBottom: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, borderTop: '1px solid var(--rule)', paddingTop: 24 }}>
+          {[
+            ['three', 'PHASES', 'Observe · Plan · Act'],
+            ['four', 'DISCIPLINE CONSTRAINTS', 'Architecturally enforced'],
+            ['one', 'DECIDE GATE', 'Configurable by action class'],
+            ['zero', 'DATA EGRESS', 'Sovereign by construction'],
+          ].map(([n, label, sub]) => (
+            <div key={label}>
+              <div style={{ fontFamily: 'var(--sans)', fontSize: 32, fontWeight: 600, letterSpacing: '-0.02em' }}>{n}</div>
+              <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.2em', color: 'var(--gold)', marginTop: 8 }}>{label}</div>
+              <div style={{ fontSize: 13, color: 'var(--ink-mute)', marginTop: 4 }}>{sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OpsBand() {
+  return (
+    <section style={{ padding: 0 }}>
+      <div style={{ position: 'relative', height: 460, overflow: 'hidden', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
+        <img src="assets/ops-room.png" alt="Allied operations center — NUROL platform in use" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(28,30,33,0.55) 0%, rgba(28,30,33,0.2) 40%, rgba(28,30,33,0.7) 100%)' }} />
+        <div className="container" style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: 48, paddingTop: 48 }}>
+          <div className="eyebrow" style={{ marginBottom: 18 }}>◢ Built for allied operations</div>
+          <h2 className="h2" style={{ maxWidth: 820 }}>
+            From sensor to <span className="italic">decision</span> to dispatch, under one architecture.
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Gap() {
+  const gaps = [
+    { title: 'The hallucination boundary', body: 'Defense-AI platforms relying on LLM-driven analyst surfaces without framework-level citation enforcement. Prompting a model to cite is not enforcement.' },
+    { title: 'The allied-customer barrier', body: 'U.S.-headquartered vendors operate under export regimes and customer-concentration architectures that constrain allied access. The barrier is structural, not vendor-specific.' },
+    { title: 'The bundle-integration tax', body: 'Allied ministries assembling capability from multiple vendors face three contracts, three accreditations, three sovereignty arrangements — and a brittle integrated whole.' },
+    { title: 'The orchestration-vertical incentive', body: 'Hardware-vertical vendors capture, rather than aggregate, partner platforms. Allied ministries operate mixed-national-supplier fleets; this is not acceptable.' },
+  ];
+  return (
+    <section style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(13,58,29,0.06) 50%, transparent 100%)' }}>
+      <div className="container">
+        <div style={{ marginBottom: 56 }}>
+          <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ 01 — The architectural gap</div>
+          <h2 className="h2" style={{ maxWidth: 900 }}>The current vendor landscape <span className="italic">does not</span> cohere into a complete decision-loop architecture.</h2>
+        </div>
+        <ol className="numbered">
+          {gaps.map(g => (
+            <li key={g.title}>
+              <div>
+                <h3 className="h3" style={{ marginBottom: 10, maxWidth: 600 }}>{g.title}</h3>
+                <p style={{ color: 'var(--ink-mute)', fontSize: 15, lineHeight: 1.65, margin: 0, maxWidth: 740 }}>{g.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function Framework() {
+  return (
+    <section>
+      <div className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+          <div>
+            <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ 02 — The framework</div>
+            <h2 className="h2">Three phases. <span className="italic">Four constraints.</span> One gate.</h2>
+            <p className="lede" style={{ marginTop: 28 }}>
+              Observe · Plan · Act compresses Boyd&apos;s OODA loop into three productized phases, and preserves the human-authority commitment moment as an architecturally explicit Decide gate between Plan and Act.
+            </p>
+            <div style={{ marginTop: 36 }}>
+              {[
+                ['Sovereignty by construction', 'Deploys on customer hardware, in customer language, behind customer security boundaries. No data egress — mechanical, not policy-promised.'],
+                ['Framework-enforced citation discipline', 'No claim emerges from the platform without a citation chain back to source corpus. Downstream verbs refuse to execute if the chain is broken.'],
+                ['Doctrine-grounded adversary modeling', 'Every adversary is a doctrine-typed rational actor — PRC active defense, Russian new-generation warfare — never emergent from an LLM’s unguided imagination.'],
+                ['Honest labeling of analytical claims', 'Iterated Best Response is never labeled as a Nash equilibrium. Enforced at the solver-registry level, not at the presentation layer.'],
+              ].map(([t, b], i) => (
+                <div key={t} style={{ display: 'grid', gridTemplateColumns: '40px 1fr', gap: 18, padding: '20px 0', borderTop: '1px solid var(--rule)' }}>
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--gold)', letterSpacing: '0.16em' }}>0{i + 1}</div>
+                  <div>
+                    <div style={{ fontFamily: 'var(--sans)', fontSize: 16, fontWeight: 600, marginBottom: 6 }}>{t}</div>
+                    <div style={{ fontSize: 14, color: 'var(--ink-mute)', lineHeight: 1.6 }}>{b}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a href="framework.html" className="btn btn-ghost" style={{ marginTop: 32 }}>Read the full framework →</a>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 }}>
+            <OPALoop size={420} />
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--ink-faint)' }}>
+              FIG. 1 — THE LOOP AS A CLOSED FEEDBACK CYCLE
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PlatformPreview() {
+  return (
+    <section>
+      <div className="container">
+        <div style={{ marginBottom: 56 }}>
+          <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ 03 — Platform</div>
+          <h2 className="h2" style={{ maxWidth: 900 }}>One platform. <span className="italic">Three productized phases.</span></h2>
+          <p className="lede" style={{ marginTop: 24, maxWidth: 760 }}>
+            NuroMAX™ implements Observe · Plan · Act on a unified ontology — eliminating the bundle-integration tax of assembling allied capability from multiple vendors.
+          </p>
+        </div>
+        <div className="grid-2" style={{ alignItems: 'start' }}>
+          <div>
+            <div style={{ border: '1px solid var(--rule-2)', borderRadius: 4, overflow: 'hidden', background: 'var(--bg-2)' }}>
+              <img src="assets/observe-gis.jpg" alt="NuroMAX GIS — Observe phase" style={{ width: '100%', display: 'block' }} />
+            </div>
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+              <div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--gold)' }}>01 · OBSERVE</div>
+                <h3 className="h3" style={{ marginTop: 8, fontSize: 22 }}>NuroMAX™ GIS</h3>
+              </div>
+              <a href="product.html#observe" className="btn-arrow">SEE THE OBSERVE SURFACE →</a>
+            </div>
+            <p style={{ color: 'var(--ink-mute)', fontSize: 14, lineHeight: 1.6, marginTop: 12 }}>
+              ADS-B, AIS, and satellite tracking fused into a multi-domain operational picture, with Bayesian destination prediction and citation-disciplined entity detail.
+            </p>
+          </div>
+          <div>
+            <div style={{ border: '1px solid var(--rule-2)', borderRadius: 4, overflow: 'hidden', background: 'var(--bg-2)' }}>
+              <img src="assets/plan-dashboard.png" alt="NuroMAX Dashboard — Plan phase wargame" style={{ width: '100%', display: 'block' }} />
+            </div>
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+              <div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--gold)' }}>02 · PLAN</div>
+                <h3 className="h3" style={{ marginTop: 8, fontSize: 22 }}>NuroMAX™ Wargame</h3>
+              </div>
+              <a href="product.html#plan" className="btn-arrow">SEE THE PLAN ENGINE →</a>
+            </div>
+            <p style={{ color: 'var(--ink-mute)', fontSize: 14, lineHeight: 1.6, marginTop: 12 }}>
+              Doctrine-typed agents play across eight rounds. Empirical payoff matrices feed six formal solvers — each labeled by what its mathematics actually computes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Scenarios() {
+  const scenarios = [
+    { code: 'TWN', name: 'Taiwan Strait', detail: 'Five doctrine-typed teams across eight rounds. CSIS-class First-Battle methodology, productized.', tag: 'INDO-PACIFIC' },
+    { code: 'SCS', name: 'South China Sea', detail: 'Persistent gray-zone scenario. H3-grid anomaly detection · attribution-disclosed disclosure.', tag: 'INDO-PACIFIC' },
+    { code: 'NEU', name: 'Northern Europe', detail: 'Hybrid kinetic-cyber-information posture against a NATO non-FVEY ministry.', tag: 'EUROPE' },
+    { code: 'KOR', name: 'Korean Peninsula', detail: 'Indicators-and-warning across domains under tight time constraints. Escalation management.', tag: 'NORTHEAST ASIA' },
+  ];
+  return (
+    <section style={{ background: 'linear-gradient(180deg, transparent, rgba(27,100,53,0.06), transparent)' }}>
+      <div className="container">
+        <div style={{ marginBottom: 56 }}>
+          <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ 04 — Operational scenarios</div>
+          <h2 className="h2" style={{ maxWidth: 900 }}>The same loop, the same discipline, <span className="italic">across radically different</span> theaters.</h2>
+        </div>
+        <div className="grid-4">
+          {scenarios.map(s => (
+            <div key={s.code} className="card">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 16 }}>
+                <span className="tag tag-gold">{s.code}</span>
+                <span style={{ fontFamily: 'var(--mono)', fontSize: 9, letterSpacing: '0.18em', color: 'var(--ink-faint)' }}>{s.tag}</span>
+              </div>
+              <h3 className="h3" style={{ fontSize: 20 }}>{s.name}</h3>
+              <p style={{ color: 'var(--ink-mute)', fontSize: 13, lineHeight: 1.6, margin: '12px 0 0' }}>{s.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="loose" style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(27,100,53,0.22) 0%, rgba(28,30,33,0) 70%)' }}>
+      <div className="container-narrow" style={{ textAlign: 'center' }}>
+        <div className="eyebrow" style={{ marginBottom: 24 }}>◢ Engagement</div>
+        <h2 className="h2" style={{ maxWidth: 760, margin: '0 auto' }}>
+          The next defense-AI failure mode <span className="italic">is a hallucinated</span> intelligence claim driving a kinetic decision.
+        </h2>
+        <p className="lede" style={{ marginTop: 28, maxWidth: 640, margin: '28px auto 0' }}>
+          The framework that refuses to allow it is the framework allied defense AI deserves.
+        </p>
+        <div style={{ marginTop: 44, display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
+          <a href="contact.html" className="btn btn-primary">Request a briefing →</a>
+          <a href="framework.html" className="btn btn-ghost">Read the white paper</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomePage() {
+  return (
+    <div className="page">
+      <Nav active="home" />
+      <Hero />
+      <OpsBand />
+      <Gap />
+      <Framework />
+      <PlatformPreview />
+      <Scenarios />
+      <FinalCTA />
+      <Footer />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HomePage />);
+</script>
+</body>
+</html>

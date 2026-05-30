@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUROL — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .thesis-block { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding: 80px 0; border-top: 1px solid var(--rule); }
+  .thesis-num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: var(--gold); }
+  .partner-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 40px; }
+  .partner { background: #020403; padding: 32px 24px; display: flex; flex-direction: column; gap: 6px; min-height: 110px; transition: background 200ms; }
+  .partner:hover { background: rgba(13,58,29,0.12); }
+  .partner .pcat { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; color: var(--forest-ring); }
+  .partner .pname { font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink); }
+  .partner .ploc { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 0.14em; margin-top: auto; }
+  @media (max-width: 900px) {
+    .thesis-block { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+    .partner-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* ---- shared components ---- */
+const NUROL_C = {
+  bg: '#1C1E21', ink: '#FFFFFF', inkDim: '#E0D6B0', inkMute: '#B5BB89', inkFaint: '#6e7456',
+  forest: '#1B6435', forestDeep: '#0e3a1f', forestRing: '#2a8c4a', mint: '#4dba6e',
+  gold: '#9D8300', goldDim: '#6b5a00', goldBright: '#c9a82c', rule: '#2a2d31', rule2: '#3a3d42',
+};
+
+function NurolMark({ size = 26 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="8" cy="10" r="3.6" fill={NUROL_C.gold} />
+      <circle cx="22" cy="10" r="3.6" fill={NUROL_C.forestRing} />
+      <circle cx="15" cy="22" r="3.6" fill={NUROL_C.forestRing} />
+      <path d="M 8 10 L 22 10 L 15 22 Z" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.2" opacity="0.6" />
+    </svg>
+  );
+}
+
+function Nav({ active }) {
+  const links = [
+    { href: 'index.html', label: 'Home', key: 'home' },
+    { href: 'framework.html', label: 'Framework', key: 'framework' },
+    { href: 'product.html', label: 'Product', key: 'product' },
+    { href: 'about.html', label: 'About', key: 'about' },
+  ];
+  return (
+    <nav className="nav">
+      <a href="index.html" className="nav-brand" aria-label="NUROL home">
+        <img src="assets/nurol-lockup.png" alt="NUROL" className="nav-logo" />
+      </a>
+      <div className="nav-links">
+        {links.map(l => (
+          <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''}>{l.label}</a>
+        ))}
+      </div>
+      <a href="contact.html" className="nav-cta">Request a briefing <span style={{ marginLeft: 4 }}>→</span></a>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <a href="index.html" style={{ display: 'inline-block', marginBottom: 16 }}>
+              <img src="assets/nurol-lockup.png" alt="NUROL" style={{ height: 32, width: 'auto', display: 'block' }} />
+            </a>
+            <p style={{ color: NUROL_C.inkMute, fontSize: 14, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
+              A decision-loop framework and platform for allied defense AI in the 2026–2030 procurement window.
+            </p>
+          </div>
+          <div>
+            <h4>Framework</h4>
+            <ul>
+              <li><a href="framework.html#observe">Observe</a></li>
+              <li><a href="framework.html#plan">Plan</a></li>
+              <li><a href="framework.html#act">Act</a></li>
+              <li><a href="framework.html#decide-gate">Decide gate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="product.html#observe">Observe surface</a></li>
+              <li><a href="product.html#plan">Plan engine</a></li>
+              <li><a href="product.html#act">Act orchestration</a></li>
+              <li><a href="product.html#sovereignty">Sovereignty</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="about.html#thesis">Thesis</a></li>
+              <li><a href="about.html#partners">Partners</a></li>
+              <li><a href="contact.html">Briefings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 NUROL · ALL RIGHTS RESERVED</span>
+          <span>SOVEREIGN · CITED · DOCTRINE-GROUNDED</span>
+          <span>WHITE PAPER v2.0 · MAY 2026</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ---- page components ---- */
+function AboutHero() {
+  return (
+    <section className="page-hero-bg" style={{ padding: 0 }}>
+      <div className="container" style={{ paddingTop: 88, paddingBottom: 72 }}>
+        <div className="eyebrow" style={{ marginBottom: 28 }}>◢ About</div>
+        <h1 className="h1" style={{ fontSize: 'clamp(56px, 6.5vw, 96px)', maxWidth: 1100 }}>
+          Architecture<br/>
+          <span className="italic-mint">is a stance.</span>
+        </h1>
+        <p className="lede" style={{ marginTop: 36, maxWidth: 720 }}>
+          NUROL exists to define and implement the architectural standard for allied defense AI. We argue the framework as a public-good architecture for the category, intended for broad adoption by any vendor whose work meets its commitments.
+        </p>
+      </div>
+      <hr className="hr" />
+    </section>
+  );
+}
+
+function Thesis() {
+  return (
+    <section id="thesis">
+      <div className="container">
+        <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ The thesis</div>
+        <h2 className="h2" style={{ maxWidth: 1000 }}>
+          The standard&apos;s adoption <span className="italic">matters more</span> than any single implementation of it.
+        </h2>
+        <div className="thesis-block">
+          <div>
+            <div className="thesis-num">I.</div>
+            <h3 className="h3" style={{ marginTop: 12, fontSize: 26 }}>The decision loop is the right unit of analysis.</h3>
+          </div>
+          <p className="prose" style={{ margin: 0 }}>Platforms are too coarse. Data is too fine. What operational consequence requires is decision-loop discipline — three productized phases under four discipline constraints, with one architecturally explicit human-authority commitment moment between Plan and Act.</p>
+        </div>
+        <div className="thesis-block">
+          <div>
+            <div className="thesis-num">II.</div>
+            <h3 className="h3" style={{ marginTop: 12, fontSize: 26 }}>Allied ministries require commitments the current vendor landscape does not deliver.</h3>
+          </div>
+          <p className="prose" style={{ margin: 0 }}>The gap is structural — export-restriction regimes, customer-concentration dynamics, hardware-vertical economic incentives. The architecture that closes it is the architecture that will hold the category.</p>
+        </div>
+        <div className="thesis-block">
+          <div>
+            <div className="thesis-num">III.</div>
+            <h3 className="h3" style={{ marginTop: 12, fontSize: 26 }}>The discipline constraints, the Decide gate, and action orchestration compound.</h3>
+          </div>
+          <p className="prose" style={{ margin: 0 }}>The calibration corpus, doctrine library, modality coverage, and coalition coverage all compound with every customer engagement. The moat compounds while customers compound. Early adopters of the standard hold structural advantage.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OpsBand() {
+  return (
+    <section style={{ padding: 0 }}>
+      <div style={{ position: 'relative', height: 420, overflow: 'hidden', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
+        <img src="assets/ops-room.png" alt="Allied operations center" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(28,30,33,0.55) 0%, rgba(28,30,33,0.2) 40%, rgba(28,30,33,0.75) 100%)' }} />
+        <div className="container" style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', paddingBottom: 48, paddingTop: 48 }}>
+          <div className="eyebrow" style={{ marginBottom: 18 }}>◢ Posture</div>
+          <h2 className="h2" style={{ maxWidth: 820 }}>
+            We build for the seam between <span className="italic">model output</span> and operational consequence.
+          </h2>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Partners() {
+  const partners = [
+    { cat: 'RESEARCH', name: 'CSIS', loc: 'WASHINGTON DC' },
+    { cat: 'RESEARCH', name: 'RAND', loc: 'SANTA MONICA' },
+    { cat: 'RESEARCH', name: 'RUSI', loc: 'LONDON' },
+    { cat: 'RESEARCH', name: 'ASPI', loc: 'CANBERRA' },
+    { cat: 'RESEARCH', name: 'IISS', loc: 'LONDON' },
+    { cat: 'RESEARCH', name: 'NIDS', loc: 'TOKYO' },
+    { cat: 'RESEARCH', name: 'KIDA', loc: 'SEOUL' },
+    { cat: 'RESEARCH', name: 'NCCU IIR', loc: 'TAIPEI' },
+    { cat: 'HARDWARE', name: 'NCSIST', loc: 'TAIWAN' },
+    { cat: 'HARDWARE', name: 'Thunder Tiger', loc: 'TAIWAN' },
+    { cat: 'HARDWARE', name: 'Carbon-Based Tech.', loc: 'TAIWAN' },
+    { cat: 'HARDWARE', name: 'Saronic', loc: 'AUSTIN, TX' },
+  ];
+  return (
+    <section id="partners">
+      <div className="container">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 64, alignItems: 'start' }}>
+          <div>
+            <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ Research & integration</div>
+            <h2 className="h2">Partner posture.</h2>
+            <p className="prose" style={{ marginTop: 24 }}>
+              The doctrine library compounds as a research-community asset. The orchestration layer compounds as a hardware-partner asset. NUROL is the platform; the corpus is shared infrastructure.
+            </p>
+            <p style={{ fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink-faint)', letterSpacing: '0.16em', marginTop: 32, textTransform: 'uppercase' }}>
+              Representative partners shown. Full posture under engagement.
+            </p>
+          </div>
+          <div className="partner-grid">
+            {partners.map(p => (
+              <div key={p.name} className="partner">
+                <div className="pcat">{p.cat}</div>
+                <div className="pname">{p.name}</div>
+                <div className="ploc">{p.loc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Team() {
+  const team = [
+    { role: 'Architecture', desc: 'Decision-loop architecture, framework discipline, Decide-gate design.' },
+    { role: 'Doctrine & wargame', desc: 'Doctrine catalog authorship, EGTA implementation, solver registry.' },
+    { role: 'Sovereignty engineering', desc: 'Sovereign deployment, air-gap, audit reconstruction, accreditation.' },
+    { role: 'Allied ministry liaison', desc: 'INDOPACOM-adjacent partners, NATO non-FVEY, AUKUS Pillar II posture.' },
+  ];
+  return (
+    <section style={{ background: '#020403', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
+      <div className="container">
+        <div className="eyebrow-mute" style={{ marginBottom: 24 }}>§ The team</div>
+        <h2 className="h2" style={{ maxWidth: 800 }}>
+          Operators, doctrine writers, <span className="italic">and engineers</span>.
+        </h2>
+        <p className="lede" style={{ marginTop: 28, maxWidth: 700 }}>
+          The team carries operational experience across allied ministries; doctrine-writing experience across the published-strategy community; and shipping-engineer experience across sovereign and frontier-model deployments.
+        </p>
+        <div className="grid-4" style={{ marginTop: 48 }}>
+          {team.map(m => (
+            <div key={m.role} className="card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
+                <NurolMark size={28} />
+                <div className="tag tag-gold">PRACTICE</div>
+              </div>
+              <h3 className="h3" style={{ fontSize: 18 }}>{m.role}</h3>
+              <p style={{ color: 'var(--ink-mute)', fontSize: 13, lineHeight: 1.6, marginTop: 10, marginBottom: 0 }}>{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CallToWriting() {
+  return (
+    <section>
+      <div className="container">
+        <div style={{
+          padding: '64px 56px',
+          border: '1px solid var(--rule-2)',
+          background: 'radial-gradient(ellipse 60% 100% at 0% 50%, rgba(26,107,53,0.12) 0%, transparent 60%)',
+          display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 56, alignItems: 'center',
+        }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 18 }}>◢ The white paper</div>
+            <h2 className="h2" style={{ fontSize: 'clamp(28px, 3vw, 44px)' }}>Read the full v2.0 white paper.</h2>
+            <p className="lede" style={{ marginTop: 18, maxWidth: 540 }}>
+              <em style={{ fontFamily: 'var(--serif)' }}>Observe · Plan · Act: A Decision-Loop Framework for Allied Defense AI.</em> Eleven chapters, two appendices.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <a href="framework.html" className="btn btn-primary" style={{ justifyContent: 'space-between' }}>Read the framework <span>→</span></a>
+            <a href="contact.html" className="btn btn-ghost" style={{ justifyContent: 'space-between' }}>Request a briefing <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutPage() {
+  return (
+    <div className="page">
+      <Nav active="about" />
+      <AboutHero />
+      <Thesis />
+      <OpsBand />
+      <Partners />
+      <Team />
+      <CallToWriting />
+      <Footer />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AboutPage />);
+</script>
+</body>
+</html>

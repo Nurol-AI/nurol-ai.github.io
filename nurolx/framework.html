@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUROL — Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .toc { position: sticky; top: 96px; }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin-bottom: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--ink-mute); text-transform: uppercase; }
+  .toc li a { display: block; padding: 4px 0 4px 16px; border-left: 1px solid var(--rule-2); transition: border-color 120ms, color 120ms; }
+  .toc li a:hover, .toc li a.active { border-left-color: var(--mint); color: var(--ink); }
+  .reader-grid { display: grid; grid-template-columns: 220px 1fr; gap: 64px; }
+  .chapter { padding: 56px 0; border-top: 1px solid var(--rule); }
+  .chapter:first-of-type { border-top: 0; padding-top: 0; }
+  .chapter-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--gold); margin-bottom: 16px; }
+  .chapter h2 { margin-bottom: 24px; }
+  .pull { font-family: var(--serif); font-size: 28px; line-height: 1.3; color: var(--ink); border-left: 2px solid var(--gold); padding: 6px 0 6px 24px; margin: 32px 0; }
+  .constraint { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--rule-2); }
+  .constraint:last-child { border-bottom: 1px solid var(--rule-2); }
+  table.gate-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+  table.gate-table th { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--forest-ring); text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--rule); text-transform: uppercase; }
+  table.gate-table td { padding: 18px 16px; vertical-align: top; font-size: 14px; color: var(--ink-dim); border-bottom: 1px solid var(--rule-2); }
+  table.gate-table tr:hover td { background: rgba(26,107,53,0.04); }
+  table.gate-table .phase { color: var(--mint); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+  table.gate-table .pos-hitl { color: var(--gold); font-weight: 600; }
+  table.gate-table .pos-hotl { color: var(--mint); font-weight: 600; }
+  table.gate-table .pos-hootl { color: var(--forest-ring); font-weight: 600; }
+  @media (max-width: 900px) {
+    .reader-grid { grid-template-columns: 1fr; gap: 32px; }
+    .toc { position: static; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+/* ---- shared components ---- */
+const NUROL_C = {
+  bg: '#1C1E21', ink: '#FFFFFF', inkDim: '#E0D6B0', inkMute: '#B5BB89', inkFaint: '#6e7456',
+  forest: '#1B6435', forestDeep: '#0e3a1f', forestRing: '#2a8c4a', mint: '#4dba6e',
+  gold: '#9D8300', goldDim: '#6b5a00', goldBright: '#c9a82c', rule: '#2a2d31', rule2: '#3a3d42',
+};
+
+function Nav({ active }) {
+  const links = [
+    { href: 'index.html', label: 'Home', key: 'home' },
+    { href: 'framework.html', label: 'Framework', key: 'framework' },
+    { href: 'product.html', label: 'Product', key: 'product' },
+    { href: 'about.html', label: 'About', key: 'about' },
+  ];
+  return (
+    <nav className="nav">
+      <a href="index.html" className="nav-brand" aria-label="NUROL home">
+        <img src="assets/nurol-lockup.png" alt="NUROL" className="nav-logo" />
+      </a>
+      <div className="nav-links">
+        {links.map(l => (
+          <a key={l.key} href={l.href} className={active === l.key ? 'active' : ''}>{l.label}</a>
+        ))}
+      </div>
+      <a href="contact.html" className="nav-cta">Request a briefing <span style={{ marginLeft: 4 }}>→</span></a>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <a href="index.html" style={{ display: 'inline-block', marginBottom: 16 }}>
+              <img src="assets/nurol-lockup.png" alt="NUROL" style={{ height: 32, width: 'auto', display: 'block' }} />
+            </a>
+            <p style={{ color: NUROL_C.inkMute, fontSize: 14, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
+              A decision-loop framework and platform for allied defense AI in the 2026–2030 procurement window.
+            </p>
+          </div>
+          <div>
+            <h4>Framework</h4>
+            <ul>
+              <li><a href="framework.html#observe">Observe</a></li>
+              <li><a href="framework.html#plan">Plan</a></li>
+              <li><a href="framework.html#act">Act</a></li>
+              <li><a href="framework.html#decide-gate">Decide gate</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="product.html#observe">Observe surface</a></li>
+              <li><a href="product.html#plan">Plan engine</a></li>
+              <li><a href="product.html#act">Act orchestration</a></li>
+              <li><a href="product.html#sovereignty">Sovereignty</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Briefings</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 NUROL · ALL RIGHTS RESERVED</span>
+          <span>SOVEREIGN · CITED · DOCTRINE-GROUNDED</span>
+          <span>WHITE PAPER v2.0 · MAY 2026</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function OPALoop({ size = 460, dense = false }) {
+  const r = size / 2;
+  const ringR = r - 30;
+  const [tick, setTick] = React.useState(0);
+  const [rot, setRot] = React.useState(0);
+  React.useEffect(() => {
+    const id = setInterval(() => setTick(t => (t + 1) % 3), 2400);
+    return () => clearInterval(id);
+  }, []);
+  React.useEffect(() => {
+    let raf;
+    const f = () => { setRot(r => (r + 0.15) % 360); raf = requestAnimationFrame(f); };
+    raf = requestAnimationFrame(f);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+  const phases = ['OBSERVE', 'PLAN', 'ACT'];
+  const angles = [-90, 30, 150];
+  const subs = ['multi-domain awareness', 'doctrine-grounded wargame', 'kinetic + cognitive dispatch'];
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-label="OPA Decision Loop">
+      <defs>
+        <radialGradient id="opa-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={NUROL_C.forest} stopOpacity="0.35" />
+          <stop offset="60%" stopColor={NUROL_C.forestDeep} stopOpacity="0.1" />
+          <stop offset="100%" stopColor="#000" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx={r} cy={r} r={ringR + 30} fill="url(#opa-glow)" />
+      {[ringR + 12, ringR - 12, ringR - 36].map((rr, i) => (
+        <circle key={i} cx={r} cy={r} r={rr} fill="none" stroke={NUROL_C.forestDeep} strokeWidth="0.8" strokeDasharray={i === 1 ? '0' : '1 6'} />
+      ))}
+      <g transform={`rotate(${rot} ${r} ${r})`}>
+        <path d={`M ${r} ${r} L ${r} ${r - ringR - 14} A ${ringR + 14} ${ringR + 14} 0 0 1 ${r + (ringR + 14) * Math.sin(Math.PI / 6)} ${r - (ringR + 14) * Math.cos(Math.PI / 6)} Z`} fill={NUROL_C.forest} opacity="0.16" />
+      </g>
+      <circle cx={r} cy={r} r={ringR} fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.4" />
+      {Array.from({ length: 12 }).map((_, i) => {
+        const a = (i * 30 - 90) * Math.PI / 180;
+        const x1 = r + (ringR - 4) * Math.cos(a), y1 = r + (ringR - 4) * Math.sin(a);
+        const x2 = r + (ringR + 4) * Math.cos(a), y2 = r + (ringR + 4) * Math.sin(a);
+        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke={NUROL_C.forestDeep} strokeWidth="1" />;
+      })}
+      {angles.map((a, i) => {
+        const rad = (a * Math.PI) / 180;
+        const x = r + ringR * Math.cos(rad), y = r + ringR * Math.sin(rad);
+        const active = tick === i;
+        const labelY = i === 0 ? y - 38 : y + 50;
+        return (
+          <g key={i}>
+            {active && <circle cx={x} cy={y} r="38" fill={NUROL_C.mint} opacity="0.12" />}
+            <circle cx={x} cy={y} r="22" fill="#15171a" stroke={active ? NUROL_C.mint : NUROL_C.forestRing} strokeWidth="2" />
+            <circle cx={x} cy={y} r="6" fill={active ? NUROL_C.mint : NUROL_C.forestRing} />
+            <text x={x} y={labelY} fill={active ? NUROL_C.ink : NUROL_C.forestRing} fontSize={dense ? 11 : 13} fontFamily="'Sora', sans-serif" fontWeight="700" textAnchor="middle" letterSpacing="0.22em">{phases[i]}</text>
+            {!dense && <text x={x} y={labelY + 16} fill={NUROL_C.inkFaint} fontSize="10" fontFamily="'IBM Plex Mono', monospace" textAnchor="middle" letterSpacing="0.08em">{subs[i]}</text>}
+          </g>
+        );
+      })}
+      <g>
+        <circle cx={r} cy={r} r="36" fill="#050805" stroke={NUROL_C.gold} strokeWidth="1" />
+        <circle cx={r} cy={r} r="28" fill="none" stroke={NUROL_C.goldDim} strokeWidth="0.8" strokeDasharray="2 3" />
+        <text x={r} y={r - 2} fill={NUROL_C.gold} fontSize="10" fontFamily="'IBM Plex Mono', monospace" fontWeight="700" textAnchor="middle" letterSpacing="0.2em">DECIDE</text>
+        <text x={r} y={r + 11} fill={NUROL_C.goldDim} fontSize="8" fontFamily="'IBM Plex Mono', monospace" textAnchor="middle" letterSpacing="0.14em">human authority</text>
+      </g>
+    </svg>
+  );
+}
+
+function PhaseMark({ phase, size = 60 }) {
+  const variants = {
+    observe: (<g>
+      <circle cx="30" cy="30" r="22" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <circle cx="30" cy="30" r="14" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1" strokeDasharray="2 3" />
+      <circle cx="30" cy="30" r="3" fill={NUROL_C.mint} />
+      <line x1="30" y1="2" x2="30" y2="10" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <line x1="30" y1="50" x2="30" y2="58" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <line x1="2" y1="30" x2="10" y2="30" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <line x1="50" y1="30" x2="58" y2="30" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+    </g>),
+    plan: (<g>
+      <rect x="6" y="6" width="48" height="48" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <line x1="6" y1="22" x2="54" y2="22" stroke={NUROL_C.forestRing} strokeWidth="1" />
+      <line x1="6" y1="38" x2="54" y2="38" stroke={NUROL_C.forestRing} strokeWidth="1" />
+      <line x1="22" y1="6" x2="22" y2="54" stroke={NUROL_C.forestRing} strokeWidth="1" />
+      <line x1="38" y1="6" x2="38" y2="54" stroke={NUROL_C.forestRing} strokeWidth="1" />
+      <circle cx="14" cy="14" r="2.5" fill={NUROL_C.mint} />
+      <circle cx="30" cy="30" r="2.5" fill={NUROL_C.mint} />
+      <circle cx="46" cy="46" r="2.5" fill={NUROL_C.mint} />
+      <circle cx="46" cy="14" r="2.5" fill={NUROL_C.gold} />
+    </g>),
+    act: (<g>
+      <polygon points="30,4 56,30 30,56 4,30" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1.5" />
+      <polygon points="30,16 44,30 30,44 16,30" fill="none" stroke={NUROL_C.forestRing} strokeWidth="1" />
+      <line x1="30" y1="22" x2="30" y2="38" stroke={NUROL_C.gold} strokeWidth="2" />
+      <polygon points="30,8 33,14 27,14" fill={NUROL_C.mint} />
+      <polygon points="30,52 33,46 27,46" fill={NUROL_C.mint} />
+    </g>),
+    decide: (<g>
+      <rect x="6" y="20" width="48" height="20" fill="none" stroke={NUROL_C.gold} strokeWidth="1.5" />
+      <line x1="14" y1="20" x2="14" y2="40" stroke={NUROL_C.gold} strokeWidth="1" />
+      <line x1="46" y1="20" x2="46" y2="40" stroke={NUROL_C.gold} strokeWidth="1" />
+      <line x1="6" y1="30" x2="14" y2="30" stroke={NUROL_C.gold} strokeWidth="1.5" />
+      <line x1="46" y1="30" x2="54" y2="30" stroke={NUROL_C.gold} strokeWidth="1.5" />
+      <circle cx="30" cy="30" r="4" fill={NUROL_C.gold} />
+    </g>),
+  };
+  return <svg width={size} height={size} viewBox="0 0 60 60" aria-hidden="true">{variants[phase]}</svg>;
+}
+
+/* ---- page data ---- */
+const constraints = [
+  ['Sovereignty by construction', 'The platform deploys on customer hardware, in customer language, behind customer security boundaries, with no data egress. The customer ministry retains sole control of training data, inference data, telemetry, audit logs, and model weights. The boundary is mechanical, not policy-promised: no API call returns to vendor infrastructure, no telemetry stream exits, no model-update channel runs that the customer does not actively trigger.'],
+  ['Framework-enforced citation discipline', 'No claim emerges from the platform without a citation chain back to source corpus. The uncited-claim floor is a hard architectural invariant: when retrieval returns no citation, the platform reports "no source." Downstream verbs that depend on cited claims refuse to execute if the chain is broken. Prompt-level instruction is replaced with framework-level enforcement.'],
+  ['Doctrine-grounded adversary modeling', 'Every adversary in every wargame is a doctrine-typed rational actor whose behavior is parameterized by published adversary doctrine — PRC active defense, Russian new-generation warfare, regional asymmetric doctrines — rather than emergent from an LLM\'s unguided imagination. The doctrine catalog is version-controlled and auditable.'],
+  ['Honest labeling of analytical claims', 'Mathematical claims are labeled by what the underlying computation actually produces. Iterated Best Response is never labeled as a Nash equilibrium. Replicator dynamics is never labeled as an equilibrium. Statistical sampling is never labeled as deterministic. The discipline is enforced at the solver-registry level, not at the presentation layer.'],
+];
+
+const gateRows = [
+  ['Observe', 'Routine sensor classification, OSINT entity extraction', 'pos-hotl', 'HOTL with citation chain'],
+  ['Observe', 'High-stakes detection (WMD indicators, gray-zone threshold events)', 'pos-hitl', 'HITL escalation'],
+  ['Plan', 'Simulation rollouts', 'pos-hootl', 'HOOTL within bounded scenarios'],
+  ['Plan', 'Commitment to a course of action with kinetic implications', 'pos-hitl', 'HITL — mandatory'],
+  ['Act', 'Non-kinetic ISR positioning, defensive cyber response', 'pos-hotl', 'HOTL within pre-cleared ROE'],
+  ['Act', 'Cognitive-domain civil-affairs messaging', 'pos-hotl', 'HOTL with PA Officer sign-off'],
+  ['Act', 'Offensive cyber operations', 'pos-hitl', 'HITL — mandatory'],
+  ['Act', 'Kinetic effects', 'pos-hitl', 'HITL — mandatory, two-person rule where applicable'],
+];
+
+/* ---- page components ---- */
+function FrameworkHero() {
+  return (
+    <section className="page-hero-bg" style={{ padding: 0 }}>
+      <div className="container" style={{ paddingTop: 80, paddingBottom: 64 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, alignItems: 'center' }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 28 }}>◢ White paper v2.0</div>
+            <h1 className="h1" style={{ fontSize: 'clamp(48px, 6vw, 88px)' }}>The framework.</h1>
+            <p className="lede" style={{ marginTop: 28, maxWidth: 560 }}>
+              Observe · Plan · Act derives from John Boyd&apos;s OODA loop, compresses Orient and the analytical work of Decide into a unified Plan phase, and preserves the human-authority commitment moment as an architecturally explicit Decide gate between Plan and Act.
+            </p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <OPALoop size={380} />
+          </div>
+        </div>
+      </div>
+      <hr className="hr" />
+    </section>
+  );
+}
+
+function TOC() {
+  const items = [
+    ['premise', '§ 01 The premise'],
+    ['gap', '§ 02 The gap'],
+    ['loop', '§ 03 The loop'],
+    ['observe', '§ 04 Observe'],
+    ['plan', '§ 05 Plan'],
+    ['act', '§ 06 Act'],
+    ['decide-gate', '§ 07 Decide gate'],
+    ['compounding', '§ 08 Compounding'],
+  ];
+  const [active, setActive] = React.useState('premise');
+  React.useEffect(() => {
+    const onScroll = () => {
+      for (const [id] of items) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top < 200 && top > -el.offsetHeight + 200) { setActive(id); break; }
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <aside className="toc">
+      <div className="eyebrow-mute" style={{ marginBottom: 18 }}>Contents</div>
+      <ul>
+        {items.map(([id, label]) => (
+          <li key={id}><a href={'#' + id} className={active === id ? 'active' : ''}>{label}</a></li>
+        ))}
+      </ul>
+    </aside>
+  );
+}
+
+function Chapter({ id, num, title, children }) {
+  return (
+    <section className="chapter" id={id}>
+      <div className="chapter-num">§ {num}</div>
+      <h2 className="h2">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function Reader() {
+  return (
+    <div className="container" style={{ padding: '80px 56px' }}>
+      <div className="reader-grid">
+        <TOC />
+        <div>
+          <Chapter id="premise" num="01" title="The decision loop">
+            <div className="prose">
+              <p>In 1976, John Boyd circulated a briefing called <em>Patterns of Conflict</em> whose central abstraction — the OODA loop — has been the dominant decision-making framework in Western military doctrine for nearly fifty years.</p>
+              <p>What has changed is what is possible inside each phase of the loop. Large language models, multi-modal foundation models, agentic simulation, formal game-theoretic solvers bridged via Empirical Game-Theoretic Analysis — these reshape what each phase of the loop can do.</p>
+              <div className="pull">
+                The right question for defense AI is not &ldquo;what features should we ship?&rdquo; but &ldquo;how do we implement each phase of the decision loop with discipline that survives operational consequence?&rdquo;
+              </div>
+            </div>
+          </Chapter>
+
+          <Chapter id="gap" num="02" title="The architectural gap">
+            <div className="prose">
+              <p>A balanced reading of the current defense-AI vendor landscape reveals significant capability. It also reveals capability that does not cohere into a complete decision-loop architecture, particularly for allied customers. The gap is structural, not vendor-specific.</p>
+              <p><strong>The hallucination boundary.</strong> Every major defense-AI platform with an LLM-driven analyst surface relies on LLM components without framework-level citation enforcement. The next defense-AI scandal is not a missed target or a sensor blind spot — it is a hallucinated intelligence claim that drives a kinetic decision and cannot be reconstructed after the fact.</p>
+              <p><strong>The structural allied-customer barrier.</strong> US-headquartered defense-AI vendors operate under export-restriction regimes and customer-concentration architectures that constrain allied access.</p>
+              <p><strong>The bundle-integration tax.</strong> Allied ministries who would assemble OPA capability from multiple vendors face an integration cost that overwhelms the budget cycle.</p>
+              <p><strong>The orchestration-vertical incentive.</strong> Hardware-vertical defense-AI vendors have structural incentives against vendor-neutral orchestration.</p>
+            </div>
+          </Chapter>
+
+          <Chapter id="loop" num="03" title="The loop, architecturally">
+            <div className="prose">
+              <p>Observe · Plan · Act is a three-phase decision-loop architecture for defense AI, derived from Boyd&apos;s OODA loop, implemented under four cross-cutting discipline constraints, with an architecturally explicit Decide gate between Plan and Act, and a fifth architectural commitment to action orchestration in the Act phase.</p>
+            </div>
+            <div id="discipline" style={{ marginTop: 32 }}>
+              <div className="eyebrow-mute" style={{ marginBottom: 24 }}>The four discipline constraints</div>
+              {constraints.map(([t, b], i) => (
+                <div key={t} className="constraint">
+                  <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--gold)', letterSpacing: '0.16em' }}>0{i + 1}</div>
+                  <div>
+                    <h3 className="h3" style={{ fontSize: 22, marginBottom: 12 }}>{t}</h3>
+                    <p style={{ color: 'var(--ink-mute)', fontSize: 15, lineHeight: 1.7, margin: 0 }}>{b}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '64px 0 16px' }}>
+              <OPALoop size={420} />
+            </div>
+            <div style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--ink-faint)', textAlign: 'center' }}>
+              FIG. 1 — THE LOOP AS A CLOSED FEEDBACK CYCLE
+            </div>
+          </Chapter>
+
+          <Chapter id="observe" num="04" title="Observe — multi-domain awareness, cited at source">
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center', marginBottom: 28 }}>
+              <PhaseMark phase="observe" size={56} />
+              <div className="eyebrow-mute">01 / data substrate</div>
+            </div>
+            <div className="prose">
+              <p>The Observe phase provides real-time, geospatially-organized, classification-tagged, provenance-tracked situational awareness across air, sea, land, space, and information domains, fused with multilingual open-source intelligence.</p>
+              <p><strong>Cooperative-tracking fusion with predictive trajectories.</strong> ADS-B, AIS, and satellite orbital tracking fused into a unified picture, with Bayesian destination prediction.</p>
+              <p><strong>Pattern-of-life anomaly detection.</strong> H3-grid spatial indexing supports statistical anomaly scoring against pattern-of-life baselines.</p>
+              <p><strong>Multilingual OSINT ingestion.</strong> English and Mandarin in the Indo-Pacific theater; Russian and the Slavic family in Central Europe; Korean and Japanese in Northeast Asia; Persian and Arabic across the Middle East; Hebrew, French, German on demand.</p>
+              <p><strong>Citation discipline at the source.</strong> Every track, every event, every OSINT extract carries a chain back to its source telemetry stream, sensor reading, or document.</p>
+            </div>
+            <figure style={{ margin: '24px 0 0' }}>
+              <div style={{ border: '1px solid var(--rule-2)', borderRadius: 4, overflow: 'hidden', background: 'var(--bg-2)' }}>
+                <img src="assets/observe-gis.jpg" alt="NuroMAX GIS — multi-domain operational picture" style={{ width: '100%', display: 'block' }} />
+              </div>
+              <figcaption style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--ink-faint)', textAlign: 'center', marginTop: 14 }}>
+                FIG. 2 — OBSERVE INSTANTIATED · NUROMAX™ GIS, PERSIAN-GULF SCENARIO
+              </figcaption>
+            </figure>
+          </Chapter>
+
+          <Chapter id="plan" num="05" title="Plan — doctrine-grounded wargame, honestly labeled">
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center', marginBottom: 28 }}>
+              <PhaseMark phase="plan" size={56} />
+              <div className="eyebrow-mute">02 / wargame engine</div>
+            </div>
+            <div className="prose">
+              <p>The Plan phase productizes wargaming by composing four layers under honest-labeling discipline.</p>
+              <p><strong>The agentic simulation layer.</strong> LLM-driven agents play doctrine-typed personas — Blue NSC, Red CMC, Grey coalition, Yellow Japan, Green Taiwan MND. Each agent is parameterized by published doctrine and current intelligence.</p>
+              <p><strong>The EGTA bridge.</strong> Empirical Game-Theoretic Analysis samples agent rollouts and constructs an empirical payoff matrix capturing the strategic structure of the underlying game.</p>
+            </div>
+            <div className="card" style={{ marginTop: 28 }}>
+              <div className="eyebrow-mute" style={{ marginBottom: 18 }}>Formal solver registry · six solvers, honestly labeled</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                {[
+                  ['Support Enumeration', 'Pure-strategy Nash equilibrium via exhaustive cell enumeration'],
+                  ['Quantal Response (QRE)', 'Bounded-rationality (McKelvey & Palfrey, 1995)'],
+                  ['Smooth Fictitious Play', 'Adaptive learning equilibrium'],
+                  ['Iterated Best Response', 'Myopic strategic adaptation (never labeled as Nash)'],
+                  ['Backward Induction', 'Sequential games with perfect information'],
+                  ['Bayesian Type Inference', 'Incomplete-information games'],
+                ].map(([n, d]) => (
+                  <div key={n} style={{ padding: '14px 16px', background: 'rgba(13,58,29,0.06)', border: '1px solid var(--rule-2)' }}>
+                    <div style={{ fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: 'var(--mint)', letterSpacing: '0.04em', marginBottom: 4 }}>{n}</div>
+                    <div style={{ fontSize: 13, color: 'var(--ink-mute)', lineHeight: 1.5 }}>{d}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="pull" style={{ marginTop: 32 }}>
+              An IBR fixed point is never reported as a Nash equilibrium. A replicator-dynamics asymptote is never reported as an equilibrium. The discipline is a framework invariant.
+            </div>
+            <figure style={{ margin: '24px 0 0' }}>
+              <div style={{ border: '1px solid var(--rule-2)', borderRadius: 4, overflow: 'hidden', background: 'var(--bg-2)' }}>
+                <img src="assets/plan-dashboard.png" alt="NuroMAX Wargame Dashboard" style={{ width: '100%', display: 'block' }} />
+              </div>
+              <figcaption style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.22em', color: 'var(--ink-faint)', textAlign: 'center', marginTop: 14 }}>
+                FIG. 3 — PLAN INSTANTIATED · NUROMAX™ WARGAME DASHBOARD, CSIS-CLASS TAIWAN SCENARIO
+              </figcaption>
+            </figure>
+          </Chapter>
+
+          <Chapter id="act" num="06" title="Act — action orchestration">
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center', marginBottom: 28 }}>
+              <PhaseMark phase="act" size={56} />
+              <div className="eyebrow-mute">03 / kinetic + cognitive dispatch</div>
+            </div>
+            <div className="prose">
+              <p>The architectural commitment for Act is action orchestration: vendor-neutral dispatch of partner-integrated assets across both the kinetic and cognitive domains, through a common interface, under one Decide gate, with one audit reconstruction.</p>
+              <p><strong>The kinetic thread.</strong> UAS, USV, UUV, ground systems dispatched against operational tasking. Taiwan-manufactured systems anchor the first integration cascade — NCSIST Cardinal-series, Albatross-class MALE, Thunder Tiger, Carbon-Based Technology — as the allied alternative to DJI-class Chinese supply.</p>
+              <p><strong>The cognitive thread.</strong> Doctrine-typed information-operations agents instantiated against the cited corpus, dispatched into the information environment under pre-cleared ROE: civil-affairs messaging, counter-narrative responses, attribution-disclosed disclosure.</p>
+              <p>Both classes of action are dispatched, audited, reconstructable, and Article-36-class reviewable under one architecture.</p>
+            </div>
+          </Chapter>
+
+          <Chapter id="decide-gate" num="07" title="The Decide gate">
+            <div style={{ display: 'flex', gap: 24, alignItems: 'center', marginBottom: 28 }}>
+              <PhaseMark phase="decide" size={56} />
+              <div className="eyebrow-mute">human-authority commitment</div>
+            </div>
+            <div className="prose">
+              <p>The OPA decomposition accelerates the loop beyond unaided human speed, which introduces a foundational question: where in the now-machine-executable loop does the human sit?</p>
+              <p>The framework treats the Decide gate as phase-dependent and action-class-dependent, enforced architecturally through Rules of Engagement that are reviewable in advance by the customer&apos;s legal and policy authorities, and runtime-non-bypassable.</p>
+            </div>
+            <table className="gate-table">
+              <thead>
+                <tr>
+                  <th style={{ width: '110px' }}>Phase</th>
+                  <th>Action class</th>
+                  <th style={{ width: '300px' }}>Default human-loop position</th>
+                </tr>
+              </thead>
+              <tbody>
+                {gateRows.map((r, i) => (
+                  <tr key={i}>
+                    <td><span className="phase">{r[0]}</span></td>
+                    <td>{r[1]}</td>
+                    <td><span className={r[2]}>{r[3]}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="pull" style={{ marginTop: 32 }}>
+              Show me your Decide gate — where the customer ministry configures the human-loop position by class of action, where the configuration is reviewable in advance, and where the configuration cannot be bypassed at runtime.
+            </div>
+          </Chapter>
+
+          <Chapter id="compounding" num="08" title="The compounding architecture">
+            <div className="prose">
+              <p>Four compounding properties drive returns to scale that favor early adopters of the standard:</p>
+            </div>
+            <div className="grid-2" style={{ marginTop: 24 }}>
+              {[
+                ['Calibration corpus', 'Every Act-phase decision generates an actual-versus-predicted delta written back to the loop. As deltas accumulate, the platform\'s predictive calibration tightens.'],
+                ['Doctrine library', 'Each customer engagement either adopts existing doctrine bundles or contributes new ones. The library compounds as a research-community asset.'],
+                ['Modality coverage', 'Each new sensor modality, OSINT language, or platform integration onboarded for one customer becomes available to all.'],
+                ['Coalition language and ontology', 'Each new allied-language deployment opens a new ministry market. Each new allied-symbology overlay extends coalition footprint.'],
+              ].map(([t, b]) => (
+                <div key={t} className="card">
+                  <h3 className="h3" style={{ fontSize: 20, marginBottom: 12 }}>{t}</h3>
+                  <p style={{ color: 'var(--ink-mute)', fontSize: 14, lineHeight: 1.6, margin: 0 }}>{b}</p>
+                </div>
+              ))}
+            </div>
+          </Chapter>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="loose" style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(26,107,53,0.18) 0%, rgba(0,0,0,0) 70%)' }}>
+      <div className="container-narrow" style={{ textAlign: 'center' }}>
+        <h2 className="h2" style={{ maxWidth: 720, margin: '0 auto' }}>
+          Engage with the framework <span className="italic">on its own</span> architectural terms.
+        </h2>
+        <div style={{ marginTop: 40, display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
+          <a href="contact.html" className="btn btn-primary">Request a briefing →</a>
+          <a href="product.html" className="btn btn-ghost">See the product</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FrameworkPage() {
+  return (
+    <div className="page">
+      <Nav active="framework" />
+      <FrameworkHero />
+      <Reader />
+      <FinalCTA />
+      <Footer />
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<FrameworkPage />);
+</script>
+</body>
+</html>
