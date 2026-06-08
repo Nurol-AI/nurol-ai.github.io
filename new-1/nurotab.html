@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuroTab — Spec-driven chip design. On your network.</title>
+<meta name="description" content="NuroTab is an AI-native EDA platform for SoC design. From plain-language spec to RTL, UVM, SystemRDL, and verified output — entirely on-premises. 21–40% measured uplift.">
+<link rel="canonical" href="https://nurol.ai/nurotab">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="../assets/nurol-logo.png" alt="Nurol">
+  </a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link active" href="nurotab.html">NuroTab</a>
+    <a class="nav-link" href="nuromax.html">NuroMAX</a>
+    <a class="nav-link" href="nuros.html">NurOS</a>
+    <a class="nav-link" href="index.html#why">Why Nurol</a>
+  </div>
+  <a class="nav-cta" href="mailto:info@nurol.ai?subject=NuroTab demo">Book a demo</a>
+</nav>
+
+<main>
+
+<!-- ═══════ PAGE HEAD ═══════ -->
+<div class="page-head">
+  <div class="container">
+    <div class="badge teal reveal"><span class="dot"></span>For engineers &amp; builders</div>
+    <p class="eyebrow teal reveal">On servers you own · your IP never leaves the network</p>
+    <h1 class="d-1 reveal mt-24" style="max-width:18ch">AI coding and chip design —<br><span class="shimmer-teal">without</span> sending<br>your IP to the cloud.</h1>
+    <p class="lede reveal reveal-d1" style="margin:24px auto 0">NuroTab packages an AI coding agent and a spec-driven EDA suite into a single product. Describe your design in plain language; get validated topology, registers, RTL, and verification — generated on hardware you control, where your source and IP stay.</p>
+    <div class="hero-cta reveal reveal-d2">
+      <a class="btn teal" href="mailto:info@nurol.ai?subject=NuroTab demo">Book a demo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn ghost" href="#resources">Get the datasheet</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ TWO CAPABILITIES ═══════ -->
+<section class="scene tight raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">Two capabilities, one package.</h2>
+    </div>
+    <div class="grid g2 reveal reveal-d1">
+      <div class="info-card" style="padding:28px">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq teal"></div>AI coding agent</div>
+        <div class="ic-body" style="font-size:14.5px;margin-top:8px">Repo-aware coding across your codebase — implement, refactor, and test, with an AI gatekeeper reviewing each step. Source never leaves your network.</div>
+      </div>
+      <div class="info-card" style="padding:28px">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq teal"></div>Spec-driven EDA suite</div>
+        <div class="ic-body" style="font-size:14.5px;margin-top:8px">SoC frontend design from a plain-language spec all the way to RTL and a full verification pipeline — topology, registers, UVM, SVA, and artifact handoff in a single pass.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ THE FLOW ═══════ -->
+<section class="scene">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow teal">End-to-end SoC frontend</div>
+      <h2 class="d-3">The complete design flow — all on one platform.</h2>
+      <p class="lede">Describe the design in plain language. NuroTab generates validated output at every stage — from topology canvas to taped-out artifact package.</p>
+    </div>
+
+    <div class="step-flow reveal reveal-d1">
+      <div class="step"><div class="s-num">01</div><div class="s-label">Spec</div></div>
+      <div class="step"><div class="s-num">02</div><div class="s-label">SoC Topology</div></div>
+      <div class="step"><div class="s-num">03</div><div class="s-label">IP Catalog</div></div>
+      <div class="step"><div class="s-num">04</div><div class="s-label">SystemRDL Registers</div></div>
+      <div class="step"><div class="s-num">05</div><div class="s-label">RTL Generation</div></div>
+      <div class="step"><div class="s-num">06</div><div class="s-label">Verification</div></div>
+      <div class="step"><div class="s-num">07</div><div class="s-label">Design Package</div></div>
+    </div>
+
+    <div class="info-card reveal reveal-d2 mt-24" style="padding:24px;border-color:rgba(42,138,74,0.2);background:rgba(42,138,74,0.04)">
+      <div class="ic-body" style="font-size:14.5px">
+        <strong style="color:var(--t-1)">18 artifact types in a single pass.</strong> One command turns a spec into UVM agents, SVA assertions, cocotb tests, C headers, and IP-XACT — the complete handoff package, generated automatically. No manual conversion between tools.
+      </div>
+    </div>
+
+    <div class="chip-row reveal reveal-d3">
+      <span class="chip">UVM agents</span>
+      <span class="chip">SVA assertions</span>
+      <span class="chip">cocotb tests</span>
+      <span class="chip">C headers</span>
+      <span class="chip">IP-XACT</span>
+      <span class="chip">SystemRDL</span>
+      <span class="chip">RTL (SystemVerilog)</span>
+      <span class="chip">Waveform hooks</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CAPABILITIES GRID ═══════ -->
+<section class="scene raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow teal">Capabilities</div>
+      <h2 class="d-3">Built for the way chip teams actually work.</h2>
+    </div>
+    <div class="grid g3 reveal reveal-d1">
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>AI design assistant</div>
+        <div class="ic-body">Drive every step in plain language. An AI gatekeeper reviews each generated artifact before it advances — no silent failures.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Beyond RTL</div>
+        <div class="ic-body">UVM models, SVA assertions, cocotb tests, and scoreboards — generated alongside the RTL, not after it.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Open-bus support</div>
+        <div class="ic-body">AXI4, APB, AHB, Wishbone, TileLink — not just AMBA. Bring your own bus protocol.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Git-native sources</div>
+        <div class="ic-body">Human-readable, diffable design files. Review changes in your existing code-review workflow. No proprietary binary formats.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Versioning &amp; ECO</div>
+        <div class="ic-body">Design checkpoints, diffs, and one-click ECO revert — built in. No external version-control setup needed.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Brownfield-ready</div>
+        <div class="ic-body">Import a spreadsheet; get a full project out. Adopt NuroTab on an existing design without starting over.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY NOT CLOUD ═══════ -->
+<section class="scene">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">Why not just a cloud coding assistant?</h2>
+    </div>
+    <div class="grid g2 reveal reveal-d1">
+      <div class="info-card dash">
+        <div class="ic-head">Cloud coding assistant</div>
+        <div class="ic-body">Context and source leaves your network on every call. Autocomplete-focused — not purpose-built for chip design. Per-seat pricing scales with team size.</div>
+      </div>
+      <div class="info-card" style="border-color:rgba(42,138,74,0.22)">
+        <div class="ic-head"><div class="ic-sq teal"></div>NuroTab</div>
+        <div class="ic-body">Source and IP never leave your network. Purpose-built EDA suite — topology, registers, RTL, verification, all integrated. Flat-rate, server-based, multi-user.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Sovereign by default</div>
+        <div class="ic-body">Every model and inference runs inside your infrastructure. Not a cloud product with an on-prem checkbox — on-prem is the architecture.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>No per-seat lock-in</div>
+        <div class="ic-body">Git-native, diffable output you fully own. Move to another tool without losing your design history or format-locked artifacts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECURITY ═══════ -->
+<section class="scene tight raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow teal">Security &amp; privacy</div>
+      <h2 class="d-3">Your IP, contained.</h2>
+    </div>
+    <div class="grid g4 reveal reveal-d1">
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>100% on-prem</div>
+        <div class="ic-body">Every model and inference runs inside your infrastructure. Not a checkbox — the architecture.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Nothing leaves the network</div>
+        <div class="ic-body">No source, spec, or register map reaches a third-party cloud. Ever.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Role-based access &amp; audit</div>
+        <div class="ic-body">Who did what, on which design, at what time — fully logged and reportable.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq teal"></div>Air-gap capable</div>
+        <div class="ic-body">Runs completely disconnected for the most sensitive programs. No external connectivity required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ UPLIFT ═══════ -->
+<div class="quote-band reveal">
+  <div class="container narrow">
+    <blockquote>From spec to verified RTL in a single pass — <em>21–40% measured uplift</em> across the design loop.</blockquote>
+    <div class="attr">NuroTab · measured productivity gain · spec through waveform review</div>
+  </div>
+</div>
+
+<!-- ═══════ RUNS ON ═══════ -->
+<section class="scene tight">
+  <div class="container">
+    <a class="runson reveal" href="nuros.html">
+      <div class="rs-text"><b>Runs on NurOS.</b> Server-based and multi-user, with cost-routed model access and credential governance underneath. Every design stays on-premises, every call is policy-governed.</div>
+      <div class="rs-go">Explore NurOS →</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ RESOURCES ═══════ -->
+<section class="scene tight raised" id="resources">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">Read deeper.</h2>
+    </div>
+    <div class="resources reveal reveal-d1">
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NuroTab datasheet">
+        <div class="r-label">PDF</div>
+        <div class="r-title">Datasheet</div>
+        <div class="r-desc">Capabilities, specs, and security — one page. Bring it to a vendor review.</div>
+        <div class="r-action">Request PDF →</div>
+      </a>
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NuroTab user guide">
+        <div class="r-label">Guide</div>
+        <div class="r-title">User guide</div>
+        <div class="r-desc">From spec to taped-out flow, step by step. Covers the EDA suite and the coding agent.</div>
+        <div class="r-action">Request guide →</div>
+      </a>
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NuroTab comparison">
+        <div class="r-label">Comparison</div>
+        <div class="r-title">Comparison sheet</div>
+        <div class="r-desc">NuroTab vs. cloud coding assistants — feature by feature, privacy posture, and cost model.</div>
+        <div class="r-action">Request →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="scene light text-center">
+  <div class="container narrow">
+    <div class="reveal">
+      <div class="eyebrow">See it on your own design</div>
+      <h2 class="d-3" style="color:var(--matte)">Bring a spec or a brownfield project.</h2>
+      <p class="lede" style="margin:18px auto 28px;color:rgba(28,30,33,0.65)">We'll run the full flow on your hardware — from plain-language spec to verified RTL, live in your environment.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a class="btn primary" href="mailto:info@nurol.ai?subject=NuroTab demo">Book a demo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn ghost" href="mailto:info@nurol.ai?subject=NuroTab datasheet">Get the datasheet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html"><img src="../assets/nurol-logo.png" alt="Nurol" style="height:30px;width:auto"></a>
+        <p>Cloud, on-prem, or hybrid — Nurol has a solution for you. One platform, fully governed. Power on your AI.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="nurotab.html">NuroTab</a>
+        <a href="nuromax.html">NuroMAX</a>
+        <a href="nuros.html">NurOS</a>
+        <a href="index.html#why">Why Nurol</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="mailto:info@nurol.ai">Contact</a>
+        <a href="mailto:info@nurol.ai?subject=NurOS Whitepaper">Whitepaper</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get started</h4>
+        <a href="mailto:info@nurol.ai?subject=NuroTab demo">Live demo</a>
+        <a href="mailto:info@nurol.ai">info@nurol.ai</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nurol AI. All rights reserved.</span>
+      <div class="footer-sys"><span>NurOS v1.0</span><span>Region: on-prem</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ham = document.getElementById('navHamburger');
+  var links = document.getElementById('navLinks');
+  if(ham && links){
+    ham.addEventListener('click', function(e){ e.stopPropagation(); ham.classList.toggle('open'); links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(links.classList.contains('open') && !ham.contains(e.target) && !links.contains(e.target)){ ham.classList.remove('open'); links.classList.remove('open'); }
+    });
+    links.addEventListener('click', function(e){ if(e.target.closest('a')){ ham.classList.remove('open'); links.classList.remove('open'); } });
+  }
+  var vh = window.innerHeight || 800;
+  document.querySelectorAll('.reveal').forEach(function(el){ if(el.getBoundingClientRect().top < vh * 1.05) el.classList.add('in'); });
+  document.documentElement.classList.add('js-reveals');
+  var io = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:0.06, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); }); }, 2000);
+})();
+</script>
+</body>
+</html>

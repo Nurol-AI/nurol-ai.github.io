@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NurOS — The Turnkey AI Operating System</title>
+<meta name="description" content="NurOS is a turnkey AI operating system that runs SOTA models entirely on-premises. Active-active HA, multi-node clustering, privacy-aware routing, centralized credential governance, and NurOps autonomous administration — all air-gap capable.">
+<link rel="canonical" href="https://nurol.ai/nuros">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="../assets/nurol-logo.png" alt="Nurol">
+  </a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="nurotab.html">NuroTab</a>
+    <a class="nav-link" href="nuromax.html">NuroMAX</a>
+    <a class="nav-link active" href="nuros.html">NurOS</a>
+    <a class="nav-link" href="index.html#why">Why Nurol</a>
+  </div>
+  <a class="nav-cta" href="mailto:info@nurol.ai?subject=NurOS demo">Book a demo</a>
+</nav>
+
+<main>
+
+<!-- ═══════ PAGE HEAD ═══════ -->
+<div class="page-head blue">
+  <div class="container">
+    <div class="badge blue reveal"><span class="dot"></span>The platform underneath</div>
+    <p class="eyebrow blue reveal">The AI operating system for your GPU cluster</p>
+    <h1 class="d-1 reveal mt-24" style="max-width:20ch">Every model, every app —<br><span class="shimmer">cheaper</span> and governed.</h1>
+    <p class="lede reveal reveal-d1" style="margin:24px auto 0">NurOS is a turnkey AI operating system that lets organisations run state-of-the-art models entirely on their own premises — with the convenience of a cloud service and none of the data-exposure, cost, or dependency risks. It ships pre-installed on GPU-accelerated appliances, scales across multiple nodes to serve the largest models, and operates indefinitely without an internet connection.</p>
+    <div class="hero-cta reveal reveal-d2">
+      <a class="btn primary" href="mailto:info@nurol.ai?subject=NurOS demo">Book a demo
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn ghost" href="#whitepaper">Read the whitepaper</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CAPABILITIES AT A GLANCE ═══════ -->
+<section class="scene tight raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Capabilities at a glance</div>
+      <h2 class="d-3">What NurOS delivers.</h2>
+    </div>
+    <div class="tbl-wrap reveal reveal-d1">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th style="width:30%">Capability</th>
+            <th>What it means for you</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Turnkey, pre-installed</td>
+            <td>Powered on and serving models out of the box — no integration project.</td>
+          </tr>
+          <tr>
+            <td>Active-active high availability</td>
+            <td>Continuous service with no single point of failure. All nodes live, all sharing load.</td>
+          </tr>
+          <tr>
+            <td>Multi-node SOTA clustering</td>
+            <td>Run the largest frontier-class models across multiple appliances with tensor and pipeline parallelism.</td>
+          </tr>
+          <tr>
+            <td>Privacy-aware intelligent routing</td>
+            <td>Sensitive work stays local; only safe, suitable work can reach external services — enforced automatically.</td>
+          </tr>
+          <tr>
+            <td>Centralized cost &amp; credential governance</td>
+            <td>One vault, enforced budgets, full audit trail — no shadow IT, no runaway spend.</td>
+          </tr>
+          <tr>
+            <td>Natural-language administration</td>
+            <td>Manage the platform by chatting with NurOps, an autonomous operations agent, alongside a full web console.</td>
+          </tr>
+          <tr>
+            <td>Air-gapped with on-demand OTA</td>
+            <td>Total isolation by default; controlled updates only when you choose to connect.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TWO PAIN POINTS ═══════ -->
+<section class="scene">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">Two problems every AI team hits at scale.</h2>
+    </div>
+    <div class="grid g2 reveal reveal-d1">
+      <div class="info-card" style="padding:28px;border-color:rgba(59,130,200,0.2)">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq blue"></div>Runaway cost</div>
+        <div class="ic-body" style="font-size:14.5px;margin-top:8px">Intelligent routing sends each call to the cheapest model that still meets your policy and latency budget — so spend tracks value, not volume. Local models handle the majority of traffic at near-zero marginal cost.</div>
+      </div>
+      <div class="info-card" style="padding:28px;border-color:rgba(59,130,200,0.2)">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq blue"></div>Credential sprawl</div>
+        <div class="ic-body" style="font-size:14.5px;margin-top:8px">Every API key for every external provider held in a centrally managed vault — issued, scoped, rotated, and audited from one place. No keys pasted into apps, no shadow IT, no uncontrolled spending.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ARCHITECTURE ═══════ -->
+<section class="scene raised" id="architecture">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">System architecture</div>
+      <h2 class="d-3">Three principles. One coherent platform.</h2>
+      <p class="lede">NurOS is organised as cooperating layers that sit entirely inside your security perimeter. Every request passes through an intelligent router; all external connectivity is mediated by a centralized governance layer.</p>
+    </div>
+
+    <!-- Architecture diagram -->
+    <div class="reveal reveal-d1 mb-40" style="border:1px solid var(--ink-line-2);border-radius:var(--radius);padding:32px;background:var(--ink-1);overflow:hidden">
+      <svg viewBox="0 0 760 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;display:block;margin:0 auto" aria-label="NurOS platform architecture diagram">
+        <defs>
+          <marker id="arr-d" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="rgba(245,241,232,0.25)"/>
+          </marker>
+        </defs>
+        <!-- USER LAYER -->
+        <rect x="30" y="14" width="700" height="62" rx="10" fill="rgba(59,130,200,0.05)" stroke="rgba(59,130,200,0.22)" stroke-width="1"/>
+        <text x="380" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="rgba(59,130,200,0.65)" letter-spacing="0.12em">USER LAYER</text>
+        <rect x="50" y="35" width="178" height="28" rx="6" fill="rgba(59,130,200,0.08)" stroke="rgba(59,130,200,0.22)" stroke-width="1"/>
+        <text x="139" y="53" text-anchor="middle" font-family="Inter" font-size="11.5" font-weight="500" fill="rgba(245,241,232,0.8)">NL Interface / Chat</text>
+        <rect x="248" y="35" width="178" height="28" rx="6" fill="rgba(59,130,200,0.08)" stroke="rgba(59,130,200,0.22)" stroke-width="1"/>
+        <text x="337" y="53" text-anchor="middle" font-family="Inter" font-size="11.5" font-weight="500" fill="rgba(245,241,232,0.8)">Web Console</text>
+        <rect x="446" y="35" width="265" height="28" rx="6" fill="rgba(59,130,200,0.08)" stroke="rgba(59,130,200,0.22)" stroke-width="1"/>
+        <text x="578" y="53" text-anchor="middle" font-family="Inter" font-size="11.5" font-weight="500" fill="rgba(245,241,232,0.8)">Programmatic clients / Coding agents</text>
+        <!-- Arrow down to router -->
+        <path d="M380 78 L380 104" stroke="rgba(245,241,232,0.2)" stroke-width="1.5" marker-end="url(#arr-d)"/>
+        <!-- ROUTER -->
+        <rect x="175" y="106" width="410" height="52" rx="10" fill="rgba(42,138,74,0.08)" stroke="rgba(42,138,74,0.38)" stroke-width="1.5"/>
+        <text x="380" y="128" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="500" fill="rgba(42,138,74,0.95)" letter-spacing="0.1em">INTELLIGENT WORKLOAD ROUTER</text>
+        <text x="380" y="147" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.45)">privacy class · cost · latency · policy · provider selection</text>
+        <!-- Arrows to model tiers -->
+        <path d="M265 158 L152 196" stroke="rgba(245,241,232,0.2)" stroke-width="1.5" marker-end="url(#arr-d)"/>
+        <path d="M380 158 L380 196" stroke="rgba(245,241,232,0.2)" stroke-width="1.5" marker-end="url(#arr-d)"/>
+        <path d="M494 158 L608 196" stroke="rgba(245,241,232,0.2)" stroke-width="1.5" marker-end="url(#arr-d)"/>
+        <!-- ON-PREM -->
+        <rect x="30" y="198" width="245" height="72" rx="10" fill="rgba(27,100,53,0.12)" stroke="rgba(27,100,53,0.38)" stroke-width="1.5"/>
+        <text x="152" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" font-weight="500" fill="rgba(42,138,74,0.9)" letter-spacing="0.1em">ON-PREM GPUs</text>
+        <text x="152" y="240" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">Sensitive &amp; regulated data</text>
+        <text x="152" y="256" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">Near-zero marginal cost · sovereign</text>
+        <!-- OPEN-SOURCE -->
+        <rect x="258" y="198" width="245" height="72" rx="10" fill="rgba(181,187,137,0.06)" stroke="rgba(181,187,137,0.22)" stroke-width="1"/>
+        <text x="380" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" font-weight="500" fill="rgba(181,187,137,0.8)" letter-spacing="0.1em">OPEN-SOURCE MODELS</text>
+        <text x="380" y="240" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">Internal &amp; non-sensitive workloads</text>
+        <text x="380" y="256" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">Self-hosted · cost-efficient</text>
+        <!-- FRONTIER CLOUD -->
+        <rect x="486" y="198" width="244" height="72" rx="10" fill="rgba(201,168,0,0.06)" stroke="rgba(201,168,0,0.22)" stroke-width="1"/>
+        <text x="608" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" font-weight="500" fill="rgba(201,168,0,0.85)" letter-spacing="0.1em">FRONTIER CLOUD</text>
+        <text x="608" y="240" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">Non-sensitive · burst · newest weights</text>
+        <text x="608" y="256" text-anchor="middle" font-family="Inter" font-size="10.5" fill="rgba(245,241,232,0.5)">OpenAI · Anthropic · Google</text>
+        <!-- Dashed line to governance -->
+        <path d="M380 272 L380 290" stroke="rgba(201,168,0,0.2)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <!-- GOVERNANCE -->
+        <rect x="110" y="292" width="540" height="38" rx="9" fill="rgba(201,168,0,0.04)" stroke="rgba(201,168,0,0.18)" stroke-width="1" stroke-dasharray="5 4"/>
+        <text x="380" y="309" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="rgba(201,168,0,0.6)" letter-spacing="0.1em">GOVERNANCE LAYER</text>
+        <text x="380" y="324" text-anchor="middle" font-family="Inter" font-size="10" fill="rgba(245,241,232,0.35)">credential vault · per-user / dept / use-case limits · audit trail · compliance reporting</text>
+      </svg>
+    </div>
+
+    <div class="grid g3 reveal reveal-d2">
+      <div class="info-card" style="border-color:rgba(59,130,200,0.18)">
+        <div class="ic-head"><div class="ic-sq blue"></div>Local autonomy</div>
+        <div class="ic-body">The platform runs fully inside your perimeter and never depends on outside connectivity to serve requests. Air-gapped is the default mode, not a degraded one.</div>
+      </div>
+      <div class="info-card" style="border-color:rgba(59,130,200,0.18)">
+        <div class="ic-head"><div class="ic-sq blue"></div>Governed boundaries</div>
+        <div class="ic-body">Any interaction with external AI services is brokered through a single controlled gateway that enforces privacy, budget, and audit rules — never bypassed.</div>
+      </div>
+      <div class="info-card" style="border-color:rgba(59,130,200,0.18)">
+        <div class="ic-head"><div class="ic-sq blue"></div>Autonomous operation</div>
+        <div class="ic-body">Routine management is handled conversationally by the built-in NurOps agent, reducing the specialized expertise needed to run advanced AI infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HIGH AVAILABILITY ═══════ -->
+<section class="scene">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="reveal">
+        <div class="eyebrow blue">Turnkey &amp; always-on</div>
+        <h2 class="d-3 mb-24">Active-active high availability.</h2>
+        <p class="body-1 mb-24">NurOS arrives as a complete, pre-installed AI runtime. The operating system, model-serving engine, management services, and administrative tooling are pre-integrated and validated together — so an appliance is productive from first power-on, not after a lengthy assembly project.</p>
+        <p class="body-1">The runtime is <strong style="color:var(--t-1)">active-active</strong>: critical platform services run as redundant peers across the cluster, all live and sharing load. If any node becomes unavailable, surviving nodes continue serving without interruption. There is no passive standby to fail over to — availability is a property of the cluster, not of any one machine.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <ul class="feature-list">
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Pre-installed runtime</span><span class="fl-desc">Validated software stack pre-loaded on every appliance. Productive from first power-on.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Active-active redundancy</span><span class="fl-desc">All control services live simultaneously. Load is shared, not parked on standby. No single point of failure.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Self-healing</span><span class="fl-desc">The platform automatically redistributes work and restores service as nodes recover — without operator intervention.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Hardware-accelerated</span><span class="fl-desc">Tuned to extract full performance from multi-GPU appliances out of the box.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MULTI-NODE CLUSTERING ═══════ -->
+<section class="scene tinted">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Multi-node clustering</div>
+      <h2 class="d-3">Run the largest frontier-class models.</h2>
+      <p class="lede">Frontier-class models can exceed the capacity of any single machine. NurOS clusters multiple appliances so that one model — and even a single request — can be served across several machines working in concert.</p>
+    </div>
+
+    <div class="grid g2 reveal reveal-d1 mb-24">
+      <div class="info-card" style="border-color:rgba(59,130,200,0.2)">
+        <div class="ic-head"><div class="ic-sq blue"></div>Tensor parallelism</div>
+        <div class="ic-body">Splits the heavy mathematical work of a model across the accelerators within an appliance for maximum throughput on tightly coupled hardware.</div>
+      </div>
+      <div class="info-card" style="border-color:rgba(59,130,200,0.2)">
+        <div class="ic-head"><div class="ic-sq blue"></div>Pipeline parallelism</div>
+        <div class="ic-body">Distributes a model in stages across multiple appliances, allowing very large models to run that would not fit on a single machine. Scales as you add nodes.</div>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:40px;margin-bottom:24px">
+      <h3 class="h-1">Built-in efficiency techniques.</h3>
+      <p class="body-1" style="margin:12px auto 0;max-width:640px">Used alongside distribution, these techniques ensure each appliance delivers maximum value — so organisations can host larger models and serve more users on the same hardware.</p>
+    </div>
+
+    <div class="grid g2 reveal reveal-d2">
+      <div class="info-card" style="padding:28px;border-color:rgba(59,130,200,0.18)">
+        <div class="ic-head" style="font-size:15px"><div class="ic-sq blue"></div>TurboQuant™</div>
+        <div class="ic-body" style="margin-top:8px">Advanced quantization that compresses models to low-bit precision with minimal accuracy loss — without lengthy calibration. Models occupy far less accelerator memory, so larger SOTA models fit on a given appliance and more requests can run concurrently.</div>
+      </div>
+      <div class="info-card" style="padding:28px;border-color:rgba(59,130,200,0.18)">
+        <div class="ic-head" style="font-size:15px"><div class="ic-sq blue"></div>Multi-Token Prediction (MTP)</div>
+        <div class="ic-body" style="margin-top:8px">Generates several tokens per step instead of one at a time, substantially raising throughput and lowering response latency for models that support it. Same hardware, materially higher output.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ INTELLIGENT ROUTING ═══════ -->
+<section class="scene" id="routing">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Intelligent routing</div>
+      <h2 class="d-3">Route every request to the cheapest compliant model.</h2>
+      <p class="lede">Every request entering the platform is evaluated by a workload-aware router that decides where it should be served — weighing task complexity, latency demand, and privacy class.</p>
+    </div>
+
+    <h3 class="h-2 reveal" style="margin-bottom:12px">Routing by privacy class</h3>
+    <div class="tbl-wrap reveal reveal-d1">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Privacy class</th>
+            <th>Typical content</th>
+            <th>Where it runs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sensitive / regulated</td>
+            <td>Personal data, confidential records, secrets, proprietary source code</td>
+            <td class="td-green">Always local — never leaves the perimeter</td>
+          </tr>
+          <tr>
+            <td>Internal</td>
+            <td>Proprietary but non-personal material</td>
+            <td style="color:var(--t-2)">Local-preferred</td>
+          </tr>
+          <tr>
+            <td>Non-sensitive</td>
+            <td>General knowledge, public information</td>
+            <td style="color:var(--t-2)">Eligible for external SOTA when complexity or latency warrants</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reveal reveal-d2 mt-32">
+      <h3 class="h-2 mb-16">Cost- and latency-aware provider selection.</h3>
+      <p class="body-1 mb-24">When a request is eligible to use an external service, the router does not pick a provider arbitrarily. It continuously tracks the price and observed response time of every connected external provider and automatically dispatches each request to the option that best satisfies the active policy.</p>
+    </div>
+
+    <div class="tbl-wrap reveal reveal-d3">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>External provider</th>
+            <th>Current cost</th>
+            <th>Observed latency</th>
+            <th>Router decision</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Provider A</td>
+            <td>Higher</td>
+            <td>Higher</td>
+            <td style="color:var(--t-4)">Not selected</td>
+          </tr>
+          <tr class="td-selected">
+            <td>Provider B</td>
+            <td class="td-green">Lower</td>
+            <td class="td-green">Lower</td>
+            <td class="td-green">Selected automatically</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-card reveal reveal-d3 mt-24" style="border-color:rgba(42,138,74,0.2);background:rgba(42,138,74,0.04)">
+      <div class="ic-body" style="font-size:14.5px">If Provider B later becomes more expensive or slower than Provider A, the router reverses the decision on its own — always steering traffic to the provider that best meets the configured cost and latency goals. <strong style="color:var(--t-1)">No operator intervention required.</strong></div>
+    </div>
+
+    <div class="info-card reveal reveal-d3 mt-16" style="border-color:rgba(59,130,200,0.18)">
+      <div class="ic-head"><div class="ic-sq blue"></div>Native coding-agent integration</div>
+      <div class="ic-body">Development tools and AI coding assistants connect through standard interfaces and benefit from the same routing, privacy, and governance policies as every other workload — so engineering teams get frontier coding assistance without sending proprietary source code outside the organisation unless policy explicitly allows it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CREDENTIAL GOVERNANCE ═══════ -->
+<section class="scene raised">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="reveal">
+        <div class="eyebrow blue">Centralized governance</div>
+        <h2 class="d-3 mb-24">One vault. Enforced budgets. Full audit trail.</h2>
+        <p class="body-1 mb-24">When the platform uses external AI services, every credential and every dollar is centrally controlled. API keys for external providers are held in a <strong style="color:var(--t-1)">centrally managed vault</strong> rather than scattered across individual users, applications, or scripts.</p>
+        <p class="body-1">This eliminates the credential sprawl and "shadow IT" that lead to uncontrolled spending and security exposure — turning external AI consumption from an unpredictable expense into a governed, fully accountable line item.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="tbl-wrap" style="margin:0">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Governance control</th>
+                <th>What it does</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Per-user limits</td>
+                <td>Caps external spend for each individual.</td>
+              </tr>
+              <tr>
+                <td>Per-department limits</td>
+                <td>Enforces budgets per team or cost centre.</td>
+              </tr>
+              <tr>
+                <td>Per-use-case limits</td>
+                <td>Bounds spend for specific applications or workflows.</td>
+              </tr>
+              <tr>
+                <td>Audit trail</td>
+                <td>Records every external request for compliance and review.</td>
+              </tr>
+              <tr>
+                <td>Consumption reporting</td>
+                <td>Dashboards and reports show usage and cost in real time.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ NUROPS ═══════ -->
+<section class="scene">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">NurOps™ autonomous administration</div>
+      <h2 class="d-3">Manage your cluster in plain English.</h2>
+      <p class="lede">NurOS includes NurOps™, a built-in autonomous operations agent that understands the platform's complete operational state. Administrators manage the cluster simply by describing what they want — through a chat interface or the web console.</p>
+    </div>
+
+    <div class="grid g2 reveal reveal-d1 mb-24">
+      <div>
+        <ul class="feature-list">
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Provisioning</span><span class="fl-desc">Bring new models or services online and add appliances to the cluster — described in plain language, executed by NurOps.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Quota adjustment</span><span class="fl-desc">Change user, department, or use-case limits on request. NurOps applies the change and confirms completion.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Status inspection</span><span class="fl-desc">Ask questions about health, utilisation, and capacity at any time. NurOps answers from live platform telemetry.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Diagnostics</span><span class="fl-desc">NurOps investigates issues, explains root causes, and recommends or applies fixes — reducing time-to-resolution and specialist dependency.</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="info-card" style="padding:28px;border-color:rgba(59,130,200,0.2);height:100%">
+          <div class="ic-head" style="font-size:15px;margin-bottom:16px"><div class="ic-sq blue"></div>Why NurOps lowers the bar</div>
+          <div class="ic-body" style="font-size:14px">Because the agent already knows the system's operational details, it lowers the specialized skill required to operate advanced AI infrastructure and shortens the time from question to answer — while the web console remains available for teams who prefer point-and-click control or need detailed visual dashboards. A lean team can do the work of a large one.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card reveal reveal-d3" style="border-color:rgba(59,130,200,0.18);background:rgba(59,130,200,0.04)">
+      <div class="ic-body" style="font-size:15px">
+        <strong style="color:var(--t-1)">Example conversation with NurOps:</strong> "We're onboarding the legal team next Monday. Add 50 users, set their monthly budget at $200 each, and bring up a private Llama-3 instance for their contract review workflow." → NurOps confirms the plan, executes all three tasks, and reports back when complete.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ AIR-GAPPED ═══════ -->
+<section class="scene tinted">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="reveal">
+        <div class="eyebrow blue">Air-gapped operation</div>
+        <h2 class="d-3 mb-24">Total isolation. Controlled updates.</h2>
+        <p class="body-1 mb-24">NurOS is designed to run completely isolated from the public internet. In air-gapped mode the platform serves models, authenticates users, and is administered entirely within your perimeter — no outbound connectivity required for normal operation.</p>
+        <p class="body-1"><strong style="color:var(--t-1)">Isolation is the default state, not a degraded one</strong> — the platform behaves identically whether or not a network path to the outside world exists.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <ul class="feature-list">
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Isolation by default</span><span class="fl-desc">Full functionality with no internet dependency. Every feature available in a fully isolated environment.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Administrator-controlled OTA updates</span><span class="fl-desc">An administrator opens a controlled update window when convenient. Connectivity occurs only when, and as long as, an operator chooses.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Verified packages</span><span class="fl-desc">Every update is integrity-checked before it is applied. No unsigned or unverified packages accepted.</span></div>
+          </li>
+          <li>
+            <div class="fl-dot blue"></div>
+            <div><span class="fl-label">Offline update path</span><span class="fl-desc">Sustainable maintenance for fully air-gapped sites — update packages staged and applied entirely offline, preserving complete isolation end to end.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECURITY ═══════ -->
+<section class="scene raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Security &amp; privacy</div>
+      <h2 class="d-3">Policy-first, by design.</h2>
+    </div>
+    <div class="grid g4 reveal reveal-d1">
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq blue"></div>Identity-aware routing</div>
+        <div class="ic-body">Sensitive data never reaches the wrong model. Every call is evaluated against the requester's identity and the content's privacy class.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq blue"></div>Leak &amp; injection detection</div>
+        <div class="ic-body">Continuous monitoring on every call for data leakage and prompt-injection attempts — not just at the perimeter.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq blue"></div>Shadow-AI discovery</div>
+        <div class="ic-body">Surfaces unsanctioned agents and AI tools your team didn't approve. Visibility before exposure.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-head"><div class="ic-sq blue"></div>Air-gapped breaker</div>
+        <div class="ic-body">Last-line isolation when something slips. Hard cutoff from external networks, fully audited.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ USE CASES ═══════ -->
+<section class="scene" id="use-cases">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Representative use cases</div>
+      <h2 class="d-3">Where NurOS delivers the most value.</h2>
+      <p class="lede">The capabilities above combine to address a range of demanding real-world scenarios.</p>
+    </div>
+    <div class="uc-grid reveal reveal-d1">
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot"></div>Regulated &amp; privacy-sensitive workloads</div>
+        <div class="uc-body">Healthcare, financial services, legal, and public-sector organisations need frontier AI but cannot expose personal or regulated data to outside services. Sensitive requests are recognized and kept on locally hosted models — protected data never leaves the perimeter, while the centralized audit trail provides the evidence compliance teams require.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot teal"></div>Air-gapped &amp; high-security environments</div>
+        <div class="uc-body">Defence, intelligence, critical-infrastructure, and industrial sites often operate with no connection to the public internet. NurOS runs fully air-gapped as its normal mode — serving models, authenticating users, and being administered entirely on-site — with updates only through controlled, administrator-initiated windows or an entirely offline update path.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot"></div>Software engineering with proprietary code</div>
+        <div class="uc-body">Engineering teams want frontier coding assistance without sending proprietary source code to third parties. Coding agents and development tools connect natively and are subject to the same privacy-aware routing as every other workload — routine and sensitive coding tasks are served locally, giving teams modern AI assistance without leaking intellectual property.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot teal"></div>Cost-governed hybrid AI consumption</div>
+        <div class="uc-body">Organisations that have experienced unpredictable external-AI bills can make local models the default destination for the majority of traffic, reserving external services for the minority of requests that truly warrant them. Per-user, per-department, and per-use-case spending limits convert a volatile expense into a predictable, fully accountable one.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot"></div>Hosting the largest frontier-class models</div>
+        <div class="uc-body">Some models are too large for any single machine. By combining tensor parallelism within an appliance and pipeline parallelism across appliances, NurOS lets a single workload span the cluster — so organisations can self-host the largest open SOTA models. As model sizes and demand grow, additional appliances extend both capacity and scale.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot teal"></div>Mixed &amp; evolving hardware fleets</div>
+        <div class="uc-body">Hardware is rarely uniform, and it changes over time. NurOS allows appliances of different types and accelerator generations to operate together as one cluster, so organisations can adopt new hardware incrementally and protect prior investments without disruptive forklift upgrades. Workloads are placed automatically on the most suitable hardware.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot"></div>Distributed &amp; multi-site deployments</div>
+        <div class="uc-body">Enterprises with multiple facilities, branches, or edge locations can run a self-contained NurOS cluster at each site. Every site keeps operating through intermittent or absent connectivity, while administrators retain consistent, centralised governance of identity, policy, and spend across the fleet when connectivity is available.</div>
+      </div>
+      <div class="uc-card">
+        <div class="uc-title"><div class="uc-dot teal"></div>Self-service operations for lean teams</div>
+        <div class="uc-body">Advanced AI infrastructure traditionally demands scarce specialist skills. Because NurOps™ understands the platform's full operational state and responds to plain-English instructions, smaller teams can provision models, adjust quotas, inspect status, and diagnose issues conversationally — lowering the expertise barrier and freeing specialists for higher-value work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DEPLOY + METRICS ═══════ -->
+<section class="scene tight raised">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">Live in days. Grow on your terms.</h2>
+    </div>
+    <div class="deploy-paths reveal reveal-d1">
+      <div class="dp-card">
+        <div class="dp-label gold">Cloud</div>
+        <div class="dp-step"><div class="dp-num gold">D1</div><div><div class="dp-step-title">Spin up</div><div class="dp-step-desc">Policy &amp; cost caps applied</div></div></div>
+        <div class="dp-step"><div class="dp-num gold">D3</div><div><div class="dp-step-title">First agent live</div><div class="dp-step-desc">Your team using NurOS</div></div></div>
+        <div class="dp-step"><div class="dp-num gold">∞</div><div><div class="dp-step-title">Elastic &amp; frontier</div><div class="dp-step-desc">Scale without limits</div></div></div>
+        <div class="dp-footer">Expand or migrate on-prem any time →</div>
+      </div>
+      <div class="dp-card">
+        <div class="dp-label teal">On-prem</div>
+        <div class="dp-step"><div class="dp-num teal">W1</div><div><div class="dp-step-title">Appliance ships</div><div class="dp-step-desc">Pre-configured for your stack</div></div></div>
+        <div class="dp-step"><div class="dp-num teal">W2</div><div><div class="dp-step-title">First agent live</div><div class="dp-step-desc">100% within your perimeter</div></div></div>
+        <div class="dp-step"><div class="dp-num teal">∞</div><div><div class="dp-step-title">Sovereign &amp; controlled</div><div class="dp-step-desc">Zero bytes leave your network</div></div></div>
+        <div class="dp-footer">Add cloud or go hybrid any time →</div>
+      </div>
+      <div class="dp-card" style="border-color:var(--ink-line-2)">
+        <div class="dp-label wheat">Hybrid</div>
+        <div class="dp-step"><div class="dp-num wheat">D1</div><div><div class="dp-step-title">Cloud live instantly</div><div class="dp-step-desc">Agents running day one</div></div></div>
+        <div class="dp-step"><div class="dp-num wheat">W2</div><div><div class="dp-step-title">On-prem joins</div><div class="dp-step-desc">Sensitive work moves on-prem</div></div></div>
+        <div class="dp-step"><div class="dp-num wheat">∞</div><div><div class="dp-step-title">Best of both</div><div class="dp-step-desc">Policy routes every workload</div></div></div>
+        <div class="dp-footer">Shift more on-prem or cloud any time →</div>
+      </div>
+    </div>
+    <div class="stat-band reveal reveal-d2">
+      <div class="stat-cell"><div class="num">MAX</div><div class="lbl">performance per<br>$1 spent</div></div>
+      <div class="stat-cell"><div class="num">3 days</div><div class="lbl">from sign-up to<br>first agent live</div></div>
+      <div class="stat-cell"><div class="num">0 byte</div><div class="lbl">leaves your perimeter<br>once on-prem is live</div></div>
+      <div class="stat-cell"><div class="num">1</div><div class="lbl">control plane<br>across all deployments</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PRODUCTS POWERED ═══════ -->
+<section class="scene tight">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="d-3">The products it powers.</h2>
+    </div>
+    <div class="grid g2 reveal reveal-d1">
+      <a class="info-card" href="nurotab.html" style="padding:28px;border-color:rgba(42,138,74,0.2);display:flex;flex-direction:column;gap:12px">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq teal"></div>NuroTab →</div>
+        <div class="ic-body">AI coding + spec-driven EDA for engineers. Server-based and multi-user, 100% on-prem. Your IP never leaves the network.</div>
+      </a>
+      <a class="info-card" href="nuromax.html" style="padding:28px;border-color:rgba(127,119,221,0.2);display:flex;flex-direction:column;gap:12px">
+        <div class="ic-head" style="font-size:16px"><div class="ic-sq purple"></div>NuroMAX →</div>
+        <div class="ic-body">Specialist AI managers for every department — IT, marketing, and more. Always-on, governed, returns finished deliverables.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESOURCES / WHITEPAPER ═══════ -->
+<section class="scene raised" id="whitepaper">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow blue">Resources</div>
+      <h2 class="d-3">Read the technical detail.</h2>
+    </div>
+    <div class="resources reveal reveal-d1">
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NurOS whitepaper">
+        <div class="r-label">White paper</div>
+        <div class="r-title">NurOS Technical White Paper</div>
+        <div class="r-desc">End-to-end architecture, active-active HA, multi-node clustering, privacy-aware routing, credential governance, NurOps, and air-gapped OTA. Full technical detail.</div>
+        <div class="r-action">Request PDF →</div>
+      </a>
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NurOS datasheet">
+        <div class="r-label">Datasheet</div>
+        <div class="r-title">Capabilities datasheet</div>
+        <div class="r-desc">Capabilities, specs, and the comparison table — one page for vendor reviews and procurement.</div>
+        <div class="r-action">Request PDF →</div>
+      </a>
+      <a class="resource-card" href="mailto:info@nurol.ai?subject=NurOS admin guide">
+        <div class="r-label">Guide</div>
+        <div class="r-title">Admin guide</div>
+        <div class="r-desc">Routing policy configuration, credential vault setup, NurOps commands, and marketplace installation.</div>
+        <div class="r-action">Request guide →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SUMMARY QUOTE ═══════ -->
+<div class="quote-band reveal">
+  <div class="container narrow">
+    <blockquote>NurOS™ delivers the capability of frontier AI with the control of on-premises infrastructure. Turnkey and highly available. Scales across appliances to host the largest models. Routes work intelligently to keep sensitive data in-house. Governed centrally. Operated conversationally. <em>Fully air-gapped.</em></blockquote>
+    <div class="attr">NurOS™ Technical White Paper · Nurol, Inc. · 2026</div>
+  </div>
+</div>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="scene light text-center">
+  <div class="container narrow">
+    <div class="reveal">
+      <div class="eyebrow">Power on your AI</div>
+      <h2 class="d-3" style="color:var(--matte)">Cloud, on-prem, or hybrid — one platform.</h2>
+      <p class="lede" style="margin:18px auto 28px;color:rgba(28,30,33,0.65)">NurOS runs state-of-the-art AI on infrastructure you own, govern, and trust. Talk to us about your deployment.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a class="btn primary" href="mailto:info@nurol.ai?subject=NurOS demo">Book a demo
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn ghost" href="mailto:info@nurol.ai?subject=NurOS whitepaper">Read the whitepaper</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html"><img src="../assets/nurol-logo.png" alt="Nurol" style="height:30px;width:auto"></a>
+        <p>Cloud, on-prem, or hybrid — Nurol has a solution for you. One platform, fully governed. Power on your AI.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="nurotab.html">NuroTab</a>
+        <a href="nuromax.html">NuroMAX</a>
+        <a href="nuros.html">NurOS</a>
+        <a href="index.html#why">Why Nurol</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="mailto:info@nurol.ai">Contact</a>
+        <a href="mailto:info@nurol.ai?subject=NurOS Whitepaper">Whitepaper</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get started</h4>
+        <a href="mailto:info@nurol.ai?subject=NurOS demo">Live demo</a>
+        <a href="mailto:info@nurol.ai">info@nurol.ai</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nurol AI. All rights reserved. NurOS™ and NurOps™ are trademarks of Nurol, Inc.</span>
+      <div class="footer-sys"><span>NurOS v1.0</span><span>Region: on-prem</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ham = document.getElementById('navHamburger');
+  var links = document.getElementById('navLinks');
+  if(ham && links){
+    ham.addEventListener('click', function(e){ e.stopPropagation(); ham.classList.toggle('open'); links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){ if(links.classList.contains('open') && !ham.contains(e.target) && !links.contains(e.target)){ ham.classList.remove('open'); links.classList.remove('open'); } });
+    links.addEventListener('click', function(e){ if(e.target.closest('a')){ ham.classList.remove('open'); links.classList.remove('open'); } });
+  }
+  var vh = window.innerHeight || 800;
+  document.querySelectorAll('.reveal').forEach(function(el){ if(el.getBoundingClientRect().top < vh * 1.05) el.classList.add('in'); });
+  document.documentElement.classList.add('js-reveals');
+  var io = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {threshold:0.05, rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){ el.classList.add('in'); }); }, 2000);
+})();
+</script>
+</body>
+</html>
